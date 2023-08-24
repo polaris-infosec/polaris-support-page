@@ -1,0 +1,63 @@
+# Service Monitor
+
+Polaris allows you to monitor your resources and ensure that key resources are always available
+and accessible at all times. This function is compatible with any resource that can be accessed
+through a URL and is highly customizable to suit your needs.
+
+## Accessing Service Monitor
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Under `Sites`, click on `Settings`.
+
+![Service Monitor Tab](/img/security-center/service-monitor/service-monitor-tab.png)
+
+Look for `Service Monitor` on the horizontal sliding menu.
+
+## Adding a resource
+
+To add a resource, click the `+ Service Monitor` button and fill in the necessary details:
+
+![Add Service](/img/security-center/service-monitor/add-service.png)
+
+1.	Set a **Service Name** to identify the resource.
+2.	Select the **Service Type: HTTP / TCP / UDP / ICMP / gRPC**
+3.	Pick the duration of the **check interval**. It ranges anywhere from 30 seconds to 1800
+seconds.
+4.	Enter the resource to be monitored and note any other necessary details.
+
+*For HTTP*: Enter the **HTTP Status Code** & select the **service check type (GET / POST /DELETE / PATCH / PUT)**
+HTTP Headers & Expected Response are optional.
+
+*For TCP & UDP*: Enter the port number
+
+*For ICMP & GCRP*: No additional details needed.
+
+5.	Pick the duration of **request timeout** which ranges anywhere from 1 second to 180 seconds.
+
+For example, if the **check interval** is 30 seconds and the **request timeout** is 5 seconds, Polaris
+will probe the resource every 30 seconds, and if the expected response is received within 5
+seconds, the resource is considered to be online. If not, it will be reflected as downtime and
+marked as offline.
+
+## Monitoring resource
+
+![List monitor](/img/security-center/service-monitor/list-monitor.png)
+
+Under `Action`, click on the graph icon to monitor the resource (as indicated by the red
+arrow).
+
+![Monitor Detail](/img/security-center/service-monitor/monitor-detail.png)
+
+Polaris displays the following information for monitoring a resource:
+
+1.	Average Response time
+2.	% of uptime in the past 24 hours
+3.	% of uptime in the past 7 days
+4.	Graph displaying response time and uptime in detail
+
+The graph can be customized:
+
+-	Range of date displayed
+-	The interval between each point on X-axis
+-	Size of the graph (Zoom In/Out)

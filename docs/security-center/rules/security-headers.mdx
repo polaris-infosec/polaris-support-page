@@ -1,0 +1,101 @@
+# Bộ tiêu đề bảo mật
+
+## Bộ tiêu đề bảo mật là gì?
+
+Bộ tiêu đề bảo mật là các tiêu đề HTTP được đặt trong phản hồi được gửi từ máy chủ gốc đến người truy cập. Những tiêu
+đề này xác định hành vi của trình duyệt khi xem trang web và giúp ngăn chặn các cuộc tấn công thông thường như
+Cross-Site Scripting (XSS), Click jacking hoặc tiêm mã.
+
+Polaris đơn giản hóa cấu hình các tiêu đề HTTP này bằng cách cho phép bạn chọn các cài đặt mà bạn muốn và tự động xử lý
+việc cài đặt kỹ thuật.
+
+## Truy cập Tiêu đề Bảo mật trong Polaris
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `SITES`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+![Security Headers Tab](/img/security-center/rules/security-headers-tab.png)
+Nhấn vào 'Rules' (mũi tên đỏ) sau đó nhấn vào 'Security Headers' (mũi tên xanh lá cây) để truy cập.
+
+## Bạn có thể đặt những tiêu đề nào với Polaris?
+
+Polaris giúp cấu hình một số tiêu đề bảo mật. Mỗi tiêu đề này giúp ngăn chặn một loại tấn công cụ thể, tuy nhiên đôi
+khi chúng cũng có thể gây ra vấn đề về chức năng của trang web. Vui lòng đảm bảo trang web của bạn có thể hoạt động
+như dự định với các cài đặt được thiết lập. Dưới đây là các tiêu đề bảo mật mà Polaris giúp cấu hình:
+
+### Chính sách Referrer
+
+Khi trình duyệt đi từ một trang đến trang khác, nó bao gồm địa chỉ của trang gốc của nó trong một tiêu đề HTTP gọi là
+referrer. Điều này xảy ra ngay cả khi trình duyệt chuyển đến một miền khác, có thể rò rỉ thông tin của referrer cho
+một miền không đáng tin cậy. Để ngăn chặn điều này, bạn có thể sử dụng tiêu đề HTTP Referrer-Policy để khai báo chính
+sách của trang web của bạn về việc không cung cấp thông tin referrer. Các tùy chọn cho cài đặt này như sau:
+
+1.	`Off`: Tiêu đề Referrer sẽ được loại bỏ hoàn toàn. Không có thông tin referrer được gửi cùng với các yêu cầu.
+2.	`No referrer`: Tiêu đề Referrer sẽ được loại bỏ hoàn toàn. Không có thông tin referrer được gửi cùng với các yêu cầu.
+3.	`No referrer when downgrade`: Gửi nguồn, đường dẫn và chuỗi truy vấn trong tiêu đề Referrer khi cấp bảo mật
+    giao thức không thay đổi hoặc cải thiện. Không gửi tiêu đề Referrer cho các yêu cầu đến các đích ít an toàn hơn.
+4.	`Origin`: Chỉ gửi nguồn trong tiêu đề Referrer, ví dụ khi Referrer là example.com/example1/example2 thì chỉ gửi example.com.
+5.	`Origin when cross origin`: Gửi nguồn gốc, đường dẫn và chuỗi truy vấn khi thực hiện một yêu cầu cùng nguồn gốc
+    với cùng một cấp độ giao thức. Chỉ gửi nguồn gốc cho các yêu cầu cross-origin và yêu cầu đến các điểm đến ít an
+    toàn hơn. Các yêu cầu cross-origin xảy ra khi trình duyệt đưa bạn đến một trang web từ một nguồn gốc khác.
+6.	`Same origin`: Gửi nguồn gốc, đường dẫn và chuỗi truy vấn cho các yêu cầu cùng nguồn gốc. Không gửi tiêu đề
+    Referrer cho các yêu cầu cross-origin.
+7.	`Strict origin`: Chỉ gửi nguồn gốc khi cấp độ bảo mật giao thức không thay đổi. Không gửi tiêu đề Referrer
+    cho các điểm đến ít an toàn hơn.
+8.	`Strict origin when cross origin` (mặc định): Gửi nguồn gốc, đường dẫn và chuỗi truy vấn khi thực hiện
+    một yêu cầu cùng nguồn gốc. Đối với các yêu cầu cross-origin, chỉ gửi nguồn gốc khi cấp độ giao thức không thay đổi.
+    Không gửi tiêu đề Referrer cho các điểm đến ít an toàn hơn.
+9.	`Unsafe url`: Gửi nguồn gốc, đường dẫn và chuỗi truy vấn khi thực hiện bất kỳ yêu cầu nào, bất kể cấp độ bảo mật.
+
+### Click Jacking
+
+Polaris bảo vệ chống lại Click Jacking bằng cách thực hiện tiêu đề X-Frame-Options. Điều này ngăn chặn kẻ tấn công
+chiếm đoạt các đối tượng trên trang web của bạn và lừa khách truy cập nhấp vào chúng. Các tùy chọn có sẵn như sau:
+
+1.	`Off`: Tiêu đề không được thiết lập
+2.	`No content within frame`: Không cho phép trang được hiển thị trong một khung, bất kể trang nào cố gắng làm vậy.
+3.	`Allow content within frame from same origin`: Trang chỉ có thể được hiển thị trong một khung trên cùng nguồn
+    gốc như trang đó. Cách thực hiện chính xác của điều này khác nhau từ trình duyệt này sang trình duyệt khác.
+4.	`Allow content within frame from specific origin`: Một trang chỉ có thể được hiển thị trong một khung trên URL nguồn cụ thể.
+
+### XSS (Cross Site Scripting)
+
+Một kẻ tấn công sử dụng XSS để chèn nội dung độc hại vào yêu cầu giữa trình duyệt và máy chủ nguồn. Máy chủ có thể thực
+thi mã độc nếu nó không làm sạch các tham số truy vấn HTML. Polaris sử dụng tiêu đề X-XSS-Protection để ngăn chặn điều
+này xảy ra. Các tùy chọn có sẵn cho tiêu đề này như sau:
+
+1.	`Off`: Tắt bộ lọc XSS.
+2.	`Sanitise script`: Bật bộ lọc XSS. Nếu phát hiện cuộc tấn công đa trang web, trình duyệt sẽ làm sạch trang bằng
+    cách loại bỏ các phần không an toàn.
+3.	`Block script`: Bật bộ lọc XSS. Thay vì làm sạch trang, trình duyệt sẽ ngăn chặn việc hiển thị trang nếu phát hiện
+    cuộc tấn công.
+
+### Mime Sniffing
+
+Để bảo vệ khỏi việc tải lên tùy ý lên trang web của bạn, Polaris sử dụng tiêu đề X-Content-Type-Options. Điều này vô
+hiệu hóa khả năng MIME sniffing của trình duyệt và yêu cầu trình duyệt sử dụng MIME type gốc của một tệp theo định
+nghĩa của nó. Các tùy chọn có sẵn cho tiêu đề này là:
+
+1.	`Off`: Tiêu đề không được đặt.
+2.	`No sniff`: Chặn yêu cầu nếu điểm đến yêu cầu là loại `style` và MIME type không phải là `text/css`, hoặc nếu
+    nó là loại `script` và MIME type không phải là một loại MIME JavaScript. Nó bật bảo vệ Cross-Origin Read Blocking (CORB)
+    cho các loại MIME sau:
+
+    a.	text / html
+
+    b.	text / plain
+
+    c.	text / json
+
+    d.	application / json hoặc bất kỳ loại nào khác với phần mở rộng JSON: * / * + json
+
+    e.	text / xml, application / xml hoặc bất kỳ loại nào khác với phần mở rộng XML: * / * + xml (ngoại trừ image / svg + xml)
+
+### Xem trước các tiêu đề bảo mật
+
+Ở dưới tab Tiêu đề Bảo mật, bạn sẽ có thể xem tổng quan về tất cả các tiêu đề bảo mật sẽ được áp dụng cho các phản hồi
+từ máy chủ nguồn của bạn.
+
+![Security Headers Preview](/img/security-center/rules/security-header-preview.png)
+Tổng quan về tiêu đề bảo mật

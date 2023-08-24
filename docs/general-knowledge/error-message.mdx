@@ -1,0 +1,96 @@
+# Thông báo lỗi
+
+Đôi khi, người dùng có thể gặp khó khăn khi kết nối đến ứng dụng web mong muốn. Thông báo lỗi có thể xuất hiện nếu có
+vấn đề về kết nối do bất kỳ lý do nào. Polaris đã tạo ra các thông báo lỗi tùy chỉnh sẽ hiển thị:
+
+1.	Mô tả về lỗi kết nối
+2.	Các bước có thể được thực hiện bởi người dùng
+3.	Các bước có thể được thực hiện bởi tổ chức lưu trữ
+4.	Vị trí của lỗi/khuyết tật kết nối
+5.	Mốc thời gian
+
+Thông báo lỗi sẽ được hiển thị như sau:
+
+![Error Page](/img/general-knowledge/error-page.png)
+
+## Thông báo lỗi Polaris:
+
+**500 Internal Server Error**
+
+Một thông báo lỗi chung, được cung cấp khi một điều kiện không mong đợi được gặp phải và không có thông báo cụ thể nào phù hợp hơn.
+
+*Giải pháp khả dụng*: Thử lại trong vài phút
+
+**502 Bad Gateway**
+
+Máy chủ đang hoạt động như một cổng hoặc proxy và nhận được phản hồi không hợp lệ từ máy chủ upstream.
+
+*Giải pháp khả dụng*: Thử lại trong vài phút
+
+**503 Service Unavailable**
+
+Máy chủ không thể xử lý yêu cầu (vì quá tải hoặc đang bảo trì). Thông thường, đây là một trạng thái tạm thời.
+
+*Giải pháp khả dụng*: Thử lại trong vài phút
+
+**504 Gateway Timeout**
+
+Máy chủ đang hoạt động như một cổng hoặc proxy và không nhận được phản hồi kịp thời từ máy chủ upstream.
+
+*Giải pháp khả dụng*: Kiểm tra nhật ký máy chủ nguồn của bạn để tìm hiểu điều gì đã xảy ra hoặc truy cập vào một trang web
+không thông qua Polaris. Nếu lỗi HTTP 504 vẫn xảy ra, vấn đề nằm ở phía của bạn. Nếu lỗi HTTP 504 không xảy ra với một
+trang web khác, bạn cần phải thêm địa chỉ IP của Polaris vào danh sách trắng của máy chủ web nguồn của bạn.
+
+**520 Web Server Returned an Unknown Error**
+
+Máy chủ nguồn trả về phản hồi trống, không xác định hoặc không mong đợi đối với Polaris.
+
+*Giải pháp khả dụng*: Chủ sở hữu máy chủ cần liên hệ với Polaris để được hỗ trợ.
+
+**521 Web Server Is Down**
+Máy chủ nguồn từ chối kết nối từ Polaris. Các giải pháp bảo mật tại nguồn có thể chặn các kết nối hợp lệ từ một số địa
+chỉ IP của Polaris.
+
+*Giải pháp khả dụng*: Chủ sở hữu máy chủ cần liên hệ với Polaris để được hỗ trợ.
+
+**522 Connection Timed Out**
+
+Polaris hết thời gian kết nối với máy chủ nguồn.
+
+*Giải pháp khả dụng*: Thông báo cho nhà cung cấp tên miền của bạn rằng máy chủ web của bạn không hoàn thành yêu cầu. Có thể
+có một số ứng dụng hoặc cơ sở dữ liệu nền đang sử dụng tài nguyên trên máy chủ web của bạn.
+
+**523 Origin Is Unreachable**
+
+Polaris không thể kết nối được với máy chủ nguồn; ví dụ, nếu bản ghi DNS cho máy chủ nguồn không chính xác hoặc bị thiếu.
+
+*Giải pháp khả dụng*: Kiểm tra các thiết lập DNS của bạn. Xác nhận địa chỉ IP của nguồn và đảm bảo rằng IP của bạn được
+liệt kê chính xác trong trang cài đặt DNS của Polaris.
+
+**524 A Timeout Occurred**
+
+Polaris đã hoàn thành kết nối TCP đến máy chủ gốc, nhưng không nhận được phản hồi HTTP kịp thời.
+
+*Giải pháp khả dụng*: Một ứng dụng nền hoặc cơ sở dữ liệu có thể sử dụng tài nguyên trên máy chủ web của bạn. Kiểm tra
+với nhà cung cấp dịch vụ lưu trữ web hoặc đội ngũ phát triển để giải phóng tài nguyên.
+
+**525 SSL Handshake Failed**
+
+Polaris không thể thương lượng thỏa thuận SSL / TLS với máy chủ gốc.
+
+*Giải pháp khả dụng*: Cấu hình SSL được sử dụng không tương thích với Polaris. Hãy thử sử dụng cấu hình khác.
+
+**526 Invalid SSL Certificate**
+
+Polaris không thể xác minh chứng chỉ SSL trên máy chủ web gốc.
+
+*Giải pháp khả dụng*: Chứng chỉ SSL không vượt qua xác minh. Nó có thể đã hết hạn hoặc không chứa tên miền yêu cầu.
+Liên hệ với nhà cung cấp dịch vụ lưu trữ của bạn để kiểm tra xem một chứng chỉ SSL hợp lệ được cấu hình cho tên miền
+này trên máy chủ gốc.
+
+**527 Railgun Error**
+
+Lỗi 527 cho thấy kết nối bị gián đoạn giữa Polaris và máy chủ Railgun của máy chủ gốc.
+
+*Giải pháp khả dụng*: Vấn đề có thể liên quan đến cấu hình nghe Railgun của trang web hoặc mạng máy chủ. Kiểm tra kết nối
+từ Listener đến máy chủ gốc hoặc liên hệ với Polaris để được hỗ trợ.

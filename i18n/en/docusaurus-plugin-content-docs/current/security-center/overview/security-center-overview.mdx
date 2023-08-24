@@ -1,0 +1,104 @@
+# Security Center Overview
+
+This article focuses on the overview page located in Polaris' Security Center. The overview page
+is designed such that you are able to get a good insight on the security status of your site at one
+glance, and easily navigate to its respective configuration page from it. To access it:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Under `Sites`, click on `Security Center`
+
+The default page of `Overview` should load up, this is the overview page. The page is split into 2
+sections, Site Statistics, and Quick Settings.
+
+## Site Statistics
+
+The site statistics table gives an overview of how the site is doing and displays if there are any
+unresolved incidents.
+
+![Site Statistics](/img/security-center/overview/security-center-overview-site-statistics.png)
+
+
+## Incidents
+
+- Total number of incidents
+- Number of open and in triage incidents out of total incidents categorized by **severity**
+- Statistics about traffic and requests displayed in 2 columns - **Today** & **This Month**
+- A **'Notice'** or **'Attention Needed'** warning is shown when there are incidents that are Open
+or in Triage. Refer to the annotations in the image above for more information.
+
+## Threat Intelligence
+
+The figures display the number of:
+
+- Total Detected Threats
+- Suspicious IPs
+- Compromised Data
+- Phishing Sites
+
+Similar to Incidents, Polaris will also display a **Notice** or **Attention Needed** alert when Polaris
+picks up information from its threat intelligence feeds and functions.
+
+A **Notice** alert is displayed when Polaris detects suspicious IP addresses.
+
+An **Attention Needed** alert is displayed when Polaris finds compromised data belonging to your
+site and/or potential phishing sites similar to your domain.
+
+## Quick Settings
+
+This menu allows you to turn on/off some security features of Polaris. There are 3 of them:
+
+1. Behavior Learning Mode
+
+- (To find out more about this mode, refer to [this](behavior-learning-mode) article)
+
+2. Under Attack Mode
+
+- Turning on this mode displays a Javascript challenge for users visiting the site:
+
+![Show Verify](/img/security-center/overview/under-attack-mode-verify.png)
+Visitors must pass simple challenge(s) before accessing the site.
+
+Polaris will display a hCaptcha challenge that requires users to solve before accessing the site,
+this can help keep out bots and spam because these questions are easy for humans and difficult
+for machines. To find out more about hCaptcha and what it does, visit [their site](https://www.hcaptcha.com/).
+
+3. Edge Caching
+
+- Turning on Edge Caching will let Polaris cache static content on your site so users can
+access static content faster.
+
+Static content is not dynamically generated and appears the same for every visitor to your site,
+therefore it can be stored at an edge server to reduce loading time. These edge servers usually
+exist at the 'edge' of a network, this keeps content close to the client thus reducing latency in
+accessing these contents. The benefits of doing this are reducing the bandwidth of your origin
+servers and reducing page loading speed for the visitor.
+
+## Other settings
+
+You may also view information about other settings here:
+
+![Show Verify](/img/security-center/overview/security-center-overview-other-settings.png)
+
+You can click on these settings to redirect you to it's configuration page directly.
+
+## WAF Active Rules
+
+*The blue texts below can be clicked to link you to an article explaining more about the security
+feature.*
+
+- Number of [API Endpoints](../api-security/api-endpoints)
+- A quick switch to turn on/off [OWASP Rules](../rules/owasp)
+- Number of [N-Day Rules](../rules/n-day) that are active
+- Number of [Custom Rules](../rules/custom-rules) that are active
+
+## Access Control
+
+- Number of [whitelisted IP](../access-control/whitelist-ip) addresses
+- Number of [blacklisted IP](../access-control/blacklist-ip) addresses
+- Number of [blocked regions](../access-control/geo-access)
+
+## Site Records
+
+- [DNS Records](../dns/dns-record)
+- IP Polaris

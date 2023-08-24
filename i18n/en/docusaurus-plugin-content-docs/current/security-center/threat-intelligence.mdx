@@ -1,0 +1,91 @@
+# Threat Intelligence Overview
+
+Polaris' Threat Intelligence feature provides valuable information about potential threats to your website. These
+features allow you to take action against the early stages of an attack or attacks in progress but you may not realize it.
+
+There are 4 features in Polaris' threat intelligence function that you can use:
+1.	Suspicious IPs
+2.	Compromised Data
+3.	Phishing
+4.	Server Vulnerability
+
+To access Threat Intelligence tab:
+
+![Security Center Tab](/img/security-center/incident-response/security-center-tab.png)
+
+Under `SITES`, select your domain and click on `Settings`.
+
+![Threat Intelligence Tab](/img/security-center/threat-intelligence/threat-intelligence-tab.png)
+
+Looking at the horizontal tab, click `Threat Intelligence`.
+
+## 1.	Suspicious IPs:
+
+If Polaris detects any IP address with suspicious behavior or spamming your site, it will be listed as a suspicious IP
+address. From here, there are 2 possible actions:
+
+a.	**Create incident**: Clicking on the `+ CREATE INCIDENT` action will allow you to create an incident and alert other
+users on your team to investigate. To learn more about creating issues and responses in Polaris,
+see this article: [Incident Response & Ticket Management](incidents/incident-response).
+
+b.	**Allow IP to Whitelist or Blacklist**. Click on the 3 dots to the right of the create problem button to bring up
+the option to whitelist and blacklist suspicious IP addresses. Whitelisting the IP will assume it is a secure IP
+address while blacklisting it will block any requests from it next time.
+
+To evaluate and prioritize suspicious IP addresses, a hazard rating will also be provided based on known IP information
+that is matched against third-party frameworks and databases, as well as other behaviors. motion is tested.
+
+## 2.	Compromised Data
+
+Polaris automatically monitors the web and known data leaks on a daily basis to look for compromised information that
+may be related to your website, such as compromised email addresses and passwords. offense.
+
+![Compromised Tab](/img/security-center/threat-intelligence/compromised-data-tab.png)
+
+If Polaris detects compromised information regarding your domain, you will be alerted by email and it will be displayed
+on the dashboard along with any known leak sources. The WAAP platform is not capable of doing anything with compromised
+data other than reporting it, however, once you become aware of it, you can take action for your organization.
+Mitigation steps could include forcing an organization's password change, notifying team members, partners or customers
+of the data leak, and remediation of security protocols.
+
+## 3.	Phishing
+
+Polaris automatically checks daily for domains that are similar to your registered domain name and reports it under the phishing tab:
+
+![Phishing Tab](/img/security-center/threat-intelligence/phishing-tab.png)
+
+There are various actions and features you can use to investigate and respond to a potential phishing attempt:
+-	**Green info icon (as indicated by red arrow above)**: Clicking on it opens a new tab on [whois.com](https://www.whois.com/whois/)
+to reveal more information about the domain
+-	**Click on the domain name** will open a new tab to the site, which will help you determine if it is a phishing
+attempt to target your site. If not, click the screenshot to see a screenshot of the web page.
+-	The **matching** column reveals how Polaris thinks about that site's similarity to yours. A very low match rate
+marked with an "Irrelevant" tag is less likely to be a scam attempt.
+-	**Địa chỉ IP** và **Ngày đăng ký** của tên miền cũng được liệt kê.
+-	In the action column, the `+ Create Incident` option (as indicated by the green arrow in the image above) allows you
+to create an incident to notify your team for review and investigation. For more information on incident reporting and
+response, refer to this [article](incidents/incident-response).
+-	Alternatively, if you determine that the domain name is not a phishing threat, you can mark it as '**Resolved**' by
+accessing the kebab menu (3 dots) as indicated by the green arrow in the image above. Note that once a domain is
+resolved, this action cannot be reversed.
+
+If your investigation of the phishing domain determines that it is indeed a threat, further actions may include
+contacting the domain owner to flag the site and warn team members, partners and customers about the fake site so
+they can avoid it.
+
+## 4.	Server Vulnerability
+
+Polaris integrates a third-party scanning engine that scans your web servers and lists detected services with potential
+vulnerabilities that can be exploited. Vulnerabilities are mapped to **CVE frames**.
+
+Clicking `View` for the server will display the information:
+
+![server Vulnerability Tab](/img/security-center/threat-intelligence/server-vulnerability-tab.png)
+
+-	The service name, port and instance running on the server will be displayed.
+-	Any potential vulnerabilities in the services running on the server are also listed against the National Vulnerability
+Database (NVD). Each vulnerability in the NVD can be uniquely identified by its '**CVEID**', clicking on it will open a
+new tab to show more information about it.
+
+Threat Intelligence is offered as an integrated service to Enterprise customers, but may be an additional feature for
+other Polaris plans.

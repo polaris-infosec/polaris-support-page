@@ -1,0 +1,51 @@
+# Bảo vệ DoS & Rate Limiting
+
+## Các cuộc tấn công DoS là gì?
+
+Các cuộc tấn công từ chối dịch vụ phân tán (DoS) thường bao gồm một lượng lớn các yêu cầu đến trang web của bạn được
+thực hiện bởi bot. Điều này có thể dẫn đến trễ máy chủ, trang web của bạn trở nên không thể tiếp cận được do băng thông
+được phân bổ cho trang web của bạn bị tiêu thụ bởi lưu lượng không hữu ích thay vì người xem thực tế của bạn.
+
+Phòng thủ DoS của Polaris cho phép bảo vệ ứng dụng web của bạn trên Layer 7. Phòng thủ Layer 7 được điều
+khiển thông qua Rate Limiting, được thiết lập bởi các cài đặt cấu hình nền tảng.
+
+## Rate Limiting là gì?
+
+Rate Limiting là quá trình kiểm soát số lượng yêu cầu đến máy chủ web của bạn trong một khoảng thời gian nhất định.
+Điều đó có nghĩa là khi một cuộc tấn công DoS xảy ra, thay vì toàn bộ lưu lượng tràn vào máy chủ của bạn cùng một lúc,
+WAAP hoạt động như một người bảo vệ kiểm soát lưu lượng, chỉ cho phép một số lượng nhất định đến đích trên máy chủ của
+bạn mỗi lần.
+
+Giới hạn tốc độ DoS có thể được tìm thấy trong tab `Policies` trong các thiết lập trang web của bạn. Để truy cập
+`Settings`, hãy nhấp vào menu thả xuống trên trang web được chọn:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `SITES`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+## Cấu hình
+
+Nhấp vào Tab `Policies` để truy cập cấu hình bảo vệ DoS thông qua Rate Limiting. Xem cấu hình bên dưới:
+
+![Policies Tab](/img/security-center/ddos/policies-tab.png)
+
+Có hai loại bảo vệ DoS, **bảo vệ toàn cầu** và **bảo vệ khách hàng**:
+
+-	**Bảo vệ toàn cầu** thiết lập ngưỡng cho số lượng kết nối từ bất kỳ nguồn nào tới máy chủ.
+-	**Bảo vệ khách hàng** thiết lập ngưỡng cho số lượng kết nối từ bất kỳ người dùng cụ thể nào tới máy chủ.
+
+Có hai cài đặt cho mỗi loại, **ngưỡng domain** và **ngưỡng burst** sẽ giới hạn tốc độ (**Rate Limiting**) mà các yêu
+cầu có thể được thực hiện đến ứng dụng web của bạn:
+
+-	**Ngưỡng domain** đề cập đến số yêu cầu tối thiểu trong một khoảng thời gian 10 giây trước khi bảo vệ DoS được kích hoạt.
+Điều này giúp xác định các cuộc tấn công DoS nơi yêu cầu tăng dần theo số lượng trong một khoảng thời gian dài hơn.
+Giá trị tối thiểu: 5000
+-	**Ngưỡng burst** đề cập đến số yêu cầu tối thiểu trong một khoảng thời gian 5 giây trước khi bảo vệ DoS được kích hoạt.
+Điều này giúp xác định các cuộc tấn công DoS nơi có một sự tăng đột biến trong số lượng yêu cầu trong một khoảng thời
+gian ngắn. Giá trị tối thiểu: 1000
+
+Lưu ý rằng có giá trị tối thiểu cho mỗi trường và đây là các thiết lập mặc định cho bảo vệ DoS. Sau khi thực hiện các
+thay đổi liên quan, hãy nhấn nút **Update** màu xanh lá cây để lưu các thay đổi của bạn.
+
+Ngoài **Rate Limiting**, Polaris cũng sử dụng tỷ lệ **horizontal scaling**, **Anycast network** của nó và **Load Balancing**
+để phân phối lưu lượng khi giảm thiểu các cuộc tấn công DoS.

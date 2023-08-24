@@ -1,0 +1,50 @@
+# Đăng ký
+
+Cảm ơn bạn đã sử dụng Polaris để bảo mật trang web của bạn. Hướng dẫn này sẽ trình bày những kiến thức cơ bản về thiết lập
+(các) trang web của bạn trên Polaris và cách điều hướng giao diện. Hướng dẫn cũng sẽ giúp bạn hiểu các cài đặt khác nhau
+và ý nghĩa của chúng đối với bảo mật trang web của bạn. Để hiểu sơ lược về những gì Polaris làm, vui lòng tham khảo bài
+viết này [tại đây](polaris-do).
+
+## Thêm một trang web mới vào Polaris
+
+Trong lần đăng nhập đầu tiên vào Polaris, bạn sẽ cần thêm (các) trang web mà bạn muốn bảo vệ.
+
+### Bước 1: Nhấp vào nút `+`
+
+Trên bảng điều khiển bên dưới nút Bảng điều khiển, có một danh sách các trang web (danh sách này trống đối với bạn). Vui
+lòng bấm vào nút `+` (tham khảo hình bên dưới). Thao tác này sẽ mở bảng điều khiển 'Add your site'.
+
+![Registration Add Site](/img/quick-start/registration-add-site.png)
+
+### Bước 2: Nhập tên miền
+
+Nhập tên miền của bạn vào trường văn bản và nhấp vào nút `Add Site` màu xanh dưới trường văn bản. Tên miền của bạn
+là cách mà người dùng hoặc khách hàng của bạn truy cập trang web của bạn. Một ví dụ về tên miền sẽ là "www.example.com".
+Bây giờ, bạn đã thêm trang web của mình vào trung tâm Bảo mật Polaris. Tiếp theo, bạn cần cấu hình hệ thống tên miền (DNS).
+
+## Thiết lập DNS
+
+Bây giờ khi trang web của bạn đã được thêm vào trung tâm Bảo mật, bạn sẽ được đưa đến trình hướng dẫn Thiết lập Trang web,
+giúp cấu hình DNS của bạn. Để tìm hiểu thêm về DNS, vui lòng tham khảo bài viết này: [Hệ thống Tên miền (DNS)](../security-center/dns/dns-record).
+
+### Chọn loại thiết lập
+
+Có hai tùy chọn cho bạn lựa chọn (như được hiển thị ở hình bên dưới), **Name servers** hoặc **A, CNAME Record**.
+
+![Registration Choose Setup Type](/img/quick-start/registration-choose-setup-type.png)
+
+Nếu bạn có quyền thay đổi nhà cung cấp DNS của mình thành Polaris, bạn được khuyến khích làm như vậy và chọn tùy chọn
+**Name servers**. Vui lòng tham khảo bài viết này: [Cách cài đặt sử dụng Name servers](setup-ns).
+
+Nếu không, vui lòng chọn tùy chọn **A, CNAME Record**. Ngoài ra, nếu bạn có nhiều tên miền phụ và muốn thêm
+chúng một cách riêng lẻ, vui lòng sử dụng tùy chọn **A, CNAME Record**. Vui lòng tham khảo bài viết
+này: [Cách thiết lập bằng A, CNAME Record](setup-cname).
+
+Đối với phân miền con, việc sử dụng nameserver là một tùy chọn nâng cao và CNAME được sử dụng mặc định.
+
+<iframe width="558" height="313" src="https://www.youtube.com/embed/2J7LrcFPF-w"
+        title="Polaris Walkthrough: Onboarding guide" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+</iframe>
+

@@ -1,0 +1,26 @@
+# LFI and RFI attacks - how to identify?
+
+## LFI Detection
+
+When preventing LFI (Local File Inclusion) attacks, Polaris attempts to detect if a malicious user
+is trying to retrieve a file that is local to an organization's web server that they should not have
+access to.
+
+## RFI Detection
+
+When detecting for RFI (Remote File Inclusion), Polaris attempts to detect if a malicious user is
+trying to include a remote resource into the web application that will then be executed.
+
+In both types of attacks, exploitation can lead to the web application and/or server being
+compromised with resulting undesirable consequences.
+
+Polaris determines if a request is malicious by considering the aggregated scoring of multiple
+parameters, including but not limited to a combination of various rules, detection, and metrics
+scores, which will then be fed into a machine learning algorithm.
+
+Polaris also attempts to reduce and eliminate false positives by applying a dynamic score to the
+request, request origin, and requested URI so that only actual threats are flagged for prevention
+or subsequent investigation.
+
+Currently, Polaris uses the OWASP ModSecurity Core Rule Set to identify injected parts of the
+query.

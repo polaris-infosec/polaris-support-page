@@ -1,0 +1,72 @@
+# Bảo vệ (Xác thực Cơ bản)
+
+Bảo vệ cho phép Polaris bảo vệ một trang hoặc điểm cuối cụ thể, yêu cầu người dùng nhập thông tin đăng nhập trước khi
+được phép truy cập trang. Lưu ý rằng để kích hoạt tính năng này, trang của bạn phải được bảo vệ bởi Polaris. Để truy
+cập trang cài đặt này, vui lòng vào tab `Guard` trong cài đặt của trang mà bạn muốn bảo vệ.
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `SITES`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+![Guard Tab](/img/security-center/guard/guard-tab.png)
+Chuyển đến trang cài đặt Guard
+
+Có hai bước để kích hoạt tính năng này, cả hai đều có thể được cấu hình trên trang này.
+
+![Guard Page](/img/security-center/guard/guard-page.png)
+
+## Tạo Tài khoản/Chứng thực được ủy quyền
+
+Trong bước này, bạn sẽ tạo các thông tin đăng nhập và tài khoản có quyền truy cập vào trang của bạn và các điểm cuối.
+
+![Basic Auth Accounts](/img/security-center/guard/basic-auth-accounts.png)
+
+Các tài khoản hiện có có thể được chỉnh sửa bằng nút `bút chì` hoặc xóa bằng nút `thùng rác` đỏ.
+
+Để tạo một tài khoản ủy quyền mới, nhấp vào nút `Add Account`. Điều này sẽ mở một cửa sổ pop-up, yêu cầu bạn điền
+vào các trường cần thiết.
+
+![Add Account](/img/security-center/guard/add-account.png)
+
+Lưu ý rằng trường tên chỉ dành cho tham khảo của bạn và chỉ **tên người dùng và mật khẩu được sử dụng cho quá trình
+đăng nhập thực tế**.
+
+Sau khi bạn đã thêm thông tin đăng nhập mới, bạn sẽ thấy một mục mới. Lưu ý rằng bạn sẽ không thể thấy mật khẩu sau
+khi tạo, bạn chỉ có thể thấy một loạt các dấu hoa thị. Nếu bạn bao giờ quên mật khẩu, đơn giản chỉ cần tạo một mật
+khẩu mới bằng cách chỉnh sửa tài khoản chứng thực.
+
+## Tạo endpoint
+
+Trong bước này, bạn sẽ tạo điểm cuối trên trang của mình và chỉ định chứng thực cho điểm cuối đó. Điều này chỉ cho phép
+những người giữ chứng thực cụ thể được phép truy cập vào điểm cuối đó.
+
+![Endpoints](/img/security-center/guard/endpoints.png)
+
+Các điểm cuối hiện có có thể được chỉnh sửa trên trang này bằng biểu tượng `bút chì`, hoặc xóa bằng biểu tượng `thùng rác` đỏ.
+
+Để tạo một điểm cuối mới, nhấp vào nút `Add Endpoint`. Điều này sẽ mở một cửa sổ pop-up mới, yêu cầu bạn điền vào các
+trường cần thiết. Các mô tả cho mỗi trường được cung cấp. Lưu ý rằng bạn phải tạo ít nhất một thông tin đăng nhập trước
+khi tạo một điểm cuối.
+
+Dưới `Credentials`, bạn có thể chọn người dùng có thể truy cập vào điểm cuối này với chứng thực của họ.
+
+![Add Endpoints](/img/security-center/guard/add-endpoint.png)
+
+Điểm cuối của bạn hiện đã được bảo vệ. Người dùng truy cập vào điểm cuối sẽ đối mặt với một cửa sổ pop-up yêu cầu họ
+nhập thông tin đăng nhập trước khi trang được tải lên.
+
+![Protected Endpoints](/img/security-center/guard/protect-endpoint.png)
+Điểm cuối được bảo vệ
+
+## Đảm bảo Guard hoạt động
+
+Rất khuyến khích kiểm tra điểm cuối sau khi Guard trang đã được triển khai.
+
+Bạn có thể gặp vấn đề khi sau khi thiết lập Guard và nhập đúng tên người dùng và mật khẩu, bạn vẫn bị từ chối truy cập
+vào trang web.
+
+Tùy thuộc vào máy chủ và trình duyệt của bạn, Guard có thể chỉ hoạt động khi [cấu hình SSL](ssl)
+của bạn được đặt ở chế độ Linh hoạt hoặc Đầy đủ (đây cũng là cài đặt SSL được khuyến nghị).
+
+Nếu bạn đã được xác thực thành công và muốn được xác thực lại, vui lòng xóa cookie của bạn hoặc sử dụng chế độ
+ẩn danh / riêng tư trên trình duyệt của bạn.

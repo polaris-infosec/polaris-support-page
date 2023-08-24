@@ -1,0 +1,13 @@
+# 7. Zero Trust Access (ZTA) - Tên miền truy cập tùy chỉnh
+
+Một phần của tính năng Zero Trust Access là cho phép tạo tên miền truy cập tùy chỉnh để người dùng được ủy quyền đăng
+nhập vào các ứng dụng zero trust của bạn. Trong cài đặt Zero Trust, bạn sẽ tìm thấy tùy chọn này trong tab Cấu hình.
+
+![Config](/img/security-center/zta/custom-access-domain-config.png)
+
+**Chú ý**:
+
+Nếu sử dụng tên miền truy cập tùy chỉnh của bạn:
+-	Bạn cần thêm một bản ghi CNAME để chỉ định tên miền truy cập mới của bạn đến **tên miền tùy chỉnh**.
+-	Bạn phải sử dụng Polaris DNS cho tên miền truy cập tùy chỉnh của bạn.
+o	Bạn phải bật **tường lửa** trong **Cài đặt DNS** cho bản ghi đó.

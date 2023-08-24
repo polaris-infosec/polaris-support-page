@@ -1,0 +1,23 @@
+# XSS và bảo vệ X-XSS - sự khác biệt là gì?
+
+Polaris cung cấp nhiều hình thức bảo vệ chống lại XSS (Cross-Site Scripting). Một trong số đó là sử dụng
+[OWASP Rules](../security-center/rules/owasp) và một khác là sử dụng tiêu đề bảo mật trong trình duyệt (X-XSS-Protection).
+
+Đối với XSS trong OWASP, Polaris phát hiện nếu người dùng đang cố gắng tiêm XSS vào trang web, phát hiện khi kẻ tấn
+công hoặc nạn nhân được kiểm soát gửi một yêu cầu đến nguồn. Polaris sẽ chặn nó và kích hoạt cảnh báo sự cố trên
+[Security Event](../security-center/incidents/security-events).
+
+Đối với X-XSS trong tiêu đề bảo mật, các trình duyệt kiểm tra XSS phản ánh ngay trước khi hiển thị trang.
+
+Trong Polaris, có 3 tùy chọn cho X-XSS Protection:
+
+1.	Off
+2.	Sanitize Script: Thiết lập **X-XSS-Protection: 1**, điều này sẽ lọc bỏ XSS ra khỏi trang web, trình duyệt sẽ làm sạch
+    các phần không an toàn (XSS).
+3.	Block Script: Thiết lập **X-XSS-Protection: 1; mode = block**. Nếu phát hiện một cuộc tấn công XSS, trình duyệt sẽ
+    ngăn cản việc hiển thị trang.
+
+Ngoài XSS (OWASP Rules) và X-XSS-Protection (tiêu đề bảo mật), Polaris cũng có thể giúp bảo vệ chống lại các cuộc tấn
+công XSS bằng cách sử dụng Chính sách bảo mật nội dung.
+
+Để tìm hiểu thêm về X-XSS-Protection, hãy tham khảo [Tài liệu Phát triển Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection).

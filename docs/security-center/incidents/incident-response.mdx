@@ -1,0 +1,62 @@
+# Incident Response và Ticket Management
+
+Trong Polaris, **incident response** có thể được tiến hành và quản lý bởi các thành viên trong đội ngũ nội bộ của tổ chức
+thông qua một hệ thống phiếu hỗ trợ. Phiếu hỗ trợ có thể được sử dụng để giám sát, cảnh báo và thảo luận về các mối đe
+dọa có mặt trên trang web, giúp bạn tập trung vào các mối đe dọa quan trọng và giảm thiểu chúng trong thời gian ngắn
+nhất có thể.
+
+**Lưu ý**: incident response sẽ được thực hiện bởi đội ngũ của tổ chức trừ khi họ là một phần của chương trình Dịch vụ Bảo mật
+Quản lý của Polaris.
+
+Có 2 cách mà người dùng có thể **create an incident ticket**:
+
+1.	Qua **Security Events**. Để tìm hiểu thêm về các security event và cách sử dụng chúng để tạo ra các sự cố, hãy xem
+bài viết này: [Security Events](security-events).
+2.	Tạo phiếu sự cố riêng lẻ mà không sử dụng hoặc tham khảo đến security event hiện có.
+
+## Xem các Incident.
+
+![Security Center Tab](/img/security-center/incident-response/security-center-tab.png)
+
+Dưới `SITES`, nhấp vào `Security Center`.
+
+![Incident Response Tab](/img/security-center/incident-response/incident-tab.png)
+Tìm tab '**Incident Response**', như được chỉ ra bởi mũi tên màu đỏ.
+
+Bạn cũng có thể tìm kiếm một sự cố bằng cách sử dụng các bộ lọc sau:
+
+1.	Tên Incidents
+2.	Trạng thái sự cố (Mở, Triển khai, Hoàn thành)
+3.	Người được phân công
+4.	Mức độ nghiêm trọng (Thấp, Trung bình, Cao, Khẩn cấp)
+
+## Cài đặt Incident
+
+![Incident Detail](/img/security-center/incident-response/incident-detail.png)
+Bạn có thể xem chi tiết về một sự cố bằng cách nhấp vào nó.
+
+Bạn có thể cập nhật trạng thái của nó và thảo luận về sự cố với người dùng khác. Dưới đây là một số tùy chọn để cấu
+hình một phiếu sự cố:
+
+1.	Trạng thái: Mở, Triển khai, Hoàn thành
+2.	Mức độ nghiêm trọng: Thấp, Trung bình, Cao, Khẩn cấp
+3.	Người được phân công (Chú ý: Một phiếu sự cố chỉ có thể được phân công cho 1 người chính)
+4.	Danh sách các thành viên tham gia (Bạn được phép có nhiều người tham gia)
+5.	Sửa tên phiếu (Nhấp vào biểu tượng bút chì bên cạnh tên)
+
+Ghi chú bổ sung
+
+-	Sự cố cũng sẽ hiển thị mô tả và bất kỳ tệp nào được đính kèm trong quá trình tạo.
+-	Một dòng thời gian cũng sẽ hiển thị tất cả các thay đổi và ý kiến liên quan đến sự cố.
+-	Bạn có thể thêm ý kiến và đính kèm tệp bằng cách cuộn xuống cuối dòng thời gian.
+-	Bạn có thể tạo một phiếu sự cố (mà không tham chiếu đến một security event) bằng cách nhấp vào '**+Thêm sự cố mới**'
+ở cuối danh sách sự cố.
+
+Nếu bạn muốn tạo incident ticket dựa trên một security event, vui lòng tham khảo bài viết này: [Security Events](security-events).
+
+Hãy xem Hướng dẫn tạo Security Event của chúng tôi tại đây:
+
+<iframe width="558" height="313" src="https://www.youtube.com/embed/4Dyz-PpXtto"
+        title="Polaris Walkthrough: Creating Security Event and Managing Incidents" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>

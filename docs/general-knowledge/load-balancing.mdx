@@ -1,0 +1,29 @@
+# Cân bằng tải - Đó là gì?
+
+**Cân bằng tải** là quá trình phân phối lưu lượng mạng một cách hiệu quả giữa nhiều máy chủ để đảm bảo không có máy chủ
+duy nhất bị quá tải và căng thẳng vào bất kỳ thời điểm nào.
+
+Đây chỉ là một số lợi ích của cân bằng tải:
+
+-	Đáp ứng tốt hơn: Sử dụng nhiều máy chủ với cân bằng tải đảm bảo rằng không có máy chủ nào bị quá tải do nhu cầu cao
+dẫn đến thời gian chờ dài.
+-	Dự phòng: Nó đảm bảo rằng khi một máy chủ thất bại, một máy chủ khác sẵn sàng xử lý lưu lượng trang web và giữ cho
+nó hoạt động.
+-	Mở rộng và Giảm thời gian chết: Nếu vào bất kỳ thời điểm nào cần thực hiện các tác vụ bảo trì cho một máy chủ,
+thời gian chết được giảm bởi vì người dùng của trang web sẽ không bị ảnh hưởng.
+
+Polaris cung cấp cân bằng tải cho tất cả các gói khách hàng; có thể dễ dàng thực hiện bằng cách sử dụng quy tắc tùy
+chỉnh trong tab 'Rules':
+
+![Load Balancing Setup](/img/general-knowledge/load-balancing.png)
+
+Cân bằng tải có thể được thực hiện bằng cách thêm 'DC' vào mục '**Set DC**' trong các quy tắc tùy chỉnh. Trường 'DC IP'
+sẽ chứa địa chỉ của các máy chủ mà bạn muốn sử dụng để cân bằng tải.
+
+Cân bằng tải có thể được thực hiện theo mặc định hoặc có thể được tùy chỉnh sao cho nó chỉ được áp dụng dựa trên một
+số yêu cầu nhất định được xác định bởi điều kiện của quy tắc tùy chỉnh. Một ví dụ được hiển thị ở trên là cân bằng tải
+chỉ được thực hiện nếu yêu cầu đến từ Hoa Kỳ, bạn có thể muốn như vậy vì bạn nhận được nhiều yêu cầu từ Hoa Kỳ hơn bất
+cứ nơi nào khác.
+
+Để tìm hiểu thêm về các quy tắc tùy chỉnh và thực hiện cân bằng tải hiệu quả, hãy xem bài viết này:
+[Quy tắc tùy chỉnh](../security-center/rules/custom-rules).

@@ -1,0 +1,21 @@
+# IP của người dùng cuối
+
+## Tổng quan
+
+Các kết nối từ Polaris đến máy chủ nguồn được thiết lập từ các địa chỉ IP của Polaris. Để xác định địa chỉ IP của người dùng cuối trong các yêu cầu được chuyển tiếp từ máy chủ Polaris, bạn cần trích xuất thông tin này thông qua các Header mà Polaris thêm vào trong yêu cầu.
+
+![End User](/img/general-knowledge/end-user.png)
+
+Trong hình ví dụ, một trường hợp có địa chỉ IP của Người dùng cuối là `1.2.3.4`. Khi truy cập trực tiếp mà không thông qua Polaris, máy chủ nguồn (Origin server) sẽ nhận được yêu cầu với địa chỉ IP là `1.2.3.4`.
+
+Trong trường hợp yêu cầu được chuyển tiếp từ máy chủ Polaris (ví dụ với IP `8.8.8.8`), máy chủ nguồn sẽ nhận yêu cầu với địa chỉ IP của Polaris là `8.8.8.8`. Để trích xuất được địa chỉ IP gốc của người dùng cuối (có thể là `1.2.3.4` hoặc `11.22.33.44`), người dùng có thể sử dụng các header được thêm vào trong yêu cầu chuyển tiếp từ máy chủ Polaris.
+
+## Nhận biết IP của người dùng cuối
+
+Để xác định địa chỉ IP của người dùng cuối, bạn có thể trích xuất thông tin từ một trong những header sau đây trong yêu cầu được gửi từ máy chủ Polaris:
+
+```
+X-Forwarded-For xxx.xxx.xxx.xxx
+True-Client-IP  xxx.xxx.xxx.xxx
+X-True-IP       xxx.xxx.xxx.xxx
+```

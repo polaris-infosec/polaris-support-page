@@ -1,0 +1,45 @@
+# Cấu hình Log
+
+Polaris cho phép tích hợp nhật ký **truy cập và bảo mật**. Nhật ký truy cập chứa tất cả các yêu cầu cho các tệp đã được
+gửi từ trang web trong khi nhật ký bảo mật cung cấp thông tin về các sự cố và sự kiện có thể liên quan đến việc vi phạm
+ứng dụng web.
+
+Bài viết này tập trung vào nhật ký truy cập, nếu bạn muốn xem và xuất bản nhật ký security event, hãy tham khảo bài
+viết này: [Security Event](incidents/security-events)
+
+## Cấu hình Logs
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `SITES`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+![Logs Tab](/img/security-center/logs/logs-tab.png)
+Trên thanh trượt menu ngang, bạn có thể tìm thấy `Logs` nằm ở vị trí bên cạnh phải nhất.
+
+Ngoài ra, bạn có thể sử dụng thanh tìm kiếm `Quick actions` (Ctrl + F) và gõ `Logs` để tìm trang cấu hình.
+
+Bạn có thể bật tính năng này bằng cách bật công tắc `Use Logs` thành On (như được chỉ ra bởi mũi tên đỏ trong hình ảnh trên).
+
+## Tải xuống Logs
+
+Polaris cho phép xuất nhật ký dưới dạng Common Event Format (CEF). Định dạng dựa trên văn bản mở rộng này được nhiều sản
+phẩm và dịch vụ chấp nhận và thường là định dạng ưa thích cho nhật ký vì chứa thông tin liên quan và tương thích cao. Do
+đó, nhật ký trong CEF hoạt động với nhiều sản phẩm SIEM.
+
+Nhật ký của bạn được lưu trữ trên một máy chủ dành riêng cho bạn. Để tải xuống hoặc tích hợp nó với các sản phẩm SIEM,
+hãy sử dụng [Trình tải xuống Log Polaris](https://github.com/polaris-infosec/polaris-log-downloader).
+
+*Lưu ý rằng để thực hiện điều này, bạn cần NodeJS v11.14.0 và log truy cập trong Polaris cần được bật.*
+
+Sau khi tải xuống Trình tải xuống nhật ký Polaris:
+
+1.	Đổi tên tệp sau: '**.env.example**' thành '**.env**'
+2.	Mở tệp và thay thế các giá trị trong 3 tham số này (**API_ID, API_KEY, BASE_URL**) bằng các giá trị trong Polaris
+(tham khảo hình ảnh bên dưới).
+
+![Logs Setting](/img/security-center/logs/log-setting.png)
+Sao chép các giá trị sang tệp .env và thay thế chúng tương ứng.
+
+3.	Lưu tệp và chạy lệnh '**npm install**' để cài đặt thư viện cần thiết.
+4.	Bắt đầu tải xuống nhật ký bằng cách chạy: '**npm run start**'.
+5.	Nhật ký sẽ được lưu trong một thư mục mới nằm trong vị trí của Trình tải xuống nhật ký Polaris.

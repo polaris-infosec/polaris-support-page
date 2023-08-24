@@ -1,0 +1,46 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Bắt đầu nhanh": {
+    "message": "Quick Start",
+    "description": "The label for category Bắt đầu nhanh in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Trung tâm Bảo mật": {
+    "message": "Security Center",
+    "description": "The label for category Trung tâm Bảo mật in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tổng quát": {
+    "message": "Overview",
+    "description": "The label for category Tổng quát in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Bảo mật API": {
+    "message": "API Security",
+    "description": "The label for category Bảo mật API in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Access control": {
+    "message": "Access control",
+    "description": "The label for category Access control in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Hệ thống tên miền (DNS)": {
+    "message": "DNS",
+    "description": "The label for category Hệ thống tên miền (DNS) in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Sự cố": {
+    "message": "Incidents",
+    "description": "The label for category Sự cố in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Quy tắc": {
+    "message": "Rules",
+    "description": "The label for category Quy tắc in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Zero Trust Access": {
+    "message": "Zero Trust Access",
+    "description": "The label for category Zero Trust Access in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Kiến thức chung": {
+    "message": "General Knowledge",
+    "description": "The label for category Kiến thức chung in sidebar tutorialSidebar"
+  }
+}

@@ -1,0 +1,83 @@
+# Điều khoản an ninh nội dung (CSP)
+
+## CSP là gì?
+
+**Điều khoản an ninh nội dung CSP** là một cơ chế trình duyệt có thể giúp ngăn chặn một số loại tấn công
+cross-site scripting (XSS), clickjacking và các tấn công injection mã độc khác có kết quả từ việc thực thi nội dung độc
+hại trong ngữ cảnh trang web được tin tưởng. Nó hoạt động bằng cách hạn chế các tài nguyên (như kịch bản và hình ảnh)
+mà một trang có thể tải và hạn chế liệu một trang có thể được tạo ra bởi các trang khác. CSP được hỗ trợ bởi tất cả các
+trình duyệt hiện đại phổ biến.
+
+Mặc dù một CSP mạnh có thể cung cấp một lớp bảo vệ thứ hai hiệu quả đối với các loại tấn công khác nhau, nhưng nó không
+được thiết kế như một hàng rào bảo vệ đầu tiên chống lại các lỗ hổng tiêm nội dung. CSP được sử dụng tốt nhất như một
+phòng thủ chống lại đa tầng. Nó giảm thiểu những thiệt hại mà một tiêm nhiễm độc hại có thể gây ra, nhưng nó không thay
+thế cho việc kiểm tra cẩn thận đầu vào và mã hóa đầu ra.
+
+## CSP hoạt động như thế nào?
+
+CSP có thể được triển khai theo nhiều cách khác nhau. Cách tiếp cận được ưa thích nhất là sử dụng trường tiêu đề phản
+hồi HTTP Content-Security-Policy hoặc Content-Security-Policy-Report-Only. Trình duyệt sử dụng các quy tắc được xác định
+trong các tiêu đề này để điều khiển các tài nguyên mà trình duyệt được phép tải cho một trang cụ thể. Một giải thích
+chi tiết về CSP có thể được tìm thấy [ở đây](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy).
+
+## Triển khai CSP với Polaris
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `SITES`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+![CSP Tab](/img/security-center/rules/csp-tab.png)
+Bấm vào '**CSP**' để cấu hình nó.
+
+## Chính sách
+
+Trong tab **Chính sách**, bạn có thể cấu hình các thiết lập CSP cho trang web của mình.
+
+![CSP Policies Tab](/img/security-center/rules/csp-policies-tab.png)
+Trang CSP Policies
+
+Trang này có hai cài đặt chính:
+
+-	**Blocking** / **Not Blocking**: Chọn xem CSP có được áp dụng trên trang web hay không
+-	**Reporting** / **Not Reporting**: Chọn xem bạn có muốn lưu trữ báo cáo về các mối đe dọa đã vi phạm CSP trên trang web hay không.
+
+    Bạn có thể chọn **chế độ chỉ báo cáo** bằng cách triển khai CSP nhưng không áp dụng nó (tắt chế độ chặn và bật chế độ
+    báo cáo), điều này sẽ báo cáo bất kỳ vi phạm nào với chính sách trong tab 'Báo cáo' nhưng không thực sự áp dụng và
+    chặn bất kỳ một vi phạm nào.
+
+Một trong những lý do thực hiện điều này là để bạn có thể thử nghiệm, quan sát và giám sát CSP và tạo ra một CSP tốt
+hơn bằng cách sử dụng các báo cáo được tạo ra. Chi tiết hơn về các báo cáo được bao phủ bên dưới.
+
+Có các cài đặt script inline bổ sung để cấu hình bảo vệ CSP chống lại các cuộc tấn công XSS:
+
+-	**Allow unsafe inline scripts**: Cho phép trang web bao gồm các thẻ script tùy ý
+-	**Allow eval() in script tags**: Cho phép các script trong trang web thực thi mã bằng cách sử dụng chức năng eval()
+-	**Allow unsafe inline style definitions**: Cho phép trang web bao gồm các thẻ kiểu tùy ý.
+
+Bạn cũng có thể tạo các chỉ thị tùy chỉnh để cho phép trang của bạn tải tài nguyên từ các miền bên thứ ba.
+
+![CSP Directives](/img/security-center/rules/csp-directives.png)
+
+Dưới đó cũng có một phần cho phép bạn xem xét các tiêu đề đã được cấu hình, cũng như mức độ bảo mật của một số thành
+phần đối với các cuộc tấn công XSS:
+
+![CSP Preview](/img/security-center/rules/csp-preview.png)
+
+## Báo cáo
+
+Trang báo cáo chứa các bản ghi về tất cả các hoạt động bị chặn bởi các quy tắc CSP. Lưu ý rằng để tạo báo cáo, 'Báo cáo'
+phải được bật trong Cài đặt nâng cao của CSP.
+
+Dưới đây là ví dụ về cách trang 'Báo cáo' có thể nhìn như thế nào khi chức năng này được bật:
+
+![CSP Report Tab](/img/security-center/rules/csp-report-tab.png)
+
+-	**Version**: Số phiên bản của CSP. Nó có thể được tìm thấy trong bản xem trước dưới chức năng 'Chính sách'.
+-	**Directive**: Chỉ thị gây ra vi phạm.
+-	**Last Time**: Ngày và giờ ghi nhận cuối cùng của vi phạm.
+-	**Count**: Số lần ghi nhận vi phạm.
+-	**Blocked URI**: URI của tài nguyên đã bị chặn khỏi việc tải bởi CSP.
+
+    Ngoài các chi tiết hiển thị về CSP bị vi phạm, còn có 2 lựa chọn hành động:
+-	**Allow**: Quy tắc bị chặn sẽ được thêm vào tiêu đề CSP.
+-	**Ignore**: Xóa khỏi danh sách.

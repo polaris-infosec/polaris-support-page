@@ -1,0 +1,32 @@
+# DNSSEC
+
+## What is DNSSEC?
+
+DNSSEC adds an additional authentication layer onto existing [DNS](dns-record) architecture. On its own,
+DNS is insecure and prone to on-path attacks or other types of DNS forgery attacks. Enabling
+DNSSEC ensures that your visitors will access your site when entering your domain in their web
+browser, and not be redirected to forged websites.
+
+
+## Enabling DNSSEC in Polaris
+DNSSSEC can be enabled in the `DNS` tab of a website's settings page on Polaris
+
+![Enable DNSSEC](/img/security-center/dns/dnssec-enable.png)
+
+Once DNSSEC has been enabled, you will be shown a series of records which should be added
+to your domain registrar. Common examples of domain registrars are
+[GoDaddy](https://ph.godaddy.com/help/add-a-ds-record-23865),
+[Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9722/2232/managing-dnssec-for-domains-pointed-to-custom-dns/)
+and [Google Domains](https://support.google.com/domains/answer/6147083?hl=en&visit_id=638205977536883713-2000001299&rd=1#zippy=%2Ccustom-name-servers)
+(refer to the Custom Name servers option). Please
+follow the instructions on your registrars' knowledge base to configure these settings. Do note
+that any misconfiguration will result in your website becoming inaccessible.
+
+
+![Setup DNSSEC](/img/security-center/dns/dnssec-setup.png)
+
+Once you have added the records to your registrar, it might take up to an hour for the changes
+to be reflected on Polaris. The status of the setup will then be changed to DNSSEC enabled and
+you are done with the DNSSEC setup.
+
+![Setup DNSSEC Success](/img/security-center/dns/dnssec-setup-success.png)

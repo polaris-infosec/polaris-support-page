@@ -1,0 +1,93 @@
+# Tổng quan về Threat Intelligence
+
+Tính năng Threat Intelligence của Polaris cung cấp thông tin quý giá về các mối đe dọa tiềm năng đối với trang web của
+bạn. Các tính năng này cho phép bạn thực hiện hành động chống lại các giai đoạn đầu của một cuộc tấn công hoặc các cuộc
+tấn công đang diễn ra nhưng bạn có thể không nhận ra.
+
+Có 4 tính năng trong chức năng Threat Intelligence của Polaris mà bạn có thể sử dụng:
+1.	Suspicious IPs
+2.	Dữ liệu bị chiếm đoạt
+3.	Phishing
+4.	Server Vulnerability
+
+Để truy cập tab Threat Intelligence:
+
+![Security Center Tab](/img/security-center/incident-response/security-center-tab.png)
+
+Dưới `SITES`, nhấp vào `Security Center`.
+
+![Threat Intelligence Tab](/img/security-center/threat-intelligence/threat-intelligence-tab.png)
+
+Nhìn vào tab ngang, nhấn vào `Threat Intelligence`.
+
+## 1.	Suspicious IPs:
+
+Nếu Polaris phát hiện bất kỳ địa chỉ IP nào có hành vi đáng ngờ hoặc gửi thư rác đến trang web của bạn, nó sẽ được liệt
+kê là một địa chỉ IP đáng ngờ. Từ đây, có 2 hành động có thể thực hiện:
+
+a.	**Tạo sự cố**: Nhấp vào hành động ' + TẠO SỰ CỐ ' sẽ cho phép bạn tạo một sự cố và cảnh báo cho các người dùng khác
+    trên đội của bạn để điều tra. Để tìm hiểu thêm về việc tạo sự cố và đáp ứng trong Polaris, xem bài viết
+    này: [Incident Response và Ticket Management](incidents/incident-response).
+
+b.	**Cho phép IP vào Danh sách trắng hoặc Danh sách đen**. Nhấp vào 3 chấm bên phải của nút tạo sự cố để hiển thị tùy
+    chọn cho phép vào danh sách trắng và danh sách đen địa chỉ IP đáng ngờ. Đưa IP vào danh sách trắng sẽ cho rằng nó là
+    một địa chỉ IP an toàn trong khi đưa nó vào danh sách đen sẽ chặn bất kỳ yêu cầu nào từ nó vào lần sau.
+
+Để đánh giá và ưu tiên các địa chỉ IP đáng ngờ, một điểm đánh giá nguy hiểm cũng sẽ được cung cấp dựa trên thông tin đã
+biết về IP được đối chiếu với các khung và cơ sở dữ liệu bên thứ ba cũng như các hành động được thử.
+
+## 2.	Compromised Data
+
+Polaris tự động theo dõi hàng ngày trên web và các cơ sở dữ liệu rò rỉ dữ liệu đã biết để tìm kiếm thông tin bị xâm
+phạm có thể liên quan đến trang web của bạn, chẳng hạn như địa chỉ email và mật khẩu bị xâm phạm.
+
+![Compromised Tab](/img/security-center/threat-intelligence/compromised-data-tab.png)
+
+Nếu Polaris phát hiện thông tin bị xâm phạm liên quan đến miền của bạn, bạn sẽ được cảnh báo qua email và nó sẽ được
+hiển thị trên bảng điều khiển cùng với bất kỳ nguồn rò rỉ nào đã biết. Nền tảng WAAP không có khả năng làm bất cứ điều
+gì với dữ liệu bị xâm phạm ngoài việc báo cáo nó, tuy nhiên, khi bạn biết về nó, bạn có thể đưa ra hành động cho tổ c
+hức của mình. Các bước giảm thiểu có thể bao gồm việc buộc thay đổi mật khẩu của tổ chức, thông báo cho các thành viên
+trong nhóm, đối tác hoặc khách hàng về rò rỉ dữ liệu, khắc phục các giao thức bảo mật.
+
+## 3.	Phishing
+
+Polaris tự động kiểm tra hàng ngày các tên miền giống với tên miền đã đăng ký của bạn và báo cáo nó dưới tab lừa đảo:
+
+![Phishing Tab](/img/security-center/threat-intelligence/phishing-tab.png)
+
+Có nhiều hành động và tính năng khác nhau mà bạn có thể sử dụng để điều tra và phản ứng với một nỗ lực lừa đảo tiềm năng:
+-	**Biểu tượng thông tin xanh (như được chỉ ra bởi mũi tên đỏ ở trên)**: Nhấp vào nó mở một tab mới trên
+    [whois.com](https://www.whois.com/whois/) để tiết lộ nhiều thông tin hơn về tên miền.
+-	**Nhấp vào tên miền** sẽ mở một tab mới đến trang web, điều này sẽ giúp bạn xác định xem đó có phải là một nỗ lực
+    lừa đảo nhắm vào trang web của bạn không. Nếu không phải, nhấp vào ảnh chụp màn hình để xem một bức ảnh chụp màn hình
+    của trang web.
+-	Cột **phù hợp** tiết lộ cách Polaris nghĩ về sự tương đồng của trang web đó với trang web của bạn. Một tỷ lệ phù
+    hợp rất thấp được đánh dấu bằng một thẻ "Không liên quan" sẽ ít có khả năng là một nỗ lực lừa đảo.
+-	**Địa chỉ IP** và **Ngày đăng ký** của tên miền cũng được liệt kê.
+-	Trong cột hành động, tùy chọn '+ Tạo sự cố' (như được chỉ ra bởi mũi tên xanh lá cây trong hình ảnh trên) cho
+    phép bạn tạo sự cố để thông báo cho đội của bạn xem xét và điều tra. Để biết thêm thông tin về báo cáo và phản
+    ứng sự cố, tham khảo [bài viết](incidents/incident-response) này.
+-	Ngoài ra, nếu bạn xác định rằng tên miền không phải là mối đe dọa lừa đảo, bạn có thể đánh dấu nó là
+    '**Đã giải quyết**' bằng cách truy cập vào menu kebab (3 chấm) như được chỉ ra bởi mũi tên xanh lá cây trong hình
+    ảnh trên. Lưu ý rằng một khi một tên miền được giải quyết, bạn sẽ không thể đảo ngược hành động này.
+
+Nếu cuộc điều tra của bạn về tên miền phishing có thể xác định được rằng đó thực sự là mối đe dọa, các hành động tiếp
+theo có thể bao gồm việc liên lạc với chủ nhà tên miền để đánh dấu trang web đó và cảnh báo các thành viên trong nhóm,
+đối tác và khách hàng về trang web giả mạo để họ có thể tránh nó.
+
+## 4.	Server Vulnerability
+
+Polaris tích hợp một công cụ quét của bên thứ ba để quét các máy chủ web của bạn và liệt kê các dịch vụ phát hiện được
+cùng với các lỗ hổng tiềm năng có thể bị khai thác. Các lỗ hổng được ánh xạ đến **khung CVE**.
+
+Nhấp vào `Xem` cho máy chủ sẽ hiển thị thông tin:
+
+![server Vulnerability Tab](/img/security-center/threat-intelligence/server-vulnerability-tab.png)
+
+-	Tên dịch vụ, cổng và phiên bản đang chạy trên máy chủ sẽ được hiển thị.
+-	Mọi lỗ hổng tiềm năng trong các dịch vụ đang chạy trên máy chủ cũng được liệt kê dựa trên Cơ sở dữ liệu Lỗ hổng
+Quốc gia (NVD). Mỗi lỗ hổng trong NVD có thể được xác định một cách duy nhất bằng '**ID CVE**' của nó, nhấp vào đó sẽ mở
+một tab mới để hiển thị thêm thông tin về nó.
+
+Trí tuệ Mối đe dọa được cung cấp như một dịch vụ tích hợp cho các khách hàng Doanh nghiệp, nhưng có thể là một tính
+năng bổ sung cho các gói Polaris khác.

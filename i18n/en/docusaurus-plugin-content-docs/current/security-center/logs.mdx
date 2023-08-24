@@ -1,0 +1,51 @@
+# Log Integration
+
+Polaris allows for the integration of **access and security logs**. Access logs contain all requests
+for files that were sent from the website whereas security logs provide information about
+incidents and events that may be related to the compromise of the web application.
+
+This article focuses on **access logs**, if you would like to view and export security event logs,
+refer to this article: [Security Event](incidents/security-events)
+
+## Configuring Logs
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Under `SITES`, select your domain and click on `Settings`.
+
+![Logs Tab](/img/security-center/logs/logs-tab.png)
+
+On the horizontal sliding menu bar, you can find `Logs` located at the farthest to the right.
+
+Alternatively, you may make use of the `Quick actions` search bar (Ctrl + F) and type `Logs` to
+find the configuration page.
+
+You may turn this feature on by flipping the `Use Logs` switch to On (as indicated by the red
+arrow in the above image).
+
+## Downloading Logs
+
+olaris allows for logs to be exported in Common Event Format (CEF). This extensible, text-based format is readily
+adopted by many products and services and is often the preferred format
+for logs as it contains relevant information and is highly compatible. As such, logs in CEF works
+with many SIEM products.
+
+Your logs are saved in a dedicated server for you. To download or integrate it with SIEM
+products, use the [Polaris Log Downloader](https://github.com/polaris-infosec/polaris-log-downloader).
+
+*Note that for this to work, you require NodeJS v11.14.0 and the access logs in Polaris to be
+turned on.*
+
+After downloading the Polaris Log Downloader:
+
+1.	Rename the following file: `.env.example` to `.env`
+2.	Open the file and replace the values in these 3 parameters (**API_ID**, **API_KEY**,
+**BASE_URL**) with the ones in Polaris (Refer to the image below).
+
+![Logs Setting](/img/security-center/logs/log-setting.png)
+
+Copy the values to the .env file and replace them accordingly.
+
+3.	Save the file and run the `npm install` command to install the necessary libraries.
+4.	Start downloading logs by running: `npm run start`.
+5.	The logs will be saved in a new folder where the Log Downloader is located.

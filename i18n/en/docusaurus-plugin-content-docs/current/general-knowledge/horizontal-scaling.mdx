@@ -1,0 +1,11 @@
+# Horizontal Scaling - what is it?
+
+Many of the different ways the Polaris WAAP manages to maintain its own operations during a
+DDoS attack, allowing you to then maintain your operations, is through Horizontal Scaling. As
+the number of requests increase, flooding the WAAP, our servers automatically add new virtual
+servers to help stand up to the workload. As the number of requests drops, those virtual servers
+are then deactivated. This allows the WAAP to withstand certain types of volumetric DDoS
+attacks. As the traffic passes through our WAAP, we then utilize methods such as Rate Limiting
+and Load Balancing to distribute the traffic to your servers evenly to prevent flooding.
+
+![Horizontal Scaling](/img/general-knowledge/horizontal-scaling.png)

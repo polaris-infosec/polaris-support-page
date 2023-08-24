@@ -1,0 +1,106 @@
+# Error Messages
+
+On occasion, users may have difficulty connecting to the desired web application. Error messages
+may pop up if there are connection issues due to any number of reasons. Polaris has created
+customized error messages that will display:
+
+1.	Description of the connection error
+2.	Possible steps to be taken by the user
+3.	Possible steps to be taken by the hosting organization
+4.	Where the connection error/fault lies
+5.	Timestamp
+
+Error messages will look like this:
+
+![Error Page](/img/general-knowledge/error-page.png)
+
+## Polaris error messages:
+
+**500 Internal Server Error**
+
+A generic error message, given when an unexpected condition was encountered and no more
+specific message is suitable.
+
+*Possible Solution*: Try again in a few minutes
+
+**502 Bad Gateway**
+
+The server was acting as a gateway or proxy and received an invalid response from the
+upstream server.
+
+*Possible Solution*: Try again in a few minutes
+
+**503 Service Unavailable**
+
+The server cannot handle the request (because it is overloaded or down for maintenance).
+Generally, this is a temporary state.
+
+*Possible Solution*: Try again in a few minutes
+
+**504 Gateway Timeout**
+
+The server was acting as a gateway or proxy and did not receive a timely response from the
+upstream server.
+
+*Possible Solution*: Check your origin server logs for clues as to what happened or visit a site that
+is not going through Polaris. If the HTTP 504 error still occurs, the problem is on your side. If the
+HTTP 504 error doesn't occur with another site you need to Whitelist Polaris IP addresses to
+your origin web server.
+
+**520 Web Server Returned an Unknown Error**
+
+The origin server returned an empty, unknown, or unexpected response to Polaris.
+
+*Possible Solution*: Host owners should contact Polaris for support.
+
+**521 Web Server Is Down**
+The origin server refused connections from Polaris. Security solutions at the origin may be
+blocking legitimate connections from certain Polaris IP addresses.
+
+*Possible Solution*: Host owners should contact Polaris for support.
+
+**522 Connection Timed Out**
+
+Polaris timed out contacting the origin server.
+
+*Possible Solution*: Inform your domain host that your web server is not completing requests.
+Something on your server may be using up resources.
+
+**523 Origin Is Unreachable**
+
+Polaris could not reach the origin server; for example, if the DNS records for the origin server
+are incorrect or missing.
+
+*Possible Solution*: Check your DNS settings. Confirm your origin IP and make sure your IP is
+correctly listed in the Polaris DNS settings page.
+
+**524 A Timeout Occurred**
+
+Polaris was able to complete a TCP connection to the origin server, but did not receive a timely
+HTTP response.
+
+*Possible Solution*: A background application or database may be using up resources on your
+web server. Check with your web host or development team to free up resources.
+
+**525 SSL Handshake Failed**
+
+Polaris could not negotiate a SSL/TLS handshake with the origin server.
+
+*Possible Solution*: The SSL configuration used is not compatible with Polaris. Try using another.
+
+**526 Invalid SSL Certificate**
+
+Polaris could not validate the SSL certificate on the origin web server.
+
+*Possible Solution*: The SSL certificate did not pass validation. It may be expired or does not
+contain the requested domain name. Contact your host provider to check that a valid SSL
+certificate is configured for this domain name on the origin server.
+
+**527 Railgun Error**
+
+Error 527 indicates an interrupted connection between Polaris and the origin server's Railgun
+server.
+
+*Possible Solution*: The issue is likely related to the website's Railgun listener configuration or the
+host network. Test your connection from the Listener to the origin server or contact Polaris for
+support.

@@ -1,0 +1,40 @@
+# Danh sách các Vai trò trong Tổ chức
+
+## Danh sách vai trò
+
+Polaris được xây dựng dựa trên khái niệm về Trung tâm Vận hành Bảo mật (SOC), trong đó người dùng được phân công các
+vai trò khác nhau. Đối với mỗi Trung tâm Bảo mật trong Polaris, có hai vai trò chính, tuy nhiên các vai trò bổ sung sẽ
+được thêm vào trong tương lai để cung cấp quyền và truy cập chi tiết hơn cho các thành viên trong nhóm của bạn:
+
+- **Quản trị viên (Administrator)**: Quản lý toàn bộ Trung tâm Bảo mật. Vai trò này có quyền truy cập vào tất cả các tính năng, bao gồm:
+    - Thêm các trang web mới vào Trung tâm Bảo mật
+    - Thêm thành viên vào Trung tâm Bảo mật
+    - Quản lý tất cả các trang web trong Trung tâm Bảo mật
+        - Chỉnh sửa cài đặt của mỗi trang web
+        - Xem Bảng điều khiển
+        - Giám sát Trung tâm Bảo mật và thực hiện hành động trên các sự kiện
+            - Security Events
+            - Phiếu Sự cố
+            - Mối đe dọa được phát hiện
+
+- **Thành viên (Member)**: Người dùng bình thường sẽ giám sát Trung tâm Bảo mật. Vai trò này có quyền truy cập:
+    - Giám sát tất cả các trang web trong Trung tâm Bảo mật
+        - Xem cài đặt của mỗi trang web
+        - Xem Bảng điều khiển
+        - Giám sát Trung tâm Bảo mật và thực hiện hành động trên các sự kiện
+            - Security Events
+            - Phiếu Sự cố
+            - Mối đe dọa được phát hiện
+
+Quản trị viên có thể thêm thành viên mới vào Trung tâm Bảo mật bằng nút **THÊM THÀNH VIÊN**.
+
+- Email hoặc tên đăng nhập của người dùng là bắt buộc.
+- Quản trị viên sẽ chọn một Vai trò cho thành viên mới.
+
+*Lưu ý: Có thể có nhiều hơn một Quản trị viên trong một Trung tâm Bảo mật, tuy nhiên theo Nguyên tắc của Những quyền ít
+nhất, đây nên là một vai trò bị hạn chế.*
+
+![User Management](/img/security-center/access-control/roles-members.png)
+
+
+

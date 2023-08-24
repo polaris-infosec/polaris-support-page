@@ -1,0 +1,78 @@
+# 2. Thêm Cung cấp (SSO) cho Zero Trust Access (ZTA)
+
+## TỔNG QUAN
+
+Các nhà cung cấp là bên thứ ba có các dịch vụ xác thực và phê duyệt như Google hoặc Microsoft. Hầu hết các email của tổ
+chức đều thuộc về những bên thứ ba này, vì vậy chúng ta có thể sử dụng các đăng nhập hiện có đó cho bất kỳ ứng dụng nào
+mà bạn muốn sử dụng ZTA cho. Bằng cách thêm một nhà cung cấp mà bạn đã có thông tin đăng nhập, bạn có thể đăng nhập chỉ
+với một nút nhấn được gọi là truy cập Single-Sign On (SSO). Bạn có thể xem bất kỳ nhà cung cấp nào bạn đã thêm trong
+mục Các nhà cung cấp (Providers) trong phần Zero Trust Access của tổ chức của bạn.
+
+## Bước 1: Tạo Nhà Cung Cấp
+
+Nhà cung cấp sử dụng định danh liên minh, trong đó nhà cung cấp định danh bên thứ ba quản lý các định danh người dùng
+và luồng xác thực. Các nhà cung cấp định danh có sẵn theo mặc định là: Azure Active Directory (AAD), Google.
+
+1.	Trên bảng điều khiển, điều hướng đến **Setting**>**Provider**.
+2.	Nhấp **Add Provider**.
+
+![Providers Tab](/img/security-center/zta/providers-tab.png)
+
+3.	Điền thông tin.
+
+![Add Provider](/img/security-center/zta/add-provider.png)
+
+-	Type: Dịch vụ hỗ trợ xác thực (Google, Azure)
+-	Name: Tên của nhà cung cấp
+-	Client ID: ID ứng dụng là ID của ứng dụng cụ thể mà bạn đã tạo trong Azure Active Directory hoặc Google
+
+![Client Information](/img/security-center/zta/provider-client-information.png)
+
+-	Client Secret: Cho phép xác thực với Azure Active Directory bằng cách sử dụng mã bí mật khách hàng được tạo
+cho Đăng ký ứng dụng
+
+![Client Secret](/img/security-center/zta/provider-client-secret.png)
+
+-	Discovery URL: Theo đường dẫn tài liệu khám phá (https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration)
+
+    Ví dụ:
+
+![Discovery Url](/img/security-center/zta/provider-discovery-url.png)
+
+4.	Nhấp vào **Add**.
+
+## Bước 2: Tạo nhóm
+
+Nhóm cho phép quản lý các quy tắc cấu hình trên tất cả các tài khoản trong tổ chức
+
+1.	Di chuyển đến **Settings** > **Group**.
+2.	Nhấp **Add Group**.
+
+![Groups](/img/security-center/zta/provider-groups.png)
+
+3.	Điền thông tin.
+
+-	Name: Tên của nhóm
+-	Include: email, tên miền email
+
+![Add Group](/img/security-center/zta/provider-add-group.png)
+
+## Bước 3: Tạo Điểm kết thúc (Endpoint)
+
+1.	Di chuyển đến **Settings** > **Endpoint**.
+2.	Nhấp **Add Endpoint**.
+
+![Endpoints](/img/security-center/zta/provider-endpoints.png)
+
+3.	Nhập Name, URL, Session Duration, Groups, Providers.
+
+![Add Endpoint](/img/security-center/zta/provider-add-endpoint.png)
+
+-	Name: Tên của điểm cuối
+-	URL: Địa chỉ để truy cập đến điểm cuối
+-	Session Duration: Khoảng thời gian trong đó điểm cuối được tạo
+-	Groups: Xác định các quy tắc cho phép các tài khoản truy cập điểm cuối
+-	Providers: Dịch vụ hỗ trợ xác thực (Google, Azure)
+
+4.	Nhấp **Add**.
+5.	Truy cập vào điểm cuối để kiểm tra.

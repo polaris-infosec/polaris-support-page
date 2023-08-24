@@ -1,0 +1,89 @@
+# Content Security Policy (CSP)
+
+## What is CSP?
+
+**Content Security Policy (CSP)** is a browser mechanism that can help to prevent some types of
+cross-site scripting (XSS), clickjacking and other code injection attacks that result from the
+execution of malicious content in the trusted web page context. It works by restricting the
+resources (such as scripts and images) that a page can load and restrict whether a page can be
+framed by other pages. CSP itself is supported by all the major modern browsers.
+
+While a strong CSP can provide an effective second layer of protection against various types of
+attacks, it is not intended as a first line of defense against content injection vulnerabilities. CSP
+is best used as defense-in-depth. It reduces the harm that a malicious injection can cause, but it
+is not a replacement for careful input validation and output encoding.
+
+## How does CSP work?
+
+CSP can be implement in various ways. The most preferred approach would be to use the
+Content-Security-Policy or Content-Security-Policy-Report-Only HTTP response header field.
+The browsers use the rules defined in these headers to control the resources the user agent is
+allowed to load for a given page. A detailed explanation on CSP can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy).
+
+## Implementing CSP with Polaris
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+First, go to `Settings` of the selected site.
+
+![CSP Tab](/img/security-center/rules/csp-tab.png)
+
+Click on `CSP` to configure it.
+
+## Policies
+
+In the **Policies** tab, you are able to configure CSP settings for your webpage.
+
+![CSP Policies Tab](/img/security-center/rules/csp-policies-tab.png)
+
+CSP Policies Page
+
+There are two main settings on this page:
+
+-	**Blocking** / **Not blocking**: Chooses whether CSP is enforced on the webpage
+-	**Reporting** / **Not reporting**: Choose whether you would like to store reports on threats that
+have violated CSP on the webpage.
+
+    You may opt for a **Report-Only mode** by deploying CSP and not enforcing it (Set blocking
+    to off and reporting to on), it will report any violations to the policy under the 'Reporting' tab
+    but not actually enforce and block any of them.
+
+    One of the reasons this is done is so you may experiment, observe, and monitor the CSP,
+    and craft a better CSP using the reports produced. More details on the report are covered
+    below.
+
+There are additional inline script settings to configure CSP's protection against XSS attacks:
+
+-	**Allow unsafe inline scripts**: Allows the webpage to include arbitrary script tags
+-	**Allow eval() in script tags**: Allows scripts in the webpage to execute code using an eval() function
+-	**Allow unsafe inline style definitions**: Allow the webpage to include arbitrary style tags
+
+You are also able to make custom directives to allow your page to load resources from third
+party domains.
+
+![CSP Directives](/img/security-center/rules/csp-directives.png)
+
+There is also a section below which lets you review which headers have been configured, as
+well as how secure certain components are to XSS attacks:
+
+![CSP Preview](/img/security-center/rules/csp-preview.png)
+
+## Reports
+
+The reports page has records of all activities which have been blocked by the CSP rules. Do
+note that for the report to be generated, `Reporting` has to be turned on under CSP's Advanced
+Settings.
+
+Below is an example of how the `Reports` page could look when this setting is turned on:
+
+![CSP Report Tab](/img/security-center/rules/csp-report-tab.png)
+
+-	**Version**: The version number of the CSP. It can be found in the preview under the `Policies` function.
+-	**Directive**: The directive that caused the violation.
+-	**Last Time**: Last recorded date & time of violation.
+-	**Count**: The number of times it was recorded.
+-	**Blocked URI**: The URI of the resource that was blocked from loading by the CSP.
+
+    Apart from the details displayed about the violated CSP, there are also 2 action choices:
+-	**Allow**: The blocked rule will be added to the CSP header.
+-	**Ignore**: Removes it from the list.

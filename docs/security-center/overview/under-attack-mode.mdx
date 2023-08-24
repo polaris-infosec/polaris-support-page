@@ -1,0 +1,45 @@
+# Under Attack Mode
+
+## Under Attack Mode là gì?
+
+Under Attack Mode sẽ tự động kích hoạt khi trang web của bạn đang chịu bất kỳ cuộc tấn công nào như DDoS để cung cấp
+thêm bảo mật, hoặc bạn có thể kích hoạt nó thủ công. Khi được bật, **Under Attack Mode** sẽ hiển thị một thử thách
+**hCaptcha** đơn giản (như được hiển thị dưới đây) mà người dùng cần hoàn thành trước khi truy cập trang web.
+
+![Show Verify](/img/security-center/overview/under-attack-mode-verify.png)
+
+Những gì người dùng sẽ thấy khi họ truy cập trang web của bạn.
+
+![Show Verify](/img/security-center/overview/under-attack-mode-hcaptcha.png)
+
+Một trong những thử thách của hCaptcha
+
+## Làm thế nào để bật Under Attack Mode một cách thủ công?
+
+Bật **Under Attack Mode thủ công** rất đơn giản:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới trang web được chọn, chọn `Settings` hoặc `Security Center`
+
+Bạn sẽ thấy một bảng **Quick Settings / Actions** ở phía bên phải màn hình của bạn:
+
+![Actions](/img/security-center/overview/under-attack-mode-actions.png)
+
+Để bật chế độ này, đơn giản là chuyển nút bật sang vị trí ON.
+
+## Tại sao sử dụng chế độ Under Attack?
+
+Khi Chế độ Under Attack được bật, người dùng sẽ thấy một thử thách hCaptcha và điều này có thể được sử dụng để phân biệt
+lưu lượng tấn công/bot và lưu lượng người dùng bình thường (hợp pháp). Đây là một phương pháp phổ biến và được ưa chuộng
+để giúp giảm thiểu các cuộc tấn công tầng ứng dụng thông qua thử thách hCaptcha JavaScript mà Polaris phát hành khi chế
+độ này được bật, điều này hoạt động bởi vì những thử thách này thường chỉ có thể được giải quyết bởi con người.
+
+Sau khi người dùng xác thực bản thân thông qua thử thách, họ không cần phải làm điều đó lại lần sau khi truy cập vào
+trang web.
+
+Lưu ý rằng chế độ này được tắt theo mặc định và nếu một người dùng truy cập trang web của bạn với JavaScript bị vô hiệu
+hóa, thử thách này sẽ không hoạt động và do đó họ không có cách nào để truy cập trang web của bạn.
+
+Nếu bạn đang tìm kiếm một tính năng tương tự nhưng không yêu cầu người dùng giải quyết một thử thách, hãy xem xét tính
+năng [Browser Integrity Check](../access-control/browser-integrity-check).

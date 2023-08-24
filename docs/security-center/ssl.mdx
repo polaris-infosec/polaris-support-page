@@ -1,0 +1,34 @@
+# Cấu hình SSL
+
+Cài đặt này có thể được tìm thấy trong tab SSL trong cài đặt trang web của bạn.
+
+Để truy cập "Settings", nhấp vào menu thả xuống trên trang web được chọn:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `SITES`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+## Cài đặt nguồn gốc cho máy chủ Edge
+
+![SSL Tab](/img/security-center/ssl/ssl-tab.png)
+
+Trước tiên, chúng ta sẽ chọn cách bảo mật kết nối giữa máy chủ Polaris (Edge Servers) và trang web của bạn (Origin
+Server). Ba tùy chọn là (cũng được hiển thị trong hình ảnh phía trên):
+
+-	**Off**: Vô hiệu hóa kết nối được thực hiện qua HTTPS. Nếu người dùng cố gắng kết nối qua HTTPS, họ sẽ nhận được
+    chuyển hướng HTTP 301 đến HTTP văn bản thuần túy. **Điều này Không Được Khuyến Khích**.
+-	**Flexible**: Các kết nối được thực hiện đến máy chủ cạnh sẽ luôn là HTTPS nhưng kết nối từ máy chủ cạnh đến trang
+    web của bạn sẽ được thực hiện với HTTP.
+-	**Full**: Các kết nối sẽ tuân theo lược đồ của người dùng. Nếu người dùng kết nối với máy chủ cạnh bằng HTTPS, kết
+    nối đến trang web sẽ thông qua SSL/TLS, nếu không, nó sẽ là HTTP.
+
+## Luôn sử dụng HTTPS
+
+Tiếp theo, hãy chọn nếu bạn muốn luôn bật HTTPS. Cài đặt này sẽ đảm bảo rằng người dùng truy cập trang web của bạn
+luôn kết nối qua HTTPS, đó là cách an toàn hơn. Nếu bạn đang sử dụng WordPress, bạn cần thực hiện một số bước bổ sung
+như được hiển thị trong bài viết này: [HTTPS cho WordPress](https://make.wordpress.org/support/user-manual/web-publishing/https-for-wordpress/).
+
+## Chứng chỉ Edge
+
+Cuối cùng, nếu bạn có bất kỳ chứng chỉ Edge nào bạn muốn thêm, hãy nhập chúng dưới định dạng PEM. Việc này có thể được
+thực hiện thông qua nút **Add Certificate**, cho phép bạn tải lên các tệp cần thiết.

@@ -1,0 +1,40 @@
+# Browser Integrity Check - Polaris Loading Screen
+
+## Polaris Loading Screen là gì?
+
+Khi người dùng kết nối với một trang web được bảo vệ bởi Polaris, sẽ có màn hình tải thông báo cho họ biết rằng trang
+web được bảo vệ bởi Polaris và họ sẽ được chuyển hướng trong ít phút tới. Điều này là một phần của tính năng kiểm tra
+tính toàn vẹn trình duyệt.
+
+![Checking Screen](/img/security-center/access-control/browser-integrity-check-checking-screen.png)
+Nó xuất hiện trước khi hiển thị nội dung của trang web cho người dùng, nó nên mất 5 giây hoặc ít hơn.
+
+Chức năng này sử dụng dấu vân tay trình duyệt của người dùng để xác thực nó, ngăn chặn bot truy cập trang web.
+
+Nếu bạn muốn loại bỏ màn hình tải, vui lòng làm theo các bước dưới đây để tắt tính năng kiểm tra tính toàn vẹn trình duyệt.
+
+## Tắt màn hình tải (Tắt chế độ Browser Integrity)
+
+Sau khi đăng nhập vào bảng điều khiển Polaris, truy cập tab cài đặt của trang web mà bạn muốn tắt màn hình tải,
+nhấp vào menu thả xuống trên trang web đã chọn:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `SITES`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+Trong tab `General`, tab này sẽ được chọn theo mặc định:
+
+![Quick Actions](/img/security-center/access-control/browser-integrity-check-quick-actions.png)
+
+Trong bảng `Quick Actions`, bật/tắt công tắc cho Browser Integrity Mode.
+
+Lưu ý rằng bằng cách tắt tính năng này, màn hình tải sẽ bị vô hiệu hóa. Nếu giữ chế độ này được bật, màn hình tải sẽ
+chỉ xuất hiện trong vài giây.
+
+## Tùy chỉnh việc sử dụng tính năng này:
+
+Bạn có thể tùy chỉnh việc sử dụng tính năng kiểm tra tính toàn vẹn trình duyệt trong các quy tắc tùy chỉnh, để tính năng
+này chỉ kích hoạt trong những điều kiện nhất định. Lưu ý rằng để làm việc này, chế độ Browser Integrity phải
+được bật. Xem [bài viết](../rules/custom-rules) này để biết cách sử dụng các quy tắc tùy chỉnh.
+
+Đặt tên quy tắc theo sở thích của bạn, thiết lập điều kiện và toán tử của quy tắc, sau đó chọn **Browser Integrity Check**.

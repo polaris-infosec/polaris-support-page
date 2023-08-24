@@ -1,0 +1,31 @@
+# Load Balancing - what is it?
+
+**Load balancing**  is the process of efficiently distributing network traffic between multiple servers
+to ensure that no single server gets overloaded and stressed at any point in time.
+
+These are just some of the benefits of load balancing:
+
+-	Better responsiveness: Using multiple servers with load balancing ensures that no single
+server gets overloaded due to high demand which can result in long waiting times.
+-	Redundancy: It ensures that when one server fails, another server is ready to handle the
+site's traffic and keep it running.
+-	Scalability & Reduced downtime: If at any point in time maintenance tasks need to be
+carried out to a server, downtime is reduced because users of the site will not be affected.
+
+Polaris offers load balancing for all customer plans; which can be easily implemented using a
+custom rule under the `Rules` tab:
+
+![Load Balancing Setup](/img/general-knowledge/load-balancing.png)
+
+Load balancing can be implemented by adding 'DC's under the `Set DC` action in custom rules.
+The `DC IP` field will contain the address of your servers you would like to use for load
+balancing.
+
+Load balancing can be implemented by default or can be customized such that it only comes
+into effect based on certain requests determined by the condition of the custom rule. An
+example is as shown above where load balancing is only implemented if an incoming request is
+from the United States, you might want it to be like that because you tend to receive more
+requests from the United States than anywhere else.
+
+To find out more about custom rules and implement effective load balancing, check out this
+article: [Custom Rules](../security-center/rules/custom-rules).

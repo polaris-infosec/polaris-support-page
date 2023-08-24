@@ -1,0 +1,103 @@
+# Tổng quan Security Center
+
+Bài viết này tập trung vào trang tổng quan được đặt tại Security Center của Polaris. Trang tổng quan được thiết kế để
+bạn có thể dễ dàng nhìn thấy tình trạng bảo mật của trang web của mình và dễ dàng điều hướng đến trang cấu hình tương
+ứng từ đó. Để truy cập vào trang tổng quan:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `Sites`, chọn `Security Center`
+
+Khi truy cập vào trang mặc định, trang Overview sẽ được tải lên. Nó bao gồm hai phần chính: Thống kê trang web và
+Cài đặt nhanh.
+
+## Thống kê trang web
+
+Bảng thống kê trang web cung cấp một cái nhìn tổng quan về tình trạng bảo mật của trang web và hiển thị nếu có bất kỳ
+sự cố chưa được giải quyết.
+
+![Site Statistics](/img/security-center/overview/security-center-overview-site-statistics.png)
+
+
+## Sự cố
+
+- Tổng số sự cố
+- Số lượng sự cố đang mở và trong triage so với tổng số sự cố được phân loại theo mức độ **nghiêm trọng**
+- Thống kê về lưu lượng và yêu cầu được hiển thị trong 2 cột - **Hôm nay và Tháng này**
+- Cảnh báo **'Thông báo'** hoặc **'Cần chú ý'** được hiển thị khi có sự cố đang mở hoặc đang trong triage. Xem chú
+thích trong hình ảnh bên trên để biết thêm thông tin.
+
+## Threat Intelligence (Tình báo đe dọa)
+
+Các con số hiển thị số lượng:
+
+- Total Detected Threats (Tổng số đe dọa đã phát hiện)
+- Suspicious IPs (Địa chỉ IP đáng ngờ)
+- Compromised Data (Dữ liệu bị xâm phạm)
+- Phishing Sites (Các trang lừa đảo)
+
+Tương tự như Sự cố, Polaris cũng sẽ hiển thị cảnh báo **Thông báo** hoặc **Chú ý cần thiết** khi Polaris nhận ra thông
+tin từ các nguồn và chức năng tình báo đe dọa của mình.
+
+Một cảnh báo **Thông báo** được hiển thị khi Polaris phát hiện địa chỉ IP đáng ngờ.
+
+Một cảnh báo **Chú ý cần thiết** được hiển thị khi Polaris tìm thấy dữ liệu bị xâm phạm thuộc về trang web của bạn
+và/hoặc các trang lừa đảo tiềm ẩn liên quan đến tên miền của bạn.
+
+## Cài đặt Nhanh
+
+Menu này cho phép bạn bật/tắt một số tính năng bảo mật của Polaris. Có 3 tính năng như sau:
+
+1. Behavior Learning Mode
+
+- (Để biết thêm về chế độ này, xem [bài viết này](behavior-learning-mode))
+
+2. Under Attack Mode
+
+- Bật chế độ này sẽ hiển thị một thử thách Javascript cho người dùng khi truy cập vào trang web:
+
+![Show Verify](/img/security-center/overview/under-attack-mode-verify.png)
+Khách truy cập phải vượt qua (các) thử thách đơn giản trước khi truy cập trang web.
+
+Polaris sẽ hiển thị một thử thách hCaptcha yêu cầu người dùng giải quyết trước khi truy cập trang web, điều này có thể
+giúp ngăn chặn bot và spam vì những câu hỏi này dễ dàng đối với con người nhưng khó đối với máy tính. Để tìm hiểu thêm
+về hCaptcha và những gì nó làm, hãy truy cập [trang web](https://www.hcaptcha.com/) của họ.
+
+3. Edge Caching
+
+- Bật Edge Caching sẽ cho phép Polaris lưu trữ nội dung tĩnh trên trang web của bạn để người dùng có thể truy cập nội dung
+tĩnh nhanh hơn.
+
+Nội dung tĩnh không được tạo ra động và xuất hiện giống nhau đối với mỗi khách truy cập vào trang web của bạn, do đó,
+nó có thể được lưu trữ trên một máy chủ cạnh để giảm thời gian tải. Những máy chủ cạnh này thường tồn tại ở `cạnh` của
+một mạng, điều này giữ cho nội dung gần với khách hàng, giảm độ trễ trong việc truy cập nội dung này. Những lợi ích của
+việc làm này là giảm băng thông của máy chủ nguồn và giảm tốc độ tải trang cho người truy cập.
+
+## Các cài đặt khác
+
+Bạn cũng có thể xem thông tin về các cài đặt khác ở đây:
+
+![Show Verify](/img/security-center/overview/security-center-overview-other-settings.png)
+
+Bạn có thể nhấp vào các cài đặt này để chuyển hướng trực tiếp đến trang cấu hình của nó.
+
+
+## Các luật hoạt động WAF
+
+*Các văn bản màu xanh dưới đây có thể được nhấp để đưa bạn đến một bài viết giải thích thêm về tính năng bảo mật.*
+
+- Số [điểm cuối API](../api-security/api-endpoints)
+- Một công tắc nhanh để bật/tắt các [quy tắc OWASP](../rules/owasp)
+- Số [quy tắc N-Day](../rules/n-day) đang hoạt động
+- Số lượng [Quy tắc tùy chỉnh](../rules/custom-rules) đang hoạt động
+
+## Access Control
+
+- Số [địa chỉ IP được cho phép truy cập](../access-control/whitelist-ip)
+- Số [địa chỉ IP bị cấm truy cập](../access-control/blacklist-ip)
+- Số [khu vực bị chặn](../access-control/geo-access)
+
+## Bản ghi trang web
+
+- [Bản ghi DNS](../dns/dns-record)
+- IP Polaris

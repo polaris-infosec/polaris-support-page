@@ -1,0 +1,86 @@
+# Các cuộc tấn công - Polaris phát hiện và làm gì?
+
+**Polaris xác định một lượng lớn các mối đe dọa có thể xảy ra đối với trang web của bạn. Trong bài viết này, chúng tôi
+không đề cập đầy đủ, nhưng nó bao gồm các loại tấn công phổ biến và phổ biến hơn mà có thể xảy ra đối với trang web của
+bạn cũng như một số phương pháp bảo vệ của chúng tôi. Các loại tấn công này cũng được liệt kê dưới mục
+[Security Events](../security-center/incidents/security-events) để bạn có thể xem xét những loại tấn công thông
+thường đối với tổ chức của bạn và những gì đang được thực hiện bởi WAAP để ngăn chặn chúng.**
+
+**API Validator**: Polaris xác định và kiểm tra dữ liệu được gửi qua các điểm kết nối của ứng dụng của bạn với các nền
+tảng, hệ thống và dịch vụ khác. Việc xác thực được thực hiện theo thông số kỹ thuật điểm cuối API được liệt kê và cấu
+hình trong tab [bảo mật API](../security-center/api-security/why-api).
+
+**BGP DOS (Từ chối Dịch vụ Giao thức Cổng Biên giới)**: Cuộc tấn công này xảy ra khi một thiết bị độc hại gửi một lượng lưu
+lượng BGP không mong muốn nhằm tiêu thụ tất cả tài nguyên BGP/CPU với mục tiêu làm ngừng hoạt động trang web.
+
+**Custom Rules**: Polaris có khả năng xác định các loại tấn công dựa trên các [luật tùy chỉnh](../security-center/rules/custom-rules)
+được cấu hình bởi người dùng WAAP. Các luật tùy chỉnh quy định các yêu cầu lưu lượng truy cập được cho phép thông qua
+WAAP, do đó bất kỳ yêu cầu nào không đáp ứng tiêu chuẩn theo quy định trong luật sẽ được đánh dấu trong security event
+như đã bị chặn hoặc đòi hỏi điều tra bổ sung. Luật tùy chỉnh đặc biệt hữu ích nếu một tổ chức hoặc người dùng biết rằng
+họ có thể dễ bị tổn thương bởi các loại tấn công cụ thể.
+
+**Data Leaks**: Polaris xác định dữ liệu người dùng bị rò rỉ như email và mật khẩu thông qua các rò rỉ. Đây là một tính
+năng cụ thể của khả năng Tình báo Mối đe dọa, cung cấp cho tổ chức nguồn của sự rò rỉ nếu có thể xác định được. Mặc dù
+WAAP không thể trực tiếp làm gì về sự rò rỉ, nhưng việc biết về việc bị xâm phạm cho phép tổ chức thực hiện các biện
+pháp thích hợp để đảm bảo liên tục hoạt động và giảm thiểu thiệt hại.
+
+**DoS (Từ chối Dịch vụ)**: Một máy tính duy nhất được sử dụng để tấn công một máy chủ bằng gói tin TCP và UDP, yêu cầu
+nhằm quá tải máy chủ và làm ngừng hoạt động trang web của bạn.
+
+**DDoS (Từ chối Dịch vụ Phân tán)**: Trái ngược với DoS, DDoS sử dụng nhiều máy tính được liên kết với nhau trong một
+mạng botnet để tấn công tràn lan vào các máy chủ.
+
+**Java**: Tương tự như PHP, các cuộc tấn công này dựa trên các lỗ hổng tồn tại trong mã Java, nếu khai thác, cho phép kẻ
+tấn công thực hiện các cuộc tấn công độc hại vào trang web. Một trong những cách Polaris xác định các cuộc tấn công
+Java là thông qua việc triển khai phát hiện dựa trên chữ ký - tìm kiếm một định danh độc đáo như một chuỗi mã hoặc
+hash có thể có tính độc hại, nhằm ngăn chặn các cuộc tấn công.
+
+**LFI (Local File Inclusion - Bao gồm Tệp cục bộ)**: Cuộc tấn công này liên quan đến kẻ tấn công lừa ứng dụng web để
+tiết lộ một tệp tin có sẵn trên máy chủ. Thông thường, điều này xảy ra khi đường dẫn tệp tin được sử dụng như đầu
+vào. Một cuộc tấn công LFI có thể dẫn đến tiết lộ thông tin và thường là do thiếu xác thực. Polaris sử dụng nhiều
+tham số để phát hiện cuộc tấn công LFI.
+
+
+**N-Day**: Các cuộc tấn công đã được biết đến và công bố. Chữ 'n' có thể chỉ số ngày kể từ khi phát hiện hoặc xác định
+mối đe dọa và khi tổ chức bị tấn công bởi mối đe dọa. Polaris xác định và giảm thiểu các cuộc tấn công này dựa trên
+các luật N-Day trong cài đặt và cấu hình hệ thống.
+
+**PHP**: Các cuộc tấn công dựa trên các lỗ hổng tồn tại trong mã PHP, thường do thiếu việc làm sạch dữ liệu nhập từ
+người dùng. Điều này cho phép kẻ tấn công thực hiện các cuộc tấn công độc hại trực tiếp trên trang web bằng cách
+sử dụng các trường và hộp nhập dữ liệu khác nhau như ô bình luận hoặc biểu mẫu liên hệ. Một trong những cách Polaris
+xác định và ngăn chặn các cuộc tấn công này là triển khai phát hiện dựa trên chữ ký.
+
+**Protocol**: Thường khai thác một tập hợp các quy tắc thiết lập quy trình với mục tiêu tiêu thụ một lượng tài nguyên
+quá mức. Một số cuộc tấn công giao thức phổ biến là lũy thừa SYN, ping chết, tấn công gói tin.
+
+**RCE (Thực thi mã từ xa)**: Một trong những loại cuộc tấn công quan trọng nhất, khi kẻ tấn công tìm cách chèn mã độc
+hại vào máy chủ, máy chủ sau đó không biết chạy mã đó. Mã khi chạy cho phép kẻ tấn công vượt qua kiểm soát truy cập
+để hoàn toàn kiểm soát hệ thống hoặc truy xuất các tệp tin và dữ liệu bị hạn chế.
+
+**RFI (Bao gồm Tệp từ xa)**: Tương tự như cuộc tấn công LFI, nhưng thay vì truy cập một tệp tin cục bộ, nó truy cập một
+tệp tin từ xa. Nó có thể buộc ứng dụng web chạy mã độc hại của kẻ tấn công. Polaris sử dụng nhiều tham số để phát hiện
+cuộc tấn công RFI.
+
+**Scanners**: Còn được gọi là quét trang web, kẻ tấn công sử dụng các công cụ quét để thu thập nhiều thông tin về
+trang web của bạn như có thể trong giai đoạn ban đầu của cuộc tấn công. Càng ít thông tin được tiết lộ, càng tốt,
+giúp bạn ngăn chặn một cuộc tấn công. Với ít thông tin được khám phá, sẽ cần nhiều thời gian và tài nguyên hơn để tấn
+công trang web của bạn. Phát hiện quét là dấu hiệu cảnh báo sớm cho biết trang web của bạn đang bị nhắm mục tiêu, một
+dịch vụ được cung cấp bởi Polaris.
+
+**Session Fixation**: Cho phép kẻ tấn công chiếm đoạt một phiên người dùng hợp lệ bằng cách sử dụng một ID phiên người
+dùng hợp lệ để truy cập vào tài khoản người dùng. Điều này có thể xảy ra khi ứng dụng web không xác thực phiên hiện có.
+
+**SQLI (SQL Injection)**: Sử dụng mã SQL độc hại trong các trường và hộp trang web như biểu mẫu liên hệ để thao túng cơ
+sở dữ liệu để truy cập thông tin không được hiển thị. Thông tin này có thể là bất cứ điều gì được lưu trữ trong cơ
+sở dữ liệu, từ đơn đặt hàng của khách hàng đến số thẻ tín dụng và thông tin cá nhân. Polaris có thể giúp phát hiện
+và lọc các mã này để ngăn chặn cuộc tấn công.
+
+**Temporary Ban**: Polaris tạm thời cấm người dùng mà nó phát hiện đang thực hiện các hoạt động đáng ngờ trên trang web,
+không cho phép truy cập.
+
+**XSS (Cross-Site Scripting)**: XSS xảy ra khi mã độc hại được tải vào trình duyệt của khách truy cập và sau đó thực
+thi, đây được gọi là cuộc tấn công phía máy khách vì tổ chức không bị tấn công trực tiếp, mà là khách truy cập trang
+web của tổ chức. Điều này thường xảy ra dưới dạng một đoạn mã từ kẻ tấn công, chẳng hạn như một hộp thoại xuất hiện,
+mà khách truy cập vào một trang web đáng tin cậy có thể vô tình nhấp vào. Vì là một trang web đáng tin cậy theo quy
+định của trình duyệt, đoạn mã độc hại này thường được thực thi bởi trình duyệt. Đoạn mã này cũng có thể truy cập thông
+tin nhạy cảm như cookie và mã thông báo phiên.

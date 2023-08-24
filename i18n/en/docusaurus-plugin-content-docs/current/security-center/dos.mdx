@@ -1,0 +1,56 @@
+# DoS Protection & Rate Limiting
+
+## What are DoS attacks?
+
+Distributed Denial of Service (DoS) attacks usually consist of a large number of requests to your
+website made by bots. This can result in server lag, your website becoming unreachable due to
+the bandwidth allocated to your website being consumed by the useless traffic as opposed to
+your actual viewers.
+
+Polaris' DoS defense allows for the protection of your web application across Layers
+7. Layer 7 defense is controlled via Rate Limiting, set by platform configuration settings.
+
+## What is Rate Limiting?
+
+Rate limiting is the process in which the amount of requests to your web server within a set
+amount of time is controlled. That means that when a DoS attack happens, instead of all the
+traffic flooding your servers at once, the WAAP acts as a traffic control guard, allowing only a
+certain amount to reach your server at a time.
+
+DoS Rate Limiting can be found under the `Policies` tab in your website settings, to access
+`Settings`, click the drop-down menu on the selected site:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Under `Sites`, go to `Settings`
+
+## Configuration
+
+Click on the `Policies` Tab to access configure DoS protection via Rate Limiting. See
+configurations belows:
+
+![Policies Tab](/img/security-center/ddos/policies-tab.png)
+
+There are two categories of DoS protection, **global** and **client**:
+
+-	**Global** protection sets the threshold for number of connections from any sources to the
+server.
+-	**Client** protection sets the threshold for number of connections from any one particular
+user to the server.
+
+There are two settings for each category, **domain** threshold and **burst** threshold which will limit
+the rate (Rate Limiting) at which requests may be made to your web application:
+
+-	**Domain** threshold refers to the minimum number of requests over a period of 10 seconds
+before DoS protection is activated. This helps to identify DoS attacks where requests
+slowly increase in number over a longer period of time. Minimum value: 5000
+-	**Burst** threshold refers to the minimum number of requests over a period of 5 seconds,
+before DoS protection is activated. This helps to identify DoS attacks where there is a
+sudden increase in requests in a short period of time. Minimum Value: 1000
+
+Do note that there are minimum values for each field and that these are the default settings for
+DoS protection. Once the relevant changes have been made, be sure to press the
+blue **Update** button to save your changes.
+
+In addition to **Rate Limiting**, Polaris also utilizes **horizontal scaling**, its **Anycast network**, and
+[Load Balancing](../general-knowledge/load-balancing) to distribute traffic in mitigation of DoS attacks.

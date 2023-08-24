@@ -1,0 +1,52 @@
+# Content Security Policy (CSP) và Cross-Origin Resource Sharing (CORS) - chúng là gì?
+
+## Content Security Policy (CSP)
+
+CSP là một cơ chế trình duyệt có thể giúp phát hiện và ngăn chặn một số loại tấn công web phổ biến như Cross-Site
+Scripting (XSS).
+
+Vì hầu hết các trang web hiện đại yêu cầu phải tải nội dung động, điều quan trọng là nội dung được tạo động từ nguồn
+hợp lệ. CSP cho phép bạn chỉ định nguồn hợp lệ và chỉ thực thi các tài nguyên được phân quyền trong cài đặt CSP của
+bạn, bỏ qua các tập lệnh và tài sản khác không nằm trong danh sách được phê duyệt.
+
+CSP giúp giảm và ngăn chặn các cuộc tấn công như XSS bằng cách cho phép bạn xác định các tài nguyên được phép
+và nơi các tài nguyên có thể được tải từ, ngăn trình duyệt tải tài nguyên từ những vị trí có thể độc hại. Nó cung cấp
+một lớp bảo vệ bổ sung, tuy nhiên, lưu ý rằng nó không ngăn chặn XSS bằng cách ngăn chặn đầu vào độc hại được hiển thị,
+mà làm giảm nó bằng cách cho trình duyệt biết **không thực thi nó** vì các quy tắc xác định rằng nó không đến từ nguồn đúng.
+Ví dụ, nếu một tập lệnh bên ngoài độc hại được tải lên phía khách hàng, nó sẽ kích hoạt quy tắc CSP và bị chặn khỏi thực thi.
+
+Một trong nhiều ví dụ mà quy tắc CSP của Polaris có thể giúp đỡ là ngăn chặn JavaScript được thực thi inline, điều này
+có lợi trong trường hợp tấn công XSS vì một kẻ tấn công có thể cố gắng thực thi JavaScript trong ứng dụng web của bạn.
+
+Hãy xem bài viết này để tìm hiểu chi tiết tính năng CSP của Polaris: [Điều khoản an ninh nội dung (CSP)](../security-center/rules/csp)
+
+![CSP Policies Tab](/img/security-center/rules/csp-policies-tab.png)
+Cấu hình Polaris CSP.
+
+## Chia sẻ Tài nguyên xuyên nguồn (CORS)
+
+Truyền thống, một trang web sử dụng chính sách cùng nguồn gốc. Chính sách này đảm bảo tài nguyên của trang web của bạn
+không thể truy cập được bởi một trang web khác. Tuy nhiên, điều này không khả thi trong hầu hết các trang web hiện đại
+yêu cầu tài nguyên được tải từ các nguồn bên ngoài. Do đó, việc thực thi chính sách cùng nguồn gốc không phải lúc nào
+cũng khả thi.
+
+Đây là lúc chia sẻ Tài nguyên xuyên nguồn (CORS) có thể hữu ích. CORS được áp dụng thông qua tiêu đề HTTP và cho phép
+truy cập vào các tài nguyên từ một tên miền được liệt kê trong danh sách trắng.
+
+CORS giúp kiểm soát và tùy chỉnh chính sách cùng nguồn gốc của bạn để phục vụ một số nội dung cụ thể, có thể được sử
+dụng khi bạn sở hữu nhiều tên miền và yêu cầu chia sẻ dữ liệu giữa chúng.
+
+## Triển khai CSP và CORS trong Polaris
+
+Polaris cho phép bạn cấu hình các chính sách CSP và CORS trong các thiết lập và cấu hình cho từng tên miền riêng biệt.
+
+Polaris cung cấp tính linh hoạt khi sử dụng CSP và CORS để cung cấp bảo mật bổ sung cho ứng dụng web của bạn, dễ dàng
+bật chúng và cấu hình chúng cho phù hợp với việc sử dụng trên trang web của bạn.
+
+CSP và CORS là các tính năng bảo mật mạnh mẽ. Tuy nhiên, cần lưu ý rằng CSP và CORS chỉ nên được bật khi người dùng
+biết rõ về chúng và kịch bản yêu cầu, vì các cấu hình sai có thể làm suy yếu bảo mật của trang web, khiến nó dễ bị tấn
+công hơn. Đây không phải là tính năng mà mỗi người dùng đều cần. Nếu bạn có bất kỳ thắc mắc nào về triển khai, hãy tạo
+một sự cố và liên hệ với đội ngũ Polaris.
+
+Bạn có thể triển khai CSP để chỉ báo cáo và không chặn, giữ cho trang web của bạn hoạt động mà vẫn cho phép bạn kiểm
+tra các cấu hình CSP khác nhau. Bạn có thể tìm hiểu thêm về nó [tại đây](../security-center/rules/csp).

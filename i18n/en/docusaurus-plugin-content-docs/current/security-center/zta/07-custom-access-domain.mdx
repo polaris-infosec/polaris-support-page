@@ -1,0 +1,14 @@
+# 7. Zero Trust Access (ZTA) - Custom Access Domain
+
+A part of the Zero Trust Access feature is allowing for a customized access domain so that
+authorized users can log into your zero trust applications. Within the Zero Trust settings, you'll
+find this option under the Configuration tab.
+
+![Config](/img/security-center/zta/custom-access-domain-config.png)
+
+**Note**:
+
+If using your custom access domain:
+-	You need to add a CNAME record that points your new access domain to **the custom domain name**.
+-	You must use Polaris DNS for your custom access domain:
+o	You must enable the **Firewall** in **DNS Settings** for that record.

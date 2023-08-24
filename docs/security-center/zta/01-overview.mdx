@@ -1,0 +1,60 @@
+# 1. Tổng quan về Zero Trust Access (ZTA)
+
+## Zero Trust Access
+
+Tính năng Zero Trust Access (ZTA) của Polaris được thiết kế để cung cấp nhiều kiểm soát hơn đối với các ứng dụng khi
+người dùng có thể cung cấp một hệ thống đăng nhập cho các ứng dụng hiện có để đảm bảo tất cả quyền truy cập đều được
+xác minh và được ủy quyền trước. Về cơ bản, để truy cập vào một ứng dụng, chẳng hạn như một trang web phát triển mà có
+thể không được phổ biến, tính năng ZTA sẽ thêm chức năng đăng nhập để người dùng được xác thực trước tiên. Nó thêm một
+lớp bảo mật bổ sung cho bất kỳ ứng dụng cần thiết nào.
+
+Khách hàng doanh nghiệp được cung cấp 15 người dùng ZTA miễn phí. Khách hàng trên các gói khác có thể nâng cấp để sử
+dụng tính năng này hoặc mua các chỗ ngồi người dùng cá nhân.
+
+Để thêm Zero Trust Access:
+1.	Chọn Nhà cung cấp bạn muốn cho dịch vụ Single Sign On (SSO) - Google hoặc Microsoft Azure.
+2.	Tạo một Nhóm để xác định những người sẽ được truy cập vào các dịch vụ ZTA (Sau đó, người dùng sẽ được liệt kê dưới tab Người dùng)
+3.	Thêm Ứng dụng của bạn
+4.	Chỉnh sửa chủ đề của bạn hoặc cấu hình URL callback của bạn
+
+### Menu ZTA
+
+![ZTA Menu](/img/security-center/zta/zta-menu.png)
+
+-	**Providers**
+
+    ZTA sử dụng các nhà cung cấp bên thứ ba để quản lý xác thực và ủy quyền người dùng thông qua SSO. Các nhà cung cấp
+    này là các ứng dụng OAuth 2.0 được thiết lập sẵn để người dùng chỉ cần sử dụng thông tin đăng nhập OAuth để thiết
+    lập nhà cung cấp mới. Hiện tại, Polaris hỗ trợ Azure Active Directory và Google Cloud Platform.
+    [Đọc thêm](add-providers).
+-	**Groups**
+
+    Nhóm xác định người dùng nào có thể truy cập các điểm cuối được bảo vệ dựa trên vai trò hoặc phòng ban của tổ chức
+    họ. Nó cho phép truy cập vào các ứng dụng theo số lượng lớn mà không cần phải thêm từng người dùng vào các ứng dụng
+    cụ thể. Nhóm dựa trên Email hoặc Email Domain và được tùy chỉnh bởi quản trị viên Tổ chức cho ZTA. Người dùng sẽ
+    thấy dễ dàng để thêm hoặc xóa người trong nhóm của bạn.
+    [Đọc thêm](add-groups).
+-	**Users**
+
+    Để quản lý người truy cập vào ứng dụng của bạn, danh sách người dùng được sử dụng để kiểm soát ai có quyền truy cập.
+    Chỉ vì một người dùng được thêm vào tổ chức của bạn để xem và quản lý WAAP, không có nghĩa là họ tự động đăng ký vào
+    danh sách người dùng ZTA. Dưới tab Người dùng, bạn có thể thêm, xem hoặc thu hồi quyền thành viên ZTA bất cứ lúc nào.
+    Người dùng thực sự được thêm vào danh sách ZTA khi bạn tạo nhóm của mình.
+    [Đọc thêm](users).
+-	**Applications**
+
+    Truy cập ứng dụng được thiết lập bởi các nhà cung cấp như Google hoặc Microsoft thông qua đăng nhập một lần (SSO)
+    để chỉ cần nhấp chuột để xác thực an toàn. Danh sách người dùng có thể truy cập vào các ứng dụng này cũng được
+    thiết lập thông qua tính năng Zero Trust Access. Tính năng này cũng hỗ trợ các tên miền phụ và đường dẫn. Để biết
+    cách thêm ứng dụng để sử dụng các tính năng ZTA, [hãy đọc thêm](add-applications).
+-	**Login Page Configuration**
+
+    Chúng tôi đã tạo ra một trang đăng nhập đơn giản và sạch sẽ cho người dùng với trình chỉnh sửa chủ đề theo yêu cầu
+    để tùy chỉnh cho tổ chức của bạn. Bạn cũng có thể xem trước trang đăng nhập của mình trước khi lưu bất kỳ thay đổi
+    nào. [Đọc thêm](login-theme).
+-	**Custom Access Domain**
+
+    Hiện tại, miền [polarisaccess.com](https://polarisaccess.com/) của chúng tôi là điểm truy cập mặc định đến ứng dụng
+    web của bạn, nơi màn hình đăng nhập được duy trì, nhưng bạn hoàn toàn có thể thay thế nó bằng tên miền riêng của
+    mình. Hãy nhớ rằng bạn cần thay đổi một số cài đặt trước khi sử dụng tên miền truy cập tùy chỉnh của mình.
+    [Đọc thêm](custom-access-domain).

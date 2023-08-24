@@ -1,0 +1,77 @@
+# Guard (Basic Authentication)
+
+Guard allows Polaris to secure a specific page or endpoint, requiring users to enter login
+credentials before they are allowed access to the page. Do note that for this feature to be
+enabled, your page has to be protected by Polaris. To access this settings page, please go to
+the `Guard` tab under the settings of the page you would like to protect.
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Under `SITES`, select your domain and click on `Settings`.
+
+![Guard Tab](/img/security-center/guard/guard-tab.png)
+
+Navigation to Guard settings page
+
+There are two steps to enable this feature, both of which can be configured on this page.
+
+![Guard Page](/img/security-center/guard/guard-page.png)
+
+## Creating Authorized Accounts/Credentials
+
+In this step, you will be creating the login credentials and accounts that will have access to your
+page and endpoints.
+
+![Basic Auth Accounts](/img/security-center/guard/basic-auth-accounts.png)
+
+Existing accounts can be edited with `the pencil` button, or deleted with the red `trash bin` button.
+
+To create a new authorized account, click the `Add Account` button. This will open a pop-up,
+prompting you to fill in the necessary fields.
+
+![Add Account](/img/security-center/guard/add-account.png)
+
+Do note that the name field is for your reference and that only the **username and password are
+used for the actual login process**.
+
+Once you have added the new credentials, you will see a new entry. Do note that you would not
+be able to see the password after creation, you will only be able to see a series of asterisks. If
+you ever lose your password, simply create a new one by editing the credential account.
+
+## Creating the endpoint
+
+n this step, you will be creating endpoints on your page and assigning credentials to the
+endpoint. This will only allow certain credential holders to enter that specific endpoint.
+
+![Endpoints](/img/security-center/guard/endpoints.png)
+
+Existing endpoints can be edited on this page with `the pencil` icon, or deleted with the red `trash
+bin` icon.
+
+To create a new endpoint, click the `Add Endpoint` button. This will open a new pop-up where
+you will be prompted to fill in the necessary fields. The descriptions for each field are provided.
+Do note that you have to have created at least one credential before creating an endpoint.
+
+Under `Credentials`, you may select the user(s) that are able to access this endpoint with their
+credentials.
+
+![Add Endpoints](/img/security-center/guard/add-endpoint.png)
+
+Your endpoint is now protected. Users accessing the endpoint would face a pop-up that would
+request them to enter their credentials before the page will load in.
+
+![Protected Endpoints](/img/security-center/guard/protect-endpoint.png)
+Protected Endpoint
+
+## Ensuring Guard works
+
+It is highly recommended that the endpoint be tested after page guard has been implemented.
+
+You might occur an issue where after Guard has been set up and the right user and password
+have been entered, you are still denied access to the site.
+
+Depending on your server and browser, Guard might only work when your [SSL configuration](ssl) is
+set to Flexible or Full (which is also the recommended SSL setting).
+
+If you have been successfully authenticated and would like to be re-authenticated again, please
+clear your cookies or use incognito/private mode on your browser.

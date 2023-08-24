@@ -1,0 +1,28 @@
+# DNSSEC
+
+## DNSSEC là gì?
+
+DNSSEC thêm một lớp xác thực bổ sung vào kiến trúc DNS hiện có. Một mình, DNS là không an toàn và dễ bị tấn công trên
+đường đi hoặc các loại tấn công giả mạo DNS khác. Bật DNSSEC đảm bảo rằng khách truy cập của bạn sẽ truy cập vào trang
+web của bạn khi nhập tên miền của bạn vào trình duyệt web của họ, và không bị chuyển hướng đến các trang web giả mạo.
+
+## Bật DNSSEC trên Polaris
+DNSSSEC có thể được kích hoạt trong tab `DNS` của trang cài đặt trang web trên Polaris.
+
+![Enable DNSSEC](/img/security-center/dns/dnssec-enable.png)
+
+Sau khi DNSSEC được kích hoạt, bạn sẽ được hiển thị một loạt các bản ghi cần thêm vào trình quản lý tên miền của bạn.
+Các ví dụ phổ biến về trình quản lý tên miền là [GoDaddy](https://ph.godaddy.com/help/add-a-ds-record-23865),
+[Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9722/2232/managing-dnssec-for-domains-pointed-to-custom-dns/)
+và [Google Domains](https://support.google.com/domains/answer/6147083?hl=en&visit_id=638205977536883713-2000001299&rd=1#zippy=%2Ccustom-name-servers)
+(tham khảo tùy chọn Custom Name servers). Vui lòng làm theo hướng dẫn trên cơ sở kiến thức của trình quản lý tên miền
+của bạn để cấu hình các thiết lập này. Lưu ý rằng bất kỳ sai cấu hình nào sẽ dẫn đến trang web của bạn trở nên không
+thể truy cập.
+
+![Setup DNSSEC](/img/security-center/dns/dnssec-setup.png)
+
+Sau khi bạn đã thêm các bản ghi vào trình quản lý tên miền của mình, có thể mất đến một giờ để các thay đổi được phản
+ánh trên Polaris. Trạng thái của thiết lập sau đó sẽ được thay đổi thành DNSSEC được kích hoạt và bạn đã hoàn tất việc
+thiết lập DNSSEC.
+
+![Setup DNSSEC Success](/img/security-center/dns/dnssec-setup-success.png)

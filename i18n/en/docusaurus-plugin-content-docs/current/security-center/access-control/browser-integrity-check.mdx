@@ -1,0 +1,44 @@
+# Browser Integrity Check - Polaris Loading Screen
+
+## What is the loading screen?
+
+When a user first connects to a website protected by Polaris, there is a loading screen informing
+them that the website is protected by Polaris and that they will be redirected shortly. This is part
+of the browser integrity check feature.
+
+![Checking Screen](/img/security-center/access-control/browser-integrity-check-checking-screen.png)
+It appears before displaying the site's content to the user, it should take 5 seconds or less.
+
+This feature fingerprints the user's browser to validate it, preventing bots from accessing the
+site.
+
+If you would like to remove this loading screen, please follow the steps below to turn off the
+browser integrity check feature.
+
+## Deactivating the loading screen (Turn off Browser Integrity Mode)
+
+Once you have logged into the Polaris dashboard, head to the settings tab of the webpage you
+would like to turn off the loading screen for, click the drop-down menu on the selected site:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Under `SITES`, select your domain and click on `Settings`.
+
+In the `General` tab, which should be selected by default:
+
+![Quick Actions](/img/security-center/access-control/browser-integrity-check-quick-actions.png)
+
+Under the `Quick Actions` table, flip the on/off switch for Browser Integrity Mode.
+
+Note that by turning this off, the loading screen will be deactivated. Keeping this mode turned on
+will present the loading screen which should last only a few seconds.
+
+## Customising the usage of this feature:
+
+You can customise the usage of the browser integrity check feature in custom rules, such that
+this feature only activates under certain conditions, note that for this to work, browser integrity mode has to be
+turned on. Refer to this [article](../rules/custom-rules) on using custom rules.
+
+Name the rule as per your preference, set the rule conditions and operators, then choose
+**Browser Integrity Check** as the action.
+

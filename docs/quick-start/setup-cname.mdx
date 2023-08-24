@@ -1,0 +1,60 @@
+# Thiết lập với bản ghi CNAME
+
+**Thiết lập với bản ghi CNAME là một trong hai cách mà bạn có thể đăng ký tên miền của mình để bảo vệ với WAAP của
+Polaris. Đây là phương pháp nâng cao và hầu hết người dùng sẽ đăng ký qua phương pháp Name Servers.**
+
+Sau khi đăng ký cho WAAP, trình hướng dẫn thiết lập sẽ tự động đưa bạn qua các bước sau đây.
+
+### Bước 1: Xác minh tên miền:
+
+Bước này sẽ được thực hiện trên nhà cung cấp DNS, đó là công ty duy trì dịch vụ web. Vui lòng tham khảo
+câu hỏi thường gặp hoặc cơ sở kiến thức của nhà cung cấp DNS để biết cách thêm bản ghi TXT.
+
+![Add Record](/img/quick-start/setup-cname-add-record.png)
+
+Hình ảnh trên đây là từ việc thêm một bản ghi TXT trên trang web của Polaris. Nó sẽ trông tương tự trên trang web của
+nhà cung cấp DNS của bạn. Hãy tạo một bản ghi với các thiết lập sau:
+
+- Chọn `Record Type` để là TXT
+- Để trường `Name` trống hoặc với `@`
+- Đối với trường `Text`, vui lòng sao chép và dán giá trị được hiển thị trên trình hướng dẫn thiết lập
+- Đặt `TTL` là tự động
+
+Các thiết lập này có thể không xuất hiện theo thứ tự được chỉ định, vì vậy vui lòng nhập các giá trị tương ứng vào các
+trường chính xác.
+
+Quá trình xác minh này có thể mất đến một ngày để hoàn thành. Sau khi xác minh được hoàn tất, bạn sẽ nhận được một email
+và bạn có thể tiếp tục với Trình hướng dẫn thiết lập.
+
+### Bước 2: Origin Server (Máy chủ gốc)
+
+Trong bước này, bạn sẽ thêm địa chỉ IP của các máy chủ trang web (còn được gọi là Origin Server)
+
+![Origin Server](/img/quick-start/setup-cname-origin-server.png)
+
+Nhấp vào nút `Add Server` màu xanh, đây sẽ hiển thị một cửa sổ khác để bạn nhập địa chỉ IP của máy chủ. Nếu bạn có
+nhiều Origin Server, vui lòng lặp lại thao tác này cho mỗi máy chủ.
+
+![Add Origin Server](/img/quick-start/setup-cname-add-origin-server.png)
+
+Nếu xảy ra lỗi trong quá trình thêm Origin Server, hãy loại bỏ máy chủ đó bằng tùy chọn loại bỏ và thêm
+lại. Khi bạn đã thêm tất cả các Origin Server của mình, hãy nhấn vào nút `Next` màu xanh ở dưới cùng màn hình.
+
+### Bước 3: Cấu hình tên miền
+
+Trong bước này, bạn sẽ cấu hình tên miền của mình để kết nối với Polaris. Để làm điều này, bạn có thể thêm bản ghi A
+hoặc CName.
+
+![Domain Config](/img/quick-start/setup-cname-domain-config.png)
+
+Chọn loại bản ghi tương ứng, nhập tên của nó vào trường `Name` và chọn máy chủ nguồn nào mà bản ghi thuộc về từ danh sách
+thả xuống. Danh sách thả xuống sẽ chứa các máy chủ nguồn được thêm trong bước 2. Bạn cũng có thể loại bỏ bất kỳ bản ghi
+nào được thêm sai với nút `Remove` trong cột hành động của bảng.
+
+Sau khi đã thêm bản ghi, Polaris sẽ kiểm tra và xác minh cấu hình miền của bạn, điều này sẽ mất một thời gian. Bạn có
+thể kiểm tra bằng cách đăng nhập sau này hoặc bằng nút `Re-Check Now`. Bạn vẫn có thể tiếp tục đến bước tiếp theo
+ngay cả khi chưa được xác minh.
+
+### Bước 4: Các bước bổ sung
+
+Bạn đã hoàn thành cài đặt ban đầu cho trang web của mình. Bây giờ có một số thiết lập khác bạn có thể cấu hình.

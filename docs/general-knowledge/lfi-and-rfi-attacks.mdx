@@ -1,0 +1,22 @@
+# Phát hiện LFI và RFI tấn công - làm thế nào để xác định?
+
+## Phát hiện LFI
+
+Khi ngăn chặn các cuộc tấn công LFI (Local File Inclusion), Polaris cố gắng phát hiện xem một kẻ tấn công độc hại có cố
+gắng truy xuất tệp tin nào đó nằm trên máy chủ web của tổ chức mà họ không nên có quyền truy cập.
+
+## Phát hiện RFI
+
+Khi phát hiện tấn công RFI (Remote File Inclusion), Polaris cố gắng phát hiện xem một kẻ tấn công độc hại có cố gắng
+bao gồm một tài nguyên từ xa vào ứng dụng web để thực thi.
+
+Trong cả hai loại tấn công, việc khai thác có thể dẫn đến việc ứng dụng web và/hoặc máy chủ bị tấn công với những hậu
+quả không mong muốn.
+
+Polaris xác định nếu yêu cầu là độc hại bằng cách xem xét tổng điểm của nhiều thông số, bao gồm nhưng không giới hạn
+trong một kết hợp của các quy tắc khác nhau, phát hiện và điểm số thống kê, sau đó sẽ được đưa vào thuật toán học máy.
+
+Polaris cũng cố gắng giảm và loại bỏ các tính dương sai bằng cách áp dụng một điểm số động cho yêu cầu, nguồn yêu cầu
+và URI được yêu cầu, chỉ có các mối đe dọa thực sự được đánh dấu để ngăn chặn hoặc điều tra tiếp theo.
+
+Hiện nay, Polaris sử dụng OWASP ModSecurity Core Rule Set để xác định các phần được tiêm nạp trong truy vấn.

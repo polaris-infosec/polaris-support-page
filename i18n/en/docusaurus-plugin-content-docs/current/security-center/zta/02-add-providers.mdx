@@ -1,0 +1,81 @@
+# 2. Zero Trust Access (ZTA) - Add Providers (SSO)
+
+## General
+
+Providers are 3rd parties that have authentication and authorization services such as Google or
+Microsoft. Most all organization emails belong to these 3rd parties so we can utilize those already
+existing logins for any applications that you want to employ ZTA for. By adding a provider that you
+already have login information for, you can now login with the click of a button which is called called
+Single-Sign On (SSO) access. You can see any providers you have already added under the Providers
+menu in the Zero Trust Access section of your organization.
+
+## Step 1: Create Provider
+
+Provider uses federated identity, in which a third-party identity provider manages the user
+identities and authentication flow. The identity providers available by default are: Azure Active
+Directory (AAD), Google.
+
+1.	On the dashboard, navigate to **Setting** > **Provider**.
+2.	Click **Add Provider**.
+
+![Providers Tab](/img/security-center/zta/providers-tab.png)
+
+3.	Fill information.
+
+![Add Provider](/img/security-center/zta/add-provider.png)
+
+-	Type: Authentication support service (Google, Azure)
+-	Name: Name of provider
+-	Client ID: Application ID is the ID of the specific application you have created in Azure
+Active Directory or Google
+
+![Client Information](/img/security-center/zta/provider-client-information.png)
+
+-	Client Secret: Enables authentication to Azure Active Directory using a client secret that
+was generated for an App Registration
+
+![Client Secret](/img/security-center/zta/provider-client-secret.png)
+
+-	Discovery URL: Following discovery document path (https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration)
+
+    For example:
+
+![Discovery Url](/img/security-center/zta/provider-discovery-url.png)
+
+4.	Click **Add**.
+
+## Step 2: Create group
+
+Group allow managing config rules across all accounts within an organization
+
+1.	Navigate to **Setting** > **Group**.
+2.	Click **Add Group**.
+
+![Groups](/img/security-center/zta/provider-groups.png)
+
+3.	Fill information.
+
+-	Name: Name of group
+-	Include: email, email domain
+
+![Add Group](/img/security-center/zta/provider-add-group.png)
+
+## Step 3: Create Endpoint
+
+1.	Navigate to **Setting** > **Endpoint**.
+2.	Click **Add Endpoint**.
+
+![Endpoints](/img/security-center/zta/provider-endpoints.png)
+
+3.	Input Name, URL, Session Duration, Groups, Providers.
+
+![Add Endpoint](/img/security-center/zta/provider-add-endpoint.png)
+
+-	Name: Name of endpoint
+-	URL: The endpoint to access
+-	Session Duration: Time frame during which the endpoint is created
+-	Groups: Defining rules that the accounts are allowed to access the endpoint
+-	Providers: Authentication support service (Google, Azure)
+
+4.	Click **Add**.
+5.	Go to the endpoint to test.

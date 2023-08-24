@@ -1,0 +1,62 @@
+# Bảo mật API
+
+## Tại sao API quan trọng?
+
+Điểm cuối API là các điểm mà các API (giao diện lập trình ứng dụng) tương tác với khách truy cập trang web. API phục vụ
+như các kết nối giữa các nền tảng và hệ thống khác nhau, cho phép chúng chia sẻ thông tin và tài nguyên. Một ví dụ về
+điều này là một ứng dụng web thương mại điện tử tích hợp với một nền tảng cổng thanh toán tài chính để cho phép khách
+hàng thanh toán trực tuyến. Các API cho phép nền tảng thương mại điện tử "nói chuyện" với nền tảng thanh toán.
+
+API rất quan trọng cho bảo vệ vì chúng có thể bị khai thác để xâm nhập vào mạng của bạn hoặc bị can thiệp để đánh cắp
+dữ liệu nhạy cảm. Một số vấn đề bảo mật cụ thể với API bao gồm:
+
+1.	**API Keys** - Đây cho phép kết nối duy nhất được tạo ra giữa hai bên và nên được bảo mật. Nó thường được cung cấp bởi
+nhà cung cấp dịch vụ cho đối tác sử dụng dịch vụ của họ. Những API Keys này có thể bị đánh cắp và được sử dụng để làm
+các việc như giả mạo một khách hàng.
+
+2.	**Tên đăng nhập/Mật khẩu** - Thường, các yêu cầu API sử dụng thông tin đăng nhập bảo mật của bạn vì nó cung cấp xác
+thực và ủy quyền cho việc sử dụng dịch vụ. Giống như trong ví dụ trước, người dùng có thể sử dụng một trang web thương
+mại điện tử và thanh toán trực tuyến thông qua cổng thanh toán. Cổng thanh toán đó thường yêu cầu đăng nhập để bạn có
+thể truy cập vào lịch sử thanh toán, thông tin thẻ tín dụng v.v. Dữ liệu nhạy cảm này có thể được gửi từ một hệ thống
+sang một hệ thống khác để cho phép bạn hoàn thành giao dịch của mình.
+
+3.	**Các dịch vụ xác thực bên thứ ba** - Các dịch vụ như Google và Microsoft Azure cho phép truy cập đơn lẻ (SSO), để
+người dùng có thể sử dụng thông tin đăng nhập hiện có của họ để truy cập vào một ứng dụng web. Những bên thứ ba này
+cung cấp các dịch vụ OAuth, cung cấp một mã thông báo xác thực để chứng minh bạn là ai bạn nói bạn là. Nếu OAuth bị tấn
+công trong một cuộc tấn công API, kết quả sẽ tương tự như mất tên người dùng và mật khẩu của bạn. Các kẻ tấn công sau
+đó có thể sử dụng các thông tin đăng nhập bị xâm phạm đó cho các cuộc tấn công hoặc truy cập trái phép.
+
+## API phòng thủ
+
+API quan trọng cho phòng thủ vì chúng có thể bị khai thác để truy cập vào mạng của bạn hoặc bị thao túng để đánh cắp dữ
+liệu nhạy cảm. Một số vấn đề bảo mật cụ thể liên quan đến API bao gồm:
+
+Vậy Polaris WAAP làm thế nào để phòng chống các cuộc tấn công API? Giống như các cuộc tấn công khác, sau khi các điểm
+cuối API được thêm vào nền tảng của chúng tôi, chúng tôi có thể giám sát lưu lượng yêu cầu API để đảm bảo nó trông và
+hoạt động theo cách nên có.
+
+*Next Generation Web Application Firewall (NGWAF)* - tường lửa AI / ML của chúng tôi lọc lưu lượng dựa trên tập luật mặc
+định chuẩn hoặc tập luật tùy chỉnh được thiết lập bởi người dùng nền tảng. Những quy tắc này cho phép chấp nhận hoặc
+chặn yêu cầu API dựa trên chữ ký hoặc hành vi đã biết. Các tính năng học hành vi thông minh cho phép phân tích lưu
+lượng để xác định các mẫu tấn công phức tạp hơn cũng như các cuộc tấn công Zero Day mới hơn có thể xảy ra.
+
+*Xác thực Schema* - NGWAF cũng kiểm tra yêu cầu và phản hồi API một cách cụ thể để xác định xem chúng có khớp với hành vi
+mong đợi được chỉ định hay không. Khi thêm OpenAPI Specs vào WAAP, người dùng có thể thấy yêu cầu và phản hồi mong đợi
+của API được mô tả rõ ràng. Mọi thứ nằm ngoài phạm vi cung cấp sẽ được phân tích để xác định tính độc hại.
+
+![List API](/img/security-center/api/api-security-list-api.png)
+*Các hành vi được liệt kê và phản hồi dự kiến cho điểm cuối API như được hiển thị trong WAAP.*
+
+## Rủi ro khi thất bại
+
+API đang trở thành một rủi ro ngày càng tăng vì nhiều khi người ta không nghĩ đến việc bảo vệ chúng. Có những lúc, có
+quá nhiều API hoặc người dùng không biết rằng họ đang sử dụng các API. Rủi ro khi thất bại bao gồm:
+
+1.	**Authentication Attacks** - cung cấp cho kẻ tấn công quyền truy cập vào mạng của bạn thông qua các phương pháp như lấy cắp
+thông tin đăng nhập và sử dụng credential stuffing.
+2.	**Authorization Attacks** - khi đã vào mạng, cho phép kẻ tấn công thực hiện một số hành động nhất định do đặc quyền được
+nâng cao hoặc di chuyển đến các khu vực cụ thể trong mạng mà họ không được phép truy cập.
+3.	**DDoS** - làm chậm hoặc ngừng chức năng ứng dụng web vì quá nhiều yêu cầu API được gửi, làm ngập hệ thống.
+4.	**Vulnerability Attacks** - các lỗ hổng trong API chính hoặc tích hợp của ứng dụng web với API cho phép thực hiện các cuộc
+tấn công nhắm mục tiêu sử dụng các cuộc tấn công tùy chỉnh hoặc OWASP Top 10 như thực thi mã từ xa (RCE).
+

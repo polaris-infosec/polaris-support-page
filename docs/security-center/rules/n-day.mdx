@@ -1,0 +1,29 @@
+# N-Day & New Attack Vectors
+
+Bài viết này mô tả và giải thích về các quy tắc N-Day & Attack Vector trong Polaris, những tính năng này được bật mặc
+định và có thể được tìm thấy trong phần cài đặt của Polaris.
+
+Để truy cập vào tab Quy tắc:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `SITES`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+![Rules Tab](/img/security-center/rules/owasp-rule-owasp-tab.png)
+Click vào tab `Rules`.
+
+**N-Day**: Đây là các quy tắc được tạo ra để bảo vệ chống lại các lỗ hổng từ Danh sách CVE của Cơ sở dữ liệu lỗ hổng
+quốc gia. Nhấp vào Cài đặt Nâng cao sẽ hiển thị mô tả của quy tắc cụ thể.
+
+Nếu bạn cần thông tin thêm về quy tắc: Đi đến cơ sở dữ liệu tìm kiếm CVE và nhập mã CVE, mã CVE là các số sau "POL-",
+như được hiển thị trong hình ảnh dưới đây:
+
+![N-Day Rule](/img/security-center/rules/n-day-rule.png)
+
+CVE-ID là các số trong hình chữ nhật màu xanh lá cây. Tìm kiếm mã CVE-ID đó trong cơ sở dữ liệu CVE để tìm hiểu thêm
+thông tin về nó.
+
+New Attack Vector: Là các luật viết bởi đội ngũ kỹ thuật Polaris để bảo vệ trang web của bạn khỏi nhiều lỗ hổng.
+Nhấp vào `Advanced Settings` để tìm hiểu thêm thông tin về nó.
+
+Cả hai luật N-Day và Attack Vector mới đều được bật theo mặc định và có thể tắt riêng lẻ bằng cách chuyển công tắc on/off.

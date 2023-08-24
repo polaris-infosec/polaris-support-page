@@ -1,0 +1,40 @@
+# Roles in an Org
+
+## Roles List
+
+Polaris is built on the concept of a Security Operations Center (SOC) where users are assigned different
+roles. For each Security Center in Polaris, there are two main roles, however additional roles will be added in
+the future to provide more granular permissions and access to your team members:
+
+- **Administrator**: Manages the whole Security Center. This role has access to all features, including:
+  - Add new Sites to the Security Center
+  - Add members to the Security Center
+  - Manage all Sites within the Security Center
+      - Edit the Settings of each site
+      - View Dashboards
+      - Monitor the Security Center and take action on events
+          - Security Events
+          - Incident Tickets
+          - Detected Threats
+
+- **Member**: Normal users who will monitor the Security Center. This role has access to:
+  - Monitor all sites within a Security Center
+      - View the Settings of each site
+      - View Dashboards
+      - Monitor the Security Center and take action on any events
+          - Security Events
+          - Incident Tickets
+          - Detected Threats
+
+Administrators can add new members to the Security Center with the **ADD MEMBER** button.
+
+- the Email or Username of the users are required.
+- Administrators will choose a Role for new members.
+
+*Note: There can be more than one Administrator within a Security Center though in following with the Principle
+of Least Privilege, this should be a restricted role.*
+
+![User Management](/img/security-center/access-control/roles-members.png)
+
+
+

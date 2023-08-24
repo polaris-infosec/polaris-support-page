@@ -1,0 +1,25 @@
+# Polaris bảo vệ trang web của bạn như thế nào?
+
+## Polaris làm gì?
+
+Polaris cung cấp bảo mật DNS và giám sát lưu lượng truy cập vào trang web của bạn để phát hiện bất kỳ hoạt động độc hại
+nào. Điều này bảo vệ trang web của bạn khỏi các loại tấn công khác nhau, bao gồm các cuộc tấn công trên danh sách [OWASP
+Top 10](https://owasp.org/www-project-top-ten/) cũng như tấn công DDoS. Polaris rất linh hoạt và bạn có thể tùy chỉnh
+các cài đặt khác nhau để phù hợp với nhu cầu của mình.
+
+![Polaris Do](/img/quick-start/polaris-do.png)
+
+## Khi khách truy cập kết nối đến trang web của bạn thì điều gì xảy ra?
+
+Khi trình duyệt của người dùng gửi yêu cầu đến trang web của bạn, yêu cầu sẽ được gửi qua internet đến các máy chủ
+Polaris Edge. Tại đó, hệ thống của chúng tôi sẽ kiểm tra yêu cầu để phát hiện bất kỳ nội dung độc hại nào có thể được
+sử dụng để thực hiện các cuộc tấn công XSS hoặc các hình thức injection khác. Nếu trang web của bạn có các plug-in cụ thể,
+bạn cũng có thể cấu hình Polaris để sàng lọc các yêu cầu HTTP đến các điểm cuối API của plug-in đó.
+
+Sau khi được xác định là an toàn, yêu cầu sẽ được gửi đến trang web của bạn (máy chủ Gốc) để xử lý. Tương tự, phản hồi
+cũng được gửi đến máy chủ Edge của chúng tôi trước khi được gửi đến khách truy cập. Như vậy, địa chỉ IP của Máy chủ Gốc
+sẽ không được biết đến bởi khách truy cập.
+
+Bạn có thể cấu hình cách Polaris phản ứng và đáp ứng yêu cầu, và hiệu quả sử dụng Polaris để giảm thiểu và ngăn chặn các
+mối đe dọa có thể ảnh hưởng đến trang web của bạn.
+

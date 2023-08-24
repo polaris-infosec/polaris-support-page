@@ -1,0 +1,59 @@
+# Content Security Policy (CSP) and CrossOrigin Resource Sharing (CORS) - what are they?
+
+## Content Security Policy (CSP)
+
+CSP is a browser mechanism that can help detect and prevent some common web attack types
+such as Cross-Site Scripting (XSS).
+
+As most modern websites require dynamic content to be loaded, it is important that dynamically
+generated content comes from legitimate sources. CSP allows you to specify legit sources and
+only executes resources that are whitelisted in your CSP settings, ignoring other scripts and
+assets that are not within the approved list.
+
+CSP helps reduce and prevent attacks like XSS because it allows you to define what resources
+are allowed and where the resources can be loaded from, preventing the browser from loading
+resources from locations that may be malicious. It provides an extra layer of protection,
+however, note that it does not prevent XSS by stopping malicious input from being rendered, but
+rather mitigates it by telling the browser **not to execute** it because the rules define that it is not
+from the right source. For example, if a malicious external script is loaded on the client-side, it
+will trigger the CSP rule and block it from executing.
+
+One of the many examples Polaris' CSP rule can help is through preventing JavaScript to be
+executed inline, which is beneficial against XSS attacks because an attacker may try to execute
+JavaScript in your web application.
+
+Check out this article explaining Polaris' CSP feature in detail:: [Content Security Policy (CSP)](../security-center/rules/csp)
+
+![CSP Policies Tab](/img/security-center/rules/csp-policies-tab.png)
+
+Polaris CSP configurations.
+
+## Cross-Origin Resource Sharing (CORS)
+
+Traditionally, a website uses a same-origin policy. This policy ensures that your website's assets
+cannot be accessed by another website. However, this is not feasible in most modern websites
+that require resources to be loaded from external sources. Therefore, enforcing the same-origin
+policy isn't always possible.
+
+This is where Cross-Origin Resource Sharing (CORS) can be useful. CORS is applied via the
+HTTP header and allows access to resources from a whitelisted domain.
+
+CORS helps to control and customize your same-origin policy to serve certain content, which
+can be used when you own multiple domains and require data sharing between them.
+
+## Implementing CSP and CORS in Polaris
+
+Polaris allows you to configure CSP and CORS policies in the settings and configurations for
+each individual domain.
+
+Polaris gives you the flexibility to use CSP and CORS to offer extra protection on your web
+applications, easily turning them on and configuring them to your website's usage.
+
+CSP and CORS are powerful security features. As a word of caution, it is recommended that
+CSP and CORS be turned on only if the user knows what they are doing and the scenario calls
+for it as false configurations can instead weaken a website's security, exposing it to more
+vulnerabilities. This is not a feature that every user needs. Feel free to create an incident and
+contact the Polaris team if any doubts arise in implementation.
+
+You may implement CSP such that it only reports and does not block, keeping your website
+functional while allowing you to test different CSP configurations. You may find out more about it [tại đây](../security-center/rules/csp).

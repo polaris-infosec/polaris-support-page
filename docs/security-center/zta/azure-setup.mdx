@@ -1,0 +1,60 @@
+# Cài đặt Microsoft Azure
+
+## Bước 1: Đăng nhập vào trang quản trị Azure của tổ chức của bạn
+
+## Bước 2: Đăng ký ứng dụng
+
+1.	Trong menu bên, nhấp vào **App registrations**.
+
+![Side Menu](/img/security-center/zta/azure-side-menu.png)
+
+2.	Nhấp vào **new registration**
+
+![New Registration](/img/security-center/zta/azure-new-registration.png)
+
+3.	Điền thông tin.
+-	Name: đặt tên cho ứng dụng của bạn
+-	Redirect URI:: nhập tên miền của nhóm của bạn, theo sau đó là cuộc gọi lại này ở cuối đường dẫn.
+
+![Fill Info](/img/security-center/zta/azure-fill-info.png)
+
+4.	Nhấp vào **Register**.
+
+## Bước 3: Tạo Chứng chỉ và Bí mật
+
+1.	Trên màn hình tiếp theo, nhấp vào **Certificates & Secrets** trong bảng điều khiển bên trái để tạo Bí mật Ứng dụng.
+2.	Nhấp vào **New client secret**.
+
+![New Secret](/img/security-center/zta/azure-new-secret.png)
+
+3.	Nhập tên bí mật khách hàng và chọn một ngày hết hạn. Nhấp vào **Add**.
+
+![Fill Secret](/img/security-center/zta/azure-fill-secret.png)
+
+4.	Sao chép trường giá trị của bí mật khách hàng. Xem giá trị này như một mật khẩu.
+
+Ví dụ này để giá trị hiển thị để các giá trị trong Azure có thể được nhìn thấy trong cấu hình Truy cập.
+
+![Copy Secret](/img/security-center/zta/azure-copy-secret.png)
+
+## Bước 4: Thêm Quyền API
+
+1.	Trong bảng điều khiển bên trái, chọn **API permissions**. Nhấp vào **Add a permission**.
+
+![Add Permission](/img/security-center/zta/azure-add-permission.png)
+
+2.	Nhấp vào **Microsoft Graph**.
+
+![Microsoft Graph](/img/security-center/zta/azure-microsoft-graph.png)
+
+3.	Chọn Quyền ủy quyền. Bạn sẽ cần chuyển đổi 7 quyền cụ thể trên trang tiếp theo. Sau khi chuyển đổi, nhấp vào **Add permissions**.
+
+![API Permission](/img/security-center/zta/azure-api-permissions-1.png)
+![API Permission](/img/security-center/zta/azure-api-permissions-2.png)
+![API Permission](/img/security-center/zta/azure-api-permissions-3.png)
+![API Permission](/img/security-center/zta/azure-api-permissions-4.png)
+![API Permission](/img/security-center/zta/azure-api-permissions-5.png)
+
+4.	Trên trang tiếp theo, nhấp vào nút bắt đầu **Grant Admin Consent for ...**
+
+![Grant Admin](/img/security-center/zta/azure-grant-admin.png)

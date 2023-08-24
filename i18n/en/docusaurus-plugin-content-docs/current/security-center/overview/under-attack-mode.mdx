@@ -1,0 +1,47 @@
+# Under Attack Mode
+
+## What is Under Attack Mode?
+
+Under Attack Mode automatically switches on when suffering from any attack such as a DDoS to
+provide additional security, or it can be turned on manually. When turned on, **Under Attack
+Mode** will display a simple **hCaptcha** challenge (as shown below) that users need to complete
+before accessing the site.
+
+![Show Verify](/img/security-center/overview/under-attack-mode-verify.png)
+
+What users will see when they visit your site.
+
+![Show Verify](/img/security-center/overview/under-attack-mode-hcaptcha.png)
+
+One of hCaptcha's challenges
+
+## How to manually enable it?
+
+Enabling **Under Attack Mode manually** is really simple:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Under the selected site, select either `Settings` or `Security Center`
+
+You should see a **Quick Settings / Actions** panel to the right side of your screen:
+
+![Actions](/img/security-center/overview/under-attack-mode-actions.png)
+
+To turn it on, simply flip the switch to on.
+
+## Why use Under Attack Mode?
+
+When Under Attack Mode is turned on, users will see a hCaptcha challenge and this can be
+used to distinguish attack/bot traffic and normal (legitimate) user traffic. This is a very common
+and popular method to help mitigate Application Layer attacks through the JavaScript hCaptcha
+challenge that Polaris issues when this mode is turned on, it works because these challenges
+tend to only be solvable by humans.
+
+Once a user has authenticated themselves through the challenge, they don't need to do it again
+the next time they visit the site.
+
+Do note that this mode is turned off by default and if a user visits your site with JavaScript
+disabled, this challenge will not function and therefore they have no way to access your site.
+
+If you are looking for a similar feature that does not require a user to solve a challenge, do
+consider this: [Browser Integrity Check](../access-control/browser-integrity-check).

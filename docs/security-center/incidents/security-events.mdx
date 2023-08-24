@@ -1,0 +1,93 @@
+# Security Event
+
+**Security Event** cho thấy một khả năng xâm nhập, tấn công hoặc hành vi bất thường của ứng dụng web. Polaris ghi lại tất
+cả các sự kiện này cũng như phản ứng của nền tảng đối với các sự kiện đó, cho dù nó đã bị chặn hay được phép vv. Các sự
+kiện bảo mật có thể được xem, xuất và liên kết với các tính năng security event khác trong Polaris như incident response.
+
+## Truy cập Security Event
+
+Giám sát các security event này là rất quan trọng để đứng trước các kẻ tấn công và điều tra bất kỳ sự cố nào. Các bước
+dưới đây minh họa cách bạn có thể xem các security event trong Polaris.
+
+![Security Center Tab](/img/security-center/incident-response/security-center-tab.png)
+
+Dưới `SITES`, nhấp vào `Security Center`.
+
+![Security Events Tab](/img/security-center/incident-response/security-events-tab.png)
+Nhấp vào tab '**Security Event**'.
+
+Danh sách các security event có thể được lọc theo:
+
+1.	Tên
+2.	Ngày
+3.	Hành động được thực hiện bởi WAF (tức là Blocked, Identify, Warning...)
+4.	Loại tấn công (ví dụ: SQLI, DOS, XSS...)
+
+## Định nghĩa các hành động khác nhau được thực hiện bởi Polaris:
+
+***Allowed***: Polaris cho phép yêu cầu được chuyển tiếp để xử lý và phản hồi.
+
+***Blocked***: Yêu cầu bị từ chối và phản hồi với mã trạng thái HTTP 403 (Forbidden).
+
+***JS challenge***: Polaris sẽ chạy một thử thách xác nhận JavaScript trước khi người dùng có thể xem nội dung.
+
+***Captcha***: Polaris sẽ hiển thị một thử thách captcha trước khi người dùng có thể xem nội dung.
+
+***Log***: Polaris sẽ ghi nhật ký nó như một security event nếu nó khớp với hành động quy tắc tùy chỉnh.
+
+***Identifyg***: Polaris sẽ ghi nhật ký nó như một security event nếu nó khớp với thiết lập Quy tắc tùy chỉnh của Kiểm tra
+tính toàn vẹn Trình duyệt.
+
+***Warning***: Polaris xác định đây là hoạt động đáng ngờ và yêu cầu sẽ không bị chặn nhưng sẽ được đánh dấu bằng thẻ
+'Warning' trong tab security event để điều tra thêm.
+
+## Xem nhật ký bảo mật
+
+Sau khi chọn các bộ lọc được nêu trên, một danh sách các security event phù hợp sẽ hiển thị tương ứng. Nhấp vào bất kỳ
+sự kiện nào để xem thêm thông tin về nó:
+
+![Event Detail](/img/security-center/incident-response/event-detail.png)
+Nhấp vào một sự kiện cho phép bạn xem thông tin chi tiết về nó. Bạn cũng có thể tạo một sự cố hoặc thực hiện các hành
+động bổ sung dựa trên sự kiện đã chọn.
+
+## Tạo một vé sự cố
+
+Tạo một Incident cho phép bạn nhấn mạnh một sự kiện cụ thể và truy cập lại nó bất cứ lúc nào mà không cần phải tìm
+kiếm thông qua các bộ lọc. Điều này đặc biệt hữu ích nếu Polaris được quản lý bởi nhiều người và trang web có lưu lượng
+truy cập cao, tạo ra một số lượng sự kiện lớn hàng ngày.
+
+Để tạo một sự cố, nhấp vào nút "**+ Incident**" dưới '**Actions**' của security event đã chọn (xem mũi tên màu xanh
+trong hình ảnh trên):
+
+![Create Incident](/img/security-center/incident-response/create-incident.png)
+Một hộp thoại sẽ xuất hiện để bạn cấu hình incident và nhập thông tin.
+
+Bạn có thể chỉ định và thêm các nhân viên để họ ghi chú và giám sát sự cố này. Bạn cũng có thể đặt mức độ nghiêm trọng
+để phân loại và thu hút sự chú ý đến các sự cố quan trọng hơn. Có 5 mức độ nghiêm trọng có sẵn:
+
+1.  None
+2.  Low
+3.	Medium
+4.	High
+5.	Critical
+
+Bạn cũng có thể thêm tiêu đề, mô tả và đính kèm các tệp liên quan để tham khảo.
+
+Ngoài việc tạo sự cố, bạn cũng có thể cho phép hoặc từ chối IP của khách hàng và có một tùy chọn đánh dấu sự kiện là
+false positive. Điều này có thể được thực hiện bằng cách nhấp vào 3 dấu chấm dưới '**Hành động**' bên cạnh nút '**+ Sự cố**'.
+
+<iframe width="558" height="313" src="https://www.youtube.com/embed/4Dyz-PpXtto"
+        title="Polaris Walkthrough: Creating Security Event and Managing Incidents" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
+## Xuất Incident Security
+
+Bạn có thể xuất một sự cố bảo mật bằng cách sử dụng chức năng '**Export**' nằm dưới danh sách các security event:
+
+![Export Events](/img/security-center/incident-response/export-events.png)
+Chọn ngày và xuất.
+
+Khi quá trình xuất hoàn tất, trạng thái sẽ hiển thị 'success' và một tùy chọn để tải xuống sẽ xuất hiện.
+
+Nếu bạn muốn tải xuống nhật ký truy cập thay vào đó, hãy xem bài viết này: [Logs](../logs).

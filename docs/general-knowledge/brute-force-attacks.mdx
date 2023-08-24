@@ -1,0 +1,66 @@
+# Tấn công Brute Force - chúng là gì?
+
+## Tấn công Brute force là gì?
+
+Tấn công Brute Force là các thử và sai để mở khóa mã hóa bằng cách sử dụng một số lượng lớn các kết hợp. Chúng có thể
+được sử dụng để đoán mật khẩu, khóa mã hóa, khóa API hoặc đăng nhập SSH. Những cuộc tấn công này thường được thực hiện
+với sự giúp đỡ của botnet hoặc script để tự động hóa toàn bộ quá trình. Đây là một phương pháp tương đối dễ dàng và đơn
+giản không yêu cầu kiến thức nâng cao từ phía kẻ tấn công.
+
+## Tấn công Brute Force có hiệu quả không?
+
+Nó thực sự phụ thuộc vào độ phức tạp của mật khẩu được sử dụng. Tấn công Brute Force không phải là một trong những cuộc
+tấn công hiệu quả nhất vì chúng có thể mất rất nhiều thời gian để mở khóa mật khẩu. Đây là lý do tại sao hầu hết các
+trang web yêu cầu mật khẩu có độ dài tối thiểu và yêu cầu ký tự đặc biệt khi bạn tạo tài khoản của mình. Những mật khẩu
+được tạo ra tốt có thể mất bất kỳ đâu từ 7 năm liên tục xử lý ... nếu kẻ tấn công có một hệ thống có thể gửi 15 triệu
+yêu cầu mỗi giây! Tuy nhiên, thời gian này có thể được giảm bớt bằng kỹ thuật xã hội hoặc các phương pháp khác sẽ thu
+hẹp các khả năng của mật khẩu. Dù sao, vẫn quan trọng để bảo vệ trang web của bạn khỏi các cuộc tấn công Brute Force.
+
+## Thời gian để thực hiện cuộc tấn công Brute Force mật khẩu.
+
+![Time Brute Force](/img/general-knowledge/time-brute-force.png)
+
+## Làm thế nào để bảo vệ mình khỏi tấn công Brute Force?
+
+Có vài phương pháp mà chủ sở hữu trang web có thể thực hiện để bảo vệ mình.
+
+1.	Yêu cầu mật khẩu trang web của họ có độ dài tối thiểu là 12 ký tự bao gồm các chữ cái in hoa / thường, số và các
+    ký tự đặc biệt.
+2.	Khóa tài khoản trong một khoảng thời gian nhất định sau nhiều lần đăng nhập thất bại. Cũng thêm một độ trễ khoảng
+    2-5 giây sau mỗi lần đăng nhập thất bại.
+3.	Sử dụng xác thực 2 yếu tố (Second Factor Authentication). Tuy nhiên, hệ thống này vẫn có thể được phá vỡ bởi các
+    loại tấn công kỹ thuật xã hội khác và vì vậy nó nên được sử dụng kết hợp với các phương pháp bảo mật khác.
+4.	Với người dùng, quan trọng là sử dụng các mật khẩu khác nhau cho các trang web khác nhau. Nếu một trang web bị xâm
+    nhập và các mật khẩu được sử dụng trên đó bị rò rỉ, ít nhất các tài khoản của bạn trên các trang web khác sẽ được
+    bảo vệ. Tin tặc thích sử dụng các mật khẩu đã rò rỉ trên nhiều tài khoản khác nhau vì người dùng hầu như luôn sử
+    dụng lại mật khẩu. Đây được gọi là tấn công đầy đủ thông tin tài khoản.
+5.	Người dùng cũng nên cẩn trọng khi nhập mật khẩu hoặc thông tin đăng nhập quan trọng khác để không sa vào các cuộc
+    tấn công lừa đảo. Bạn nên luôn kiểm tra xem địa chỉ mà bạn đang truy cập có đúng không trước khi nhập chi tiết của mình.
+
+## Polaris có thể giúp bạn như thế nào?
+
+Nếu bạn là chủ sở hữu trang web và lo lắng về cách tấn công bằng vũ lực mật khẩu có thể ảnh hưởng đến bạn, Polaris có
+nhiều tính năng sẽ ngăn chặn cuộc tấn công bằng vũ lực mật khẩu.
+1.	Quét lưu lượng đáng ngờ
+
+Polaris tự động quét toàn bộ lưu lượng truy cập trước khi chấp nhận nó vào trang web của bạn. Nếu lưu lượng truy cập
+từ một địa chỉ IP cụ thể đáng ngờ và có đặc tính của cuộc tấn công bằng vũ lực mật khẩu, nó sẽ được xác định và chặn.
+Hơn nữa, các bot được xác định trước đó và bị cấm trên hệ thống của chúng tôi cũng sẽ bị chặn.
+
+2.	Bảo vệ Captcha
+
+Nếu hoạt động bất thường được phát hiện từ một địa chỉ IP cụ thể, một thử thách Captcha sẽ được đưa ra cho IP trước khi
+được phép truy cập trang web. Nếu IP là bot hoặc script, nó sẽ không thể dễ dàng vượt qua thử thách này. Hoạt động bất
+thường lặp lại sẽ dẫn đến địa chỉ IP bị chặn trong một khoảng thời gian nhất định.
+
+3.	Được cho phép truy cập thông qua danh sách trắng
+
+Polaris cũng cho phép chỉ những người dùng cụ thể được phép truy cập trang web. Điều này được thực hiện bằng cách cho
+phép các địa chỉ IP của những người dùng đó được thêm vào danh sách trắng, điều này sẽ ngăn chặn mọi người khác truy
+cập vào trang web.
+
+4.	Chặn địa chỉ IP theo vị trí địa lý
+
+Nếu trang web của bạn chỉ phục vụ cho thị trường cụ thể, bạn có thể chặn địa chỉ IP từ các quốc gia khác. Ví dụ, nếu
+trang web của bạn chỉ phục vụ người dùng tại Singapore, bạn có thể chặn địa chỉ IP từ các phần khác của thế giới không
+cho phép truy cập trang web của bạn.

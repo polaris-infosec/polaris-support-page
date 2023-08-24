@@ -1,0 +1,99 @@
+# Custom Rules
+
+Polaris allows users to create custom rules so that the website properly responds to each request as it passes through Polaris. Each
+rule contains the rule's name, condition, and action to take based on the rule's condition.
+
+To access this feature, go to `Settings`:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Under `SITES`, select your domain and click on `Settings`.
+
+![Custom Rule Tab](/img/security-center/rules/custom-rules-tab.png)
+
+Click on the `Rules` tab and select `Custom`.
+
+To add a new custom rule, click the green `Add Rule` button and a window will appear:
+
+![Add Rule](/img/security-center/rules/custom-rules-add-rule.png)
+
+You can customize your new rule here.
+
+These parameters help you customize your rule:
+
+1.	**Rule name**: A specific name to distinguish your rule from other rules.
+
+2.	**Determining Rule Conditions**
+    a. **Parameters to check**. When the request comes in, Polaris checks the information that matches this parameter, the available parameters are:
+
+          -	AS Num
+          -	Cookie
+          -	Country
+          -	Hostname
+          -	IP Address
+          -	Referer
+          -	Request Method
+          -	URI Full
+          -	URI Path
+          -	User Agent
+          -	Threat Score (Threat scale from 1 to 100)
+
+    b. **Operator**. The operator determines how Polaris compares the selected parameter, the available options are:
+
+        -   equals
+        -	does not equal
+        -	is in
+        -	is not in
+        -	greater than
+        -	less than
+        -	greater than or equal to
+        -	less than or equal to
+
+    c. **Value**: Specify the value for the parameter and operator to compare.
+
+    d. **Logic function**. This function can be used to customize the rule to make it more precise because it allows you to add a parameter,
+     operator and another operator value in the same rule. However, the use of logical functions is optional, functions that can
+     available is:
+
+        -	**AND**: to match other conditions / all in the same rule.
+        -	**OR**: to match at least one of many conditions in the same rule.
+
+3. **Action taken by Polaris**. This determines the appropriate part for Polaris to perform if the parameter,
+operator and operator value match, the following available actions are:
+
+-	**Allowed**: Polaris allows requests to be forwarded for processing and response.
+-	**Blocked**: request denied and response with status code HTTP 403 (Forbidden).
+-	**JS Challenged**: Polaris will run a JavaScript validation challenge before users can view the content.
+-	**Challenged (Captcha)**: Polaris will show Captcha challenge before user can view the content.
+-	**Log**: Polaris will post it as a security event if it matches the custom rule action.
+-	**Redirect**: Polaris redirects web traffic to another server.
+-	**Rewrite URI**: Polaris updates a specific section of the URI with new information.
+-	**Rewrite Header**: Polaris updates a specific section of the request header with new information. See below for more details.
+-	**Remove Header**: Polaris removes headers from request.
+-	**Rewrite Cookie**: Polaris updates the information in the cookie. See below for more details.
+-	**Remove Cookie**: Polaris remove cookie.
+-	**Set Origin IPs**.
+-	**Browser Integrity Check**: See this article for more details.
+
+That's it, your new custom rule has been created! You can turn on/off and update the law at any time.
+
+> Rewrite Header
+
+To rewrite header, need to provide the following information:
+
+![Rewrite Header](/img/security-center/rules/custom-rules-rewrite-header.png)
+
+1.	**Header Name**
+2.	**Rewrite from**
+3.	**Rewrite to**
+4.	**Rewrite response**: Polaris will redirect it to its original request
+5.	**Rewrite add if missing**: In case the header does not exist, Polaris will add an empty string to the header when this option is enabled.
+
+> Rewrite cookie
+
+![Rewrite Cookie](/img/security-center/rules/custom-rules-rewrite-cookie.png)
+
+1.	**Cookie Name**
+2.	**Rewrite from**
+3.	**Rewrite to**
+4.	**Rewrite add if missing**: If the cookie does not exist, Polaris will add an empty string to the cookie when this option is enabled.

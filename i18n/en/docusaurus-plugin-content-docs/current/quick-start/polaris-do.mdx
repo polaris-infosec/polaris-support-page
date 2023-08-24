@@ -1,0 +1,25 @@
+# How does Polaris protect your website?
+
+## What does Polaris do?
+
+Polaris provides DNS security and monitors traffic accessing your website for any malicious activities. This protects
+your websites from various types of attacks, including those on the [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+List as well as DDoS attacks. Polaris is extremely customisable and you can tailor the various settings to suit your needs.
+
+![Polaris Do](/img/quick-start/polaris-do.png)
+
+## What happens when a visitor connects to your website?
+
+When a user's browser sends a request to your website, the request is sent via the internet to
+Polaris Edge Servers. There, our systems inspects the request for any malicious content which
+could be used to execute XSS attacks or other forms of injection. If your website has specific
+plug-ins, you are also able to configure Polaris to screen HTTP requests to those plug-in API
+endpoints.
+
+Once it has been deemed safe, the request is sent to your website (Origin Server) where it will
+be processed. Similarly, the response is sent to our Edge Server before it is sent to the visitor.
+This way, the Origin Server IP will not be known to the visitor.
+
+You are able to configure how Polaris reacts and responds to requests, and effectively use
+Polaris to mitigate and prevent threats that can affect your website.
+

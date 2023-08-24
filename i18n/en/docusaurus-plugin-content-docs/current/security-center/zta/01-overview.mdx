@@ -1,0 +1,62 @@
+# 1. Zero Trust Access (ZTA) Overview
+
+## Zero Trust Access
+
+Polaris Zero Trust Access (ZTA) feature is designed to provide more control over applications as
+users can provision a login system to existing applications so that all access is first verified and
+authorized. Essentially, in order to access an application, such as a dev website which may not
+be publicly facing, the ZTA feature adds a login function so that authorized users must first be
+authenticated. It adds an additional layer of security to any necessary applications.
+
+Enterprise customers are provided with 15 free ZTA users. Customers on other plans may
+upgrade to use this feature or purchase individual user seats.
+
+In order to add Zero Trust Access:
+1.	Choose the Provider you want for Single Sign On (SSO) services - Google or Microsoft Azure
+2.	Create a Group to determine who will have access to the ZTA services (Users will then be
+listed under the Users tab)
+3.	Add your Application
+4.	Edit your theme, or configure your callback URL
+
+### ZTA Menu
+
+![ZTA Menu](/img/security-center/zta/zta-menu.png)
+
+-	**Providers**
+
+    ZTA uses 3rd-party providers to manage user authentication and authorization via SSO.
+    These providers are pre-configured OAuth 2.0 applications so users only need OAuth
+    credentials to set up a new provider. Currently, Polaris supports Azure Active Directory and
+    Google Cloud Platform. [Read more](add-providers).
+-	**Groups**
+
+    Groups determine which users can access protected endpoints based on their
+    organization roles or departments. It allows access to applications in mass without having to individually add
+    users to certain applications. Groups are based on `Email` or `Email
+    Domain` and customized by the Organization's admin for ZTA. Users will find it easy to add
+    or remove people in your groups. [Read more](add-groups).
+-	**Users**
+
+    In order to manage who accesses your applications, the users list serves to control who
+    has permissions. Just because a user is added to your organization to view and manage
+    the WAAP, does not automatically enroll them in the ZTA users list. Under the Users tab
+    you can add, view, or revoke ZTA members anytime. Users are actually added to the ZTA
+    list when you create your groups. [Read more](users).
+-	**Applications**
+
+    Application access is established by providers such as Google or Microsoft via Single-Sign
+    On (SSO) so that all it takes is a click of a button for secure validation. The list of users
+    who may have access to these applications is also established via the Zero Trust Access
+    feature. This feature also supports subdomains and paths. To learn how to add
+    applications to utilize the ZTA features,  [read more](add-applications).
+-	**Login Page Configuration**
+
+    We made a simple and clean login page for users with an on-demand theme editor for
+    customization to your organization. You can also preview your login page before saving
+    any changes. [Read more](login-theme).
+-	**Custom Access Domain**
+
+    Currently, our domain [polarisaccess.com](https://polarisaccess.com/)  is the default access point to your web
+    application, where the login screen is maintained, but you absolutely can replace it with
+    your own domain. Remember that you need to first change a few settings to use your
+    custom access domain. [Read more](custom-access-domain).

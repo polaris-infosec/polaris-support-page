@@ -1,0 +1,27 @@
+# Anycast Network
+
+## What is an Anycast Network?
+
+Anycast networks are also known as IP anycast networks. It is a networking scheme that allows
+for assigning of one IP address to multiple servers. This is different than more traditional Unicast
+networks which assign one IP address to one server. Anycast routing benefits include:
+
+-	**Increased Speed** - with the caching of a website's content on multiple servers, it allows
+end users the ability to access the information from the server that is closest to them,
+reducing the latency and time it takes to send requests and retrieve data
+-	**DDoS defense** - - in the case of traffic floods, all the requests intended for one server can
+be disbursed among multiple servers
+-	**Redundancy** - with multiple servers with the same content, if one server fails, others are
+there to back it up
+-	**Load Balancing** - spreads resource requirements across multiple servers for greater
+efficiency and operational capability
+-	**Routing Options** - not only can traffic be configured to route by geographic distance, it
+can also route based on server availability, number of connections to a server, and server
+response time
+
+Polaris' WAAP is supported by a global Anycast network with PoPs throughout Southeast Asia to
+include mainland China, the United States, and Europe, to allow for greater flexibility in pushing
+content to end users while providing the ability to also protect against [DoS attacks](../security-center/dos), Layers 7.
+The platform has a content caching option that allows users to cache their web
+application content on edge servers, which in turn allows internet users to access the content
+more quickly from the nearest server.

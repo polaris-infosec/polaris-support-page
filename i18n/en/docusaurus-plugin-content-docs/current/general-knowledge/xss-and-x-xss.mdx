@@ -1,0 +1,23 @@
+# XSS and X-XSS protection - what's the difference?
+
+Polaris offers multiple forms of protection against XSS (Cross-Site Scripting). One of them is using
+[OWASP Rules](../security-center/rules/owasp) and another is the use of security headers in the browser (X-XSS-Protection).
+
+For XSS in OWASP, Polaris detects if a user is trying to inject XSS into the website, detecting when an attacker
+or controlled victim sends a request to the origin. Polaris will block it and trigger an incident alert on
+[Security Event](../security-center/incidents/security-events).
+
+For X-XSS in Security Headers, browsers check for reflected XSS right before displaying the page.
+
+In Polaris, there are 3 options for X-XSS Protection:
+
+1.	Off
+2.	Sanitize Script: Sets **X-XSS-Protection: 1**, this will filter XSS out, the browser will sanitize the unsafe (XSS)
+parts.
+3.	Block Script: Sets **X-XSS-Protection: 1; mode = block**. If an XSS attack is detected, the browser will prevent
+the rendering of the page.
+
+Apart from XSS (OWASP Rules) and X-XSS-Protection (Security Headers), Polaris can also help guard against
+XSS attacks using a Content Security Policy.
+
+To find out more about X-XSS-Protection, refer to the [Mozilla Development Documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection).

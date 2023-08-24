@@ -1,0 +1,58 @@
+# Dịch vụ giám sát
+
+Polaris cho phép bạn giám sát các tài nguyên của mình và đảm bảo rằng các tài nguyên quan trọng luôn có sẵn và có thể
+truy cập được vào bất cứ lúc nào. Chức năng này tương thích với bất kỳ tài nguyên nào có thể truy cập thông qua một URL
+và rất linh hoạt để phù hợp với nhu cầu của bạn.
+
+## Truy cập Dịch vụ giám sát
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `SITES`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+![Service Monitor Tab](/img/security-center/service-monitor/service-monitor-tab.png)
+Tìm `Dịch vụ giám sát` trên menu trượt ngang.
+
+## Thêm một tài nguyên
+
+Để thêm một tài nguyên, nhấp vào nút `+ Service Monitor` và điền thông tin cần thiết:
+
+![Add Service](/img/security-center/service-monitor/add-service.png)
+
+1.	Đặt **Service Name** để xác định nguồn tài nguyên.
+2.	Chọn Loại **Service Type: HTTP / TCP / UDP / ICMP / gRPC**
+3.	Chọn khoảng **check interval**. Nó có thể từ 30 giây đến 1800 giây.
+4.	Nhập tài nguyên cần giám sát và lưu ý bất kỳ chi tiết cần thiết nào.
+
+*Đối với HTTP*: Nhập **HTTP Status Code** & chọn **service check type (GET / POST / DELETE / PATCH / PUT)**
+HTTP Headers và Expected Response là tùy chọn.
+
+*Đối với TCP và UDP*: Nhập số cổng.
+
+*Đối với ICMP và GCRP*: Không cần thêm chi tiết.
+
+5.	Chọn khoảng **request timeout** từ 1 giây đến 180 giây.
+
+Ví dụ, nếu **khoảng thời gian kiểm tra** là 30 giây và **thời gian chờ yêu cầu** là 5 giây, Polaris sẽ kiểm tra tài
+nguyên mỗi 30 giây, và nếu nhận được phản hồi dự kiến trong vòng 5 giây, nguồn tài nguyên được coi là đang hoạt động.
+Nếu không, nó sẽ được phản ánh là thời gian chết và được đánh dấu là ngoại tuyến.
+
+## Giám sát tài nguyên.
+
+![List monitor](/img/security-center/service-monitor/list-monitor.png)
+Dưới mục 'Hành động', nhấp vào biểu đồ để giám sát tài nguyên (như được chỉ bằng mũi tên đỏ).
+
+![Monitor Detail](/img/security-center/service-monitor/monitor-detail.png)
+
+Polaris hiển thị các thông tin sau để giám sát một tài nguyên:
+
+1.	Thời gian trung bình của phản hồi
+2.	% thời gian hoạt động trong 24 giờ qua
+3.	% thời gian hoạt động trong 7 ngày qua
+4.	Biểu đồ hiển thị chi tiết thời gian phản hồi và thời gian hoạt động
+
+Biểu đồ có thể được tùy chỉnh:
+
+-	Phạm vi ngày được hiển thị
+-	Khoảng thời gian giữa mỗi điểm trên trục X
+-	Kích thước của biểu đồ (Phóng to/Thu nhỏ)

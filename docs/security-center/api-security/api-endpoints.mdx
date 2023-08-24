@@ -1,0 +1,52 @@
+# API là gì và làm thế nào để thêm các API Endpoints?
+
+## API Endpoint là gì?
+
+API Endpoint là điểm mà thông qua đó các API (Giao diện lập trình ứng dụng) giao tiếp với khách truy cập trang web.
+Những điểm này thường liên quan đến các yêu cầu đến và đi từ khách truy cập trang web và có thể chứa nội dung độc hại
+nếu không được lọc đúng cách.
+
+Cài đặt này có thể được tìm thấy dưới tab `API Security` trong phần cài đặt của trang web của bạn. Với nó, bạn sẽ có
+thể thêm các điểm cuối API khác nhau vào trang web của mình. Điều này sẽ cho phép Polaris bảo vệ chúng khỏi các tấn
+công độc hại.
+
+## Thêm API Endpoint
+
+Cài đặt này có thể được tìm thấy dưới tab **API Security** trong phần cài đặt trang web của bạn.
+
+Để truy cập `Settings`, nhấp vào menu thả xuống trên trang web được chọn:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `Sites`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+![API Security Tab](/img/security-center/api/api-endpoints-api-security-tab.png)
+Trên thanh menu ngang, nhấp vào `API Security`.
+
+Để thêm một điểm cuối mới, hãy nhấp vào nút **Add Endpoint** màu xanh. Điều này sẽ mở rộng giao diện và
+cho phép bạn nhập thông tin liên quan. Có ba trường:
+
+1.	API Host: Tên trang web của bạn
+2.	Prefix: Đã được điền vào với "/", không thể chỉnh sửa
+3.	Specification: Vui lòng nhập OpenAPI Specification (Tiêu chuẩn OpenAPI) 3.0 của bạn. Thông tin này thường được tìm
+thấy trong phần câu hỏi thường gặp/knowledge base của API.
+
+![API Security Tab](/img/security-center/api/api-endpoints-add-endpoint.png)
+
+Bạn cũng được phép nhập các thông số của mình. Điều này chỉ có thể thực hiện được với các tệp YAML.
+
+Sau khi bạn đã điền đầy đủ hoặc nhập các trường, vui lòng nhấp vào nút **Save** để thêm điểm cuối API của bạn.
+
+Sau khi Điểm cuối được thêm, các yêu cầu đến điểm cuối sẽ được lọc để đảm bảo chỉ những yêu cầu có định dạng truy vấn
+hoặc phản hồi chính xác mới được phép qua.
+
+Bạn có thể bật hoặc tắt bảo vệ này bất cứ lúc nào thông qua thanh trượt trên cột Đã kích hoạt. Bạn cũng có thể chỉnh
+sửa với nút bút trên cột Hành động và loại bỏ Điểm cuối với nút thùng rác.
+
+Được khuyến khích cập nhật phần này mỗi khi bạn thêm một API mới vào trang web của mình và bật bảo vệ cho tất cả các API.
+
+<iframe width="558" height="313" src="https://www.youtube.com/embed/m0iifFxio64"
+        title="Polaris Walkthrough: API Endpoint" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+</iframe>

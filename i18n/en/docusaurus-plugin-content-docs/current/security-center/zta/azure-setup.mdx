@@ -1,0 +1,63 @@
+# Microsoft Azure setup
+
+## Step 1: Sign in to your organization's [Azure portal](https://portal.azure.com/)
+
+## Step 2: App Registrations
+
+1.	In the side menu, click to **App registrations**.
+
+![Side Menu](/img/security-center/zta/azure-side-menu.png)
+
+2.	Click **new registration**
+
+![New Registration](/img/security-center/zta/azure-new-registration.png)
+
+3.	Fill information.
+-	Name: name your application
+-	Redirect URI: enter your team domain followed by this callback at the end of the path.
+
+![Fill Info](/img/security-center/zta/azure-fill-info.png)
+
+4.	Click **Register**.
+
+## Step 3: Create Certificates and Secrets
+
+1.	On the following screen, click **Certificates & Secrets** in the left hand panel to create an
+Application Secret.
+2.	Click **New client secret**.
+
+![New Secret](/img/security-center/zta/azure-new-secret.png)
+
+3.	Enter name the client secret and choose an expiration. Click **Add**.
+
+![Fill Secret](/img/security-center/zta/azure-fill-secret.png)
+
+4.	Copy the value field of the client secret. Treat this value like a password.
+
+This example leaves the value visible so the values in Azure can be seen in the Access
+configuration.
+
+![Copy Secret](/img/security-center/zta/azure-copy-secret.png)
+
+## Step 4: Add API Permission
+
+1.	In the left hand panel, select **API permissions**. Click **Add a permission**.
+
+![Add Permission](/img/security-center/zta/azure-add-permission.png)
+
+2.	Click **Microsoft Graph**.
+
+![Microsoft Graph](/img/security-center/zta/azure-microsoft-graph.png)
+
+3.	Select Delegated permissions. You will need to toggle 7 specific permissions in the next
+page. Once toggled, click **Add permissions**.
+
+![API Permission](/img/security-center/zta/azure-api-permissions-1.png)
+![API Permission](/img/security-center/zta/azure-api-permissions-2.png)
+![API Permission](/img/security-center/zta/azure-api-permissions-3.png)
+![API Permission](/img/security-center/zta/azure-api-permissions-4.png)
+![API Permission](/img/security-center/zta/azure-api-permissions-5.png)
+
+4.	On the next page, click the button that begins **Grant Admin Consent for ...**
+
+![Grant Admin](/img/security-center/zta/azure-grant-admin.png)

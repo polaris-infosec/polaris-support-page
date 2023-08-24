@@ -1,0 +1,95 @@
+# Attacks - what does Polaris detect and do?
+
+**Polaris identifies a vast amount of threats that might occur against your site.
+While the contents in this article are not exhaustive, it covers the more
+widespread and common attack types that are likely to occur against your site
+as well as some of our protection methodologies. These are also listed under
+[Security Events](../security-center/incidents/security-events) so you can review what types of attacks are common to your
+organization and what is being done about them by the WAAP.**
+
+**API Validator**: Polaris identifies and checks the data being sent through your application's
+connection points with other platforms, systems, and services. Validation is executed according
+to the API endpoint specifications listed and configured in the [API security](../security-center/api-security/why-api) tab.
+
+**BGP DOS (Border Gateway Protocol Denial of Service)**: This attack occurs when a malicious
+device sends an undesirable amount of BGP traffic in an attempt to use up all BGP / CPU
+resources with the goal of putting the site out of service.
+
+**Custom Rules**: Polaris has the ability to identify attack types based on [custom rules](../security-center/rules/custom-rules) configured
+by the WAAP user. The custom rules dictate what traffic requests are allowed to pass through
+the WAAP so any that do not meet the standards as laid out in the rule will be flagged under
+security events as being blocked or requiring additional investigation. Custom rules are
+especially handy if an organization or user knows they may be susceptible to specific types of
+attacks.
+
+**Data Leaks**: Polaris identifies compromised user data via leaks such as emails and passwords.
+This is a specific feature of the Threat Intelligence capabilities, providing organizations with the
+source of the leakage if it is able to be determined. While the WAAP can not directly do anything
+about the leakage, the knowledge of the compromise allows the organization to take appropriate
+measures to ensure continuity of operations and mitigation of damage.
+
+**DoS (Denial of Service)**: A single computer is used to flood a server with TCP and UDP
+packets, requests with the aim of overloading the server and putting your site out of service.
+
+**DDoS (Distributed Denial of Service)**: whereas the DoS uses a single computer to flood a
+server with traffic requests, a DDoS uses multiple tied together in a botnet to flood servers.
+
+**Java**: Similar to PHP, these attacks are based on vulnerabilities that exist in Java code that if
+exploited, allow an attacker to perform malicious attacks on the site. One of the ways Polaris
+identifies Java attacks is by deploying signature-based detection - looking for a unique identifier
+such as a string of code or hash that may be malicious in nature, to deter the attacks.
+
+**LFI (Local File Inclusion)**: This attack involves the attacker tricking the web application into
+exposing a file that is locally present on the server. Typically, this occurs when the file path is
+used as input. An LFI attack can lead to information disclosure and is usually due to a lack of
+validation. Polaris uses multiple parameters to detect an LFI attack.
+
+**N-Day**: Attacks that are already known and disclosed. The letter 'n' may denote the difference in
+number of days since the threat was detected or identified and when an organization was
+attacked by the threat. Polaris identifies and mitigates these attacks based on the N-Day rules
+within the system settings and configurations.
+
+**PHP**: Attacks based on vulnerabilities that exist in the PHP code, usually due to a lack of user
+input sanitization. This allows an attacker to perform malicious attacks directly on the site using
+the different input fields and boxes such as comments or contact us forms. One of the ways
+Polaris identifies and deters these attacks is by deploying signature-based detection.
+
+**Protocol**: Tends to exploit a set of rules establishing a process with the goal of consuming an
+excessive amount of resources. Some of the popular protocol attacks are SYN floods, ping of
+death, packet attacks.
+
+**RCE (Remote Code Execution)**: One of the most critical attack types, when an attacker finds a
+way to inject malicious code into a server, which the server then unknowingly runs. Once
+running, the code allows an attacker to bypass access control to completely control a system or
+retrieve restricted files and data.
+
+**RFI (Remote File Inclusion)**: Similar to a LFI attack but it instead accesses a remote file. It is
+able to force the web application to run the attacker's own malicious code. Polaris uses multiple
+parameters to detect an RFI attack.
+
+**Scanners**: Otherwise known as site scanning, attackers use scan tools to gather as much
+information about your site as possible as part of an initial phase of attack. The less information
+revealed, the better, allowing you to deter an attack. With less information discovered, it would
+require more time and resources to attack your site. Detecting scanning serves as an early
+warning sign that your site is being targeted, a service provided by Polaris.
+
+**Session Fixation**: Allows an attacker to hijack a valid user session by using a valid session ID
+to gain access to a user's account. This can occur when the web application fails to validate an
+existing session.
+
+**SQLI (SQL Injection)**: Uses malicious SQL code in website fields and boxes such as contact us
+forms to manipulate the database in accessing information that is not meant to be displayed.
+This information can be anything stored in the database, ranging from customer orders, to credit
+card numbers and personally identifiable information. Polaris can help detect and filter out these
+codes to prevent such an attack.
+
+**Temporary Ban**: Polaris temporarily bans users that it detects are conducting suspicious
+activities on the site, disallowing access.
+
+**XSS (Cross-Site Scripting)**: XSS occurs when malicious code is loaded into the visitor's
+browser and then executed which is something called a client-side attack because the
+organization is not directly attacked, but the visitor to the organization's site. This usually occurs
+in the form of a script from the attacker, such as a pop-up box, which the visitor to a trusted
+website may inadvertently click. As it is a trusted site by the browser, this malicious script will
+usually be executed by the browser. This script can also access sensitive information such as
+cookies and session tokens.

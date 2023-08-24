@@ -1,0 +1,25 @@
+# End User's IP Address
+
+## Overview
+
+Connections from Polaris to the origin server are established from Polaris IP addresses. To identify the IP address of
+the end user within requests forwarded from the Polaris server, you need to extract this information through the Headers that Polaris adds to the requests.
+
+![End User](/img/general-knowledge/end-user.png)
+
+In the example depicted, the IP address of the end user is `1.2.3.4`. When accessed directly without going through
+Polaris, the origin server will receive a request with the IP address of `1.2.3.4`.
+
+In cases where requests are forwarded from the Polaris server (for example, with IP `8.8.8.8`), the origin server will
+receive the request with the IP address of Polaris, which is `8.8.8.8`. To extract the original IP address of the end
+user (either `1.2.3.4` or `11.22.33.44`), users can utilize the headers added to the requests forwarded from the Polaris server.
+
+## Identifying the IP Address of the End User
+
+To identify the IP address of the end user, you can extract the information from one of the following headers within the requests sent from the Polaris server:
+
+```
+X-Forwarded-For xxx.xxx.xxx.xxx
+True-Client-IP  xxx.xxx.xxx.xxx
+X-True-IP       xxx.xxx.xxx.xxx
+```

@@ -1,0 +1,99 @@
+# Quy tắc tùy chỉnh
+
+Polaris cho phép người dùng tạo các quy tắc tùy chỉnh để trang web phản hồi đúng mỗi yêu cầu khi nó đi qua Polaris. Mỗi
+quy tắc chứa tên, điều kiện quy tắc và hành động cần thực hiện dựa trên điều kiện của quy tắc.
+
+Để truy cập tính năng này, đi tới `Settings`:
+
+![Setting Tab](/img/security-center/overview/settings-tab.png)
+
+Dưới `SITES`, hãy chọn tên miền của bạn và nhấp vào `Settings`.
+
+![Custom Rule Tab](/img/security-center/rules/custom-rules-tab.png)
+Nhấn vào tab `Rules` và chọn `Custom`.
+
+Để thêm một quy tắc tùy chỉnh mới, nhấp vào nút `Add Rule` màu xanh lá cây và một cửa sổ sẽ xuất hiện:
+
+![Add Rule](/img/security-center/rules/custom-rules-add-rule.png)
+Bạn có thể tùy chỉnh quy tắc mới của mình tại đây.
+
+Các tham số này giúp bạn tùy chỉnh quy tắc của mình:
+
+1.	**Rule name**: Một tên cụ thể để phân biệt quy tắc của bạn với các quy tắc khác.
+
+2.	**Xác định Điều kiện Quy tắc**
+
+    a. **Tham số cần kiểm tra**. Khi yêu cầu đến, Polaris kiểm tra thông tin phù hợp với tham số này, các tham số có sẵn là:
+
+        -	AS Num
+        -	Cookie
+        -	Country
+        -	Hostname
+        -	IP Address
+        -	Referer
+        -	Request Method
+        -	URI Full
+        -	URI Path
+        -	User Agent
+        -	Threat Score (Thang điểm đe dọa từ 1 đến 100)
+
+    b. **Toán tử**. Toán tử xác định cách Polaris so sánh tham số được chọn trên, các tùy chọn có sẵn là:
+
+        - equals
+        -	does not equal
+        -	is in
+        -	is not in
+        -	greater than
+        -	less than
+        -	greater than or equal to
+        -	less than or equal to
+
+    c. **Giá trị**: Xác định giá trị cho tham số và toán tử để so sánh.
+
+    d. **Hàm Logic**. Hàm này có thể được sử dụng để tùy chỉnh luật để nó chính xác hơn vì nó cho phép bạn thêm một thông số,
+    toán tử và giá trị toán tử khác trong cùng một luật. Tuy nhiên, việc sử dụng các hàm logic là tùy chọn, các hàm có
+    sẵn là:
+
+        -	**AND**: để khớp với các điều kiện khác / tất cả trong cùng một luật.
+        -	**OR**: để khớp với ít nhất một trong nhiều điều kiện trong cùng một luật.
+
+3. **Hành động được thực hiện bởi Polaris**. Điều này xác định phần thích hợp cho Polaris thực hiện nếu thông số,
+toán tử và giá trị toán tử khớp, các hành động khả dụng sau đây là:
+
+-	**Allowed**: Polaris cho phép yêu cầu được chuyển tiếp để xử lý và phản hồi.
+-	**Blocked**: yêu cầu bị từ chối và phản hồi với mã trạng thái HTTP 403 (Forbidden).
+-	**JS Challenged**: Polaris sẽ chạy thử thách xác thực JavaScript trước khi người dùng có thể xem nội dung.
+-	**Challenged (Captcha)**: Polaris sẽ hiển thị thử thách Captcha trước khi người dùng có thể xem nội dung.
+-	**Log**: Polaris sẽ đăng nó như một security event nếu nó khớp với hành động luật tùy chỉnh.
+-	**Redirect**: Polaris chuyển hướng lưu lượng web đến máy chủ khác.
+-	**Rewrite URI**: Polaris cập nhật một phần cụ thể trong URI với thông tin mới.
+-	**Rewrite Header**: Polaris cập nhật một phần cụ thể trong tiêu đề yêu cầu với thông tin mới. Xem phần dưới đây để biết thêm chi tiết.
+-	**Remove Header**: Polaris xóa tiêu đề khỏi yêu cầu.
+-	**Rewrite Cookie**: Polaris cập nhật thông tin trong cookie. Xem phần dưới đây để biết thêm chi tiết.
+-	**Remove Cookie**: Polaris xóa cookie.
+-	**Set Origin IPs**.
+-	**Browser Integrity Check**: Xem [bài viết](../access-control/browser-integrity-check) này để biết thêm chi tiết.
+
+Đó là nó, luật tùy chỉnh mới của bạn đã được tạo! Bạn có thể bật / tắt và cập nhật luật bất cứ lúc nào.
+
+> Rewrite Header
+
+Để rewrite header, cần cung cấp các thông tin sau:
+
+![Rewrite Header](/img/security-center/rules/custom-rules-rewrite-header.png)
+
+1.	**Header Name**
+2.	**Rewrite from**
+3.	**Rewrite to**
+4.	**Rewrite response**: Polaris sẽ chuyển hướng nó đến yêu cầu ban đầu của nó
+5.	**Rewrite add if missing**: Trong trường hợp header không tồn tại, Polaris sẽ thêm một chuỗi trống vào header khi tùy chọn
+này được bật.
+
+> Rewrite cookie
+
+![Rewrite Cookie](/img/security-center/rules/custom-rules-rewrite-cookie.png)
+
+1.	**Cookie Name**
+2.	**Rewrite from**
+3.	**Rewrite to**
+4.	**Rewrite add if missing**: Nếu cookie không tồn tại, Polaris sẽ thêm một chuỗi trống vào cookie khi tùy chọn này được bật.
