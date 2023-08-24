@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkpolaris_support=self.webpackChunkpolaris_support||[]).push([[5734],{5302:t=>{t.exports=JSON.parse('{"title":"Quick Start","slug":"/category/b\u1eaft-\u0111\u1ea7u-nhanh","permalink":"/en/docs/category/b\u1eaft-\u0111\u1ea7u-nhanh","navigation":{"next":{"title":"Introduce","permalink":"/en/docs/quick-start/introduction"}}}')}}]);
