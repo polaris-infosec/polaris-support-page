@@ -269,5 +269,26 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "Công nghệ vượt trội": {
+    "message": "Cutting Edge Technology"
+  },
+  "Áp dụng công nghệ độc quyền trí tuệ nhân tạo (Artificial Intelligence) và máy học (Machine Learning) vào hệ thống, chúng tôi đảm bảo rằng các cuộc tấn công sẽ dừng lại trước khi chúng kịp gây ra bất kì tổn thất nào vào các hoạt động kinh doanh.": {
+    "message": "We’re powered by a proprietary Artificial Intelligence (AI) and Machine Learning (ML) engine that ensures attacks are stopped before they can affect your business."
+  },
+  "Triển khai đơn giản": {
+    "message": "Easy to Deploy"
+  },
+  "Chỉ mất vài phút cài đặt bằng cách thay đổi nhỏ đối với tên miền máy chủ hoặc CNAME, trang web của bạn đã được bảo vệ. Chúng tôi cung cấp cho bạn cái nhìn tổng quan về trạng thái trang web trên bảng điều khiển cũng như trên ứng dụng di động.": {
+    "message": "Deploying Polaris only requires a simple change to the the domain’s name servers or CNAME before it begins protecting your website immediately."
+  },
+  "Sử dụng dễ dàng": {
+    "message": "Easy to Use"
+  },
+  "Nền tảng của chúng tôi được cấu hình mặc định với các quy tắc bảo vệ tối ưu. Trang web của bạn sẽ được bảo vệ ngay lập tức khỏi các mối đe dọa lớn nhất sau khi thiết lập thành công với Polaris. Ngoài ra, người dùng có thể tuỳ chỉnh các bộ luật một cách dễ dàng thông qua bảng điều khiển.": {
+    "message": "The intuitive dashboard makes information easy to access, interpret, and act upon, even for those who are new to cybersecurity. Security rules are easy to customize with just a few clicks."
+  },
+  "Hướng dẫn Polaris - 5 phút ⏱️": {
+    "message": "Polaris Tutorial - 5min ⏱️"
   }
 }

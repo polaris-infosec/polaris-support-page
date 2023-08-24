@@ -1,70 +1,74 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Translate, {translate} from "@docusaurus/Translate";
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  src: string;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: translate({message: 'Công nghệ vượt trội'}),
+    src: require('@site/static/img/cutting_edge_technology.png').default,
     description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
+        <Translate>
+          Áp dụng công nghệ độc quyền trí tuệ nhân tạo (Artificial Intelligence) và máy học (Machine Learning) vào hệ
+          thống, chúng tôi đảm bảo rằng các cuộc tấn công sẽ dừng lại trước khi chúng kịp gây ra bất kì tổn thất nào
+          vào các hoạt động kinh doanh.
+        </Translate>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: translate({message: 'Triển khai đơn giản'}),
+    src: require('@site/static/img/easy-to-deploy.png').default,
     description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
+        <Translate>
+          Chỉ mất vài phút cài đặt bằng cách thay đổi nhỏ đối với tên miền máy chủ hoặc CNAME, trang web của bạn đã
+          được bảo vệ. Chúng tôi cung cấp cho bạn cái nhìn tổng quan về trạng thái trang web trên bảng điều khiển cũng
+          như trên ứng dụng di động.
+        </Translate>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: translate({message: 'Sử dụng dễ dàng'}),
+    src: require('@site/static/img/easy-to-use.png').default,
     description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
+        <Translate>
+          Nền tảng của chúng tôi được cấu hình mặc định với các quy tắc bảo vệ tối ưu. Trang web của bạn sẽ được bảo vệ
+          ngay lập tức khỏi các mối đe dọa lớn nhất sau khi thiết lập thành công với Polaris. Ngoài ra, người dùng có
+          thể tuỳ chỉnh các bộ luật một cách dễ dàng thông qua bảng điều khiển.
+        </Translate>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, src, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+      <div className={clsx('col col--4')}>
+        <div className="text--center">
+          <img className={styles.featureSvg} src={src} role="img" alt={"#"}/>
+        </div>
+        <div className="text--center padding-horiz--md">
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
       </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    </div>
   );
 }
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+      <section className={styles.features}>
+        <div className="container">
+          <div className="row">
+            {FeatureList.map((props, idx) => (
+                <Feature key={idx} {...props} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 }
