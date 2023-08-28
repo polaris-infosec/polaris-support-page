@@ -13,7 +13,7 @@ const config = {
   url: 'https://support.polarisec.com/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/polaris-support-test-site/',
+  baseUrl: process.env.BASE_URL || '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -41,7 +41,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/polaris-infosec/polaris-support/blob/master/',
         },
         // blog: {
         //   showReadingTime: true,
@@ -56,12 +56,20 @@ const config = {
       }),
     ],
   ],
-
+  plugins: [
+    [
+      require.resolve("@cmfcmf/docusaurus-search-local"),
+      {
+        language: ["en", "vi"],
+        indexDocs: true,
+      },
+    ],
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/logo.png',
       navbar: {
         title: 'Polaris Support',
         logo: {
@@ -79,7 +87,6 @@ const config = {
             type: 'localeDropdown',
             position: 'right',
           },
-          // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/polaris-infosec/polaris-support',
             label: 'GitHub',
@@ -138,7 +145,7 @@ const config = {
           //   ],
           // },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Polaris Support`,
+        copyright: `Copyright © ${new Date().getFullYear()} Polaris Infosec`,
       },
       prism: {
         theme: lightCodeTheme,
