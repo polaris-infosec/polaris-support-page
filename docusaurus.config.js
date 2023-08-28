@@ -56,13 +56,22 @@ const config = {
       }),
     ],
   ],
-  plugins: [
+  themes: [
+    // ... Your other themes.
     [
-      require.resolve("@cmfcmf/docusaurus-search-local"),
-      {
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      ({
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
         language: ["en", "vi"],
-        indexDocs: true,
-      },
+        // ```
+        indexBlog: false,
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+      }),
     ],
   ],
   themeConfig:
