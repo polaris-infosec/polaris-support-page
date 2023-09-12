@@ -91,7 +91,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/polaris-infosec/polaris-support',
+            href: 'https://github.com/polaris-infosec/polaris-support-page',
             label: 'GitHub',
             position: 'right',
           },
