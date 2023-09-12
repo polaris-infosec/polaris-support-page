@@ -41,7 +41,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/polaris-infosec/polaris-support/blob/master/',
+            'https://github.com/polaris-infosec/polaris-support-page/blob/master/',
         },
         blog: false,
         theme: {
